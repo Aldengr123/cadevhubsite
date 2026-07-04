@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADev Hub — Proposta · Edição de Vídeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C0E0E;--surface:#171C1C;--surface-2:#2F3737;
+  --line:rgba(255,255,255,.08);--line-s:rgba(255,255,255,.15);
+  --text:#fff;--dim:#ACB9B9;--mute:#758A8A;
+  --green:#179E1D;--green-hi:#41E248;--green-glow:#80FF85;
+  --green-hover:#097C0E;--green-active:#426100;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --r4:4px;--r12:12px;--r16:16px;--r24:24px;--r32:32px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"DM Sans",sans-serif;font-weight:700;letter-spacing:-.02em}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* ── HEADER ─────────────────────────────── */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:40;padding:18px clamp(20px,5vw,48px);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(12,14,14,.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:28px;height:auto}
+.brand span{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1rem}
+.header-badge{font-size:.78rem;background:rgba(23,158,29,.18);color:var(--green-hi);
+  padding:5px 14px;border-radius:999px;font-weight:600}
+
+/* ── HERO ───────────────────────────────── */
+.hero{padding:140px 0 80px;position:relative;text-align:center}
+.hero::before{content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(80% 60% at 50% 10%,rgba(23,158,29,.12),transparent 70%);
+  z-index:-1}
+.hero .pill{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;
+  background:rgba(23,158,29,.14);border:1px solid rgba(65,226,72,.3);
+  color:var(--green-hi);font-size:.85rem;font-weight:600;
+  padding:8px 18px;border-radius:999px;letter-spacing:.04em}
+.hero .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green-hi);
+  box-shadow:0 0 8px var(--green-glow)}
+.hero h1{font-size:clamp(2.6rem,5.5vw,4.4rem);line-height:1.04;max-width:14ch;margin:0 auto}
+.hero h1 em{color:var(--green-hi);font-style:normal}
+.hero .sub{margin:24px auto 0;color:var(--dim);font-size:clamp(1.05rem,1.5vw,1.3rem);
+  max-width:54ch;line-height:1.6}
+.hero .client-strip{display:inline-flex;align-items:center;gap:24px;margin-top:36px;
+  background:var(--surface);border:1px solid var(--line-s);border-radius:var(--r16);
+  padding:14px 28px;flex-wrap:wrap;justify-content:center}
+.hero .client-strip .cl{text-align:left}
+.hero .client-strip .cl .lbl{font-size:.72rem;color:var(--mute);letter-spacing:.1em;
+  text-transform:uppercase;font-weight:600}
+.hero .client-strip .cl .val{font-weight:600;color:#fff;font-size:.98rem;margin-top:2px}
+.hero .client-strip .div{width:1px;height:36px;background:var(--line-s)}
+
+/* ── VIDEO PLAYER ───────────────────────── */
+.video-section{padding:0 0 96px}
+.player-wrap{position:relative;border-radius:var(--r24);overflow:hidden;
+  border:1px solid var(--line-s);background:#000;
+  box-shadow:0 32px 100px rgba(0,0,0,.7),0 0 0 1px var(--line)}
+.player-wrap video{width:100%;display:block;aspect-ratio:16/9}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.35);transition:opacity .3s;cursor:pointer}
+.play-overlay.hidden{opacity:0;pointer-events:none}
+.play-btn{width:88px;height:88px;border-radius:50%;background:rgba(23,158,29,.9);
+  display:grid;place-items:center;border:2px solid rgba(65,226,72,.5);
+  box-shadow:0 0 40px rgba(23,158,29,.5);transition:transform .3s var(--ease)}
+.play-overlay:hover .play-btn{transform:scale(1.1)}
+.play-btn svg{width:32px;height:32px;margin-left:4px}
+.player-caption{margin-top:16px;text-align:center;color:var(--mute);font-size:.9rem}
+
+/* ── SECTION ────────────────────────────── */
+.section{padding:80px 0;border-top:1px solid var(--line)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--green-hi);
+  font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--green-hi)}
+.section h2{font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.1;margin-bottom:48px}
+
+/* ── DELIVERABLES ───────────────────────── */
+.deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:760px){.deliv-grid{grid-template-columns:1fr}}
+.deliv-card{background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r16);padding:28px;transition:.25s var(--ease)}
+.deliv-card:hover{border-color:var(--line-s);transform:translateY(-3px)}
+.deliv-card .ico{width:48px;height:48px;border-radius:14px;background:rgba(23,158,29,.14);
+  display:grid;place-items:center;margin-bottom:20px}
+.deliv-card .ico svg{width:24px;height:24px;color:var(--green-hi)}
+.deliv-card h3{font-size:1.08rem;margin-bottom:10px}
+.deliv-card p{color:var(--dim);font-size:.93rem;line-height:1.55}
+
+/* ── SCOPE TAGS ─────────────────────────── */
+.scope-bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.scope-tag{padding:9px 18px;border-radius:999px;border:1px solid rgba(65,226,72,.35);
+  background:rgba(23,158,29,.1);color:var(--green-hi);font-size:.9rem;font-weight:600}
+
+/* ── PORTFOLIO ──────────────────────────── */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.port-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.port-grid{grid-template-columns:1fr}}
+.port-card{border-radius:var(--r16);overflow:hidden;border:1px solid var(--line);
+  cursor:pointer;transition:.25s var(--ease)}
+.port-card:hover{border-color:var(--line-s);transform:translateY(-3px)}
+.port-card .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:flex;
+  align-items:center;justify-content:center;font-size:2.5rem}
+.port-card .cap{padding:14px 16px 16px;background:var(--surface)}
+.port-card .cap b{display:block;font-size:.92rem;color:#fff;font-weight:600;line-height:1.25}
+.port-card .cap small{color:var(--mute);font-size:.8rem;margin-top:4px;display:block}
+
+/* ── PRICING ────────────────────────────── */
+.price-box{background:var(--surface);border:1px solid var(--line-s);
+  border-radius:var(--r24);overflow:hidden}
+.price-head{padding:32px 36px;border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.price-label{font-size:.78rem;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;margin-bottom:10px}
+.price-val{font-family:"DM Sans",sans-serif;font-weight:700;font-size:3.2rem;
+  line-height:1;letter-spacing:-.03em;color:#fff}
+.price-val small{font-size:1.1rem;color:var(--dim);font-weight:500;margin-right:6px}
+.price-val .per{font-size:1rem;color:var(--dim);font-weight:500;margin-left:6px}
+.price-badge{background:rgba(23,158,29,.18);border:1px solid rgba(65,226,72,.35);
+  color:var(--green-hi);font-size:.85rem;font-weight:700;padding:8px 18px;
+  border-radius:999px;white-space:nowrap}
+.price-rows{padding:0 36px}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 0;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:none}
+.price-row .item{display:flex;align-items:center;gap:12px;color:var(--dim);font-size:.95rem}
+.price-row .item svg{width:18px;height:18px;color:var(--green-hi);flex:none}
+.price-row .item span{color:#fff;font-weight:500}
+.price-row .tag{font-size:.82rem;color:var(--mute);background:var(--surface-2);
+  padding:4px 12px;border-radius:999px}
+.price-forma{padding:20px 36px;background:rgba(23,158,29,.06);border-top:1px solid var(--line);
+  font-size:.9rem;color:var(--dim);display:none}
+.price-forma span{color:#fff;font-weight:600}
+
+/* ── TIMELINE ───────────────────────────── */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.tl::before{content:"";position:absolute;top:22px;left:calc(12.5%);
+  right:calc(12.5%);height:2px;background:linear-gradient(90deg,var(--green),rgba(23,158,29,.2))}
+@media(max-width:700px){.tl{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.tl{grid-template-columns:1fr}}
+.tl-step{position:relative;text-align:center}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:var(--surface);
+  border:2px solid var(--green);display:grid;place-items:center;margin:0 auto 16px;
+  position:relative;z-index:1;font-family:"DM Sans",sans-serif;font-weight:700;
+  font-size:1rem;color:var(--green-hi)}
+.tl-step h4{font-size:.98rem;margin-bottom:6px}
+.tl-step p{color:var(--dim);font-size:.85rem;line-height:1.5}
+
+/* ── CTA BAND ───────────────────────────── */
+.cta-band{margin:0 0 96px;border-radius:var(--r32);overflow:hidden;border:1px solid var(--line-s);
+  padding:clamp(36px,6vw,72px);text-align:center;
+  background:radial-gradient(120% 160% at 50% 0%,rgba(23,158,29,.18),transparent 60%),
+             linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.cta-band h2{font-size:clamp(1.9rem,3.5vw,2.8rem);max-width:18ch;margin:0 auto}
+.cta-band p{color:var(--dim);margin:20px auto 0;max-width:48ch;font-size:1.05rem;line-height:1.5}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+
+/* ── BUTTONS ────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;
+  font-family:"Inter",sans-serif;font-weight:700;font-size:16px;
+  padding:14px 28px;border-radius:var(--r4);cursor:pointer;
+  border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-md{font-size:20px;padding:20px 36px}
+.btn-primary{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-primary:hover{background:var(--green-hover);border-color:var(--green-hover)}
+.btn-primary:active{background:var(--green-active)}
+.btn-ghost{background:transparent;color:var(--green);border-color:var(--green)}
+.btn-ghost:hover{background:var(--green-hover);border-color:var(--green-hover);color:#fff}
+
+/* ── FOOTER ─────────────────────────────── */
+.site-footer{border-top:1px solid var(--line);padding:32px 0;margin-top:0}
+.site-footer .inner{display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap}
+.site-footer .validity{color:var(--mute);font-size:.88rem}
+.site-footer .contact{color:var(--mute);font-size:.88rem;text-align:right}
+
+/* ── EDIT PANEL ─────────────────────────── */
+#editBtn{position:fixed;bottom:24px;right:24px;z-index:50;
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--line-s);
+  background:var(--surface);color:var(--dim);cursor:pointer;font-size:1.1rem;
+  display:grid;place-items:center;box-shadow:0 4px 20px rgba(0,0,0,.5);transition:.2s}
+#editBtn:hover{background:var(--surface-2);color:#fff}
+#editPanel{position:fixed;bottom:80px;right:24px;z-index:50;width:320px;
+  background:var(--surface);border:1px solid var(--line-s);border-radius:var(--r16);
+  padding:20px;box-shadow:0 16px 60px rgba(0,0,0,.6);
+  display:none;max-height:80vh;overflow-y:auto}
+#editPanel.open{display:block}
+#editPanel h4{font-family:"DM Sans",sans-serif;font-size:.95rem;margin-bottom:14px;
+  color:#fff;display:flex;align-items:center;justify-content:space-between}
+#editPanel h4 small{font-size:.75rem;color:var(--mute);font-weight:400}
+.ep-group{margin-bottom:12px}
+.ep-label{font-size:.78rem;color:var(--mute);font-weight:600;margin-bottom:5px;display:block}
+.ep-fld{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;
+  color:#fff;font-family:"Inter",sans-serif;font-size:.88rem;padding:9px 12px;outline:none}
+.ep-fld:focus{border-color:var(--green)}
+.ep-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ep-chip{cursor:pointer;padding:5px 10px;border-radius:999px;border:1px solid var(--line);
+  font-size:.78rem;color:var(--dim);font-weight:500;transition:.15s}
+.ep-chip:hover{border-color:var(--green);color:#fff}
+.ep-chip.on{border-color:var(--green);background:rgba(23,158,29,.18);color:var(--green-hi)}
+.ep-divider{height:1px;background:var(--line);margin:14px 0}
+.ep-btn{width:100%;margin-top:8px}
+.ep-link{margin-top:10px;background:var(--bg);border:1px solid var(--line);border-radius:8px;
+  padding:8px 10px;font-size:.75rem;color:var(--mute);word-break:break-all;
+  user-select:all;cursor:pointer;display:none}
+.ep-link.show{display:block}
+
+/* grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+@media(max-width:767px){
+  .hero h1{font-size:9vw}
+  .price-val{font-size:11vw}
+  .price-head{flex-direction:column;align-items:flex-start}
+  .tl::before{display:none}
+  #editPanel{width:calc(100vw - 48px);right:24px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="brand">
+    <svg viewBox="0 0 67 39" fill="url(#hGrad)">
+      <defs><linearGradient id="hGrad" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#5BFF62"/><stop offset=".55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <span>CADev hub</span>
+  </div>
+  <div class="header-badge" id="hBadge">Proposta · Edição de Vídeo</div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="pill"><span class="dot"></span> Proposta exclusiva</div>
+      <h1>Vídeos que <em>vendem</em>.<br>Entregues todo mês.</h1>
+      <p class="sub" id="heroSub">Preparada com cuidado para o seu negócio — edição profissional que transforma gravações brutas em conteúdo que converte.</p>
+      <div class="client-strip" id="clientStrip" style="display:none">
+        <div class="cl"><div class="lbl">Preparada para</div><div class="val" id="csNome">—</div></div>
+        <div class="div"></div>
+        <div class="cl"><div class="lbl">Empresa</div><div class="val" id="csEmpresa">—</div></div>
+        <div class="div" id="csSegDiv" style="display:none"></div>
+        <div class="cl" id="csSegWrap" style="display:none"><div class="lbl">Segmento</div><div class="val" id="csSeg">—</div></div>
+        <div class="div" id="csDateDiv"></div>
+        <div class="cl"><div class="lbl">Data</div><div class="val" id="csData">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <div class="video-section">
+    <div class="container">
+      <div class="player-wrap">
+        <video id="mainVideo" preload="metadata" playsinline>
+          <source src="uploads/trailer.mp4" type="video/mp4">
+        </video>
+        <div class="play-overlay" id="playOverlay" onclick="togglePlay()">
+          <div class="play-btn">
+            <svg id="playIcon" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <p class="player-caption">Conheça a qualidade do nosso trabalho — é assim que seus vídeos vão ficar.</p>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">O que você recebe</div>
+      <h2 id="scopeTitle">Edição completa, entregue no prazo</h2>
+      <div class="deliv-grid">
+        <div class="deliv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <h3>Edição profissional</h3>
+          <p>Corte, colorização, sincronização de áudio, legendas e motion graphic — tudo integrado num vídeo pronto para publicar.</p>
+        </div>
+        <div class="deliv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+          <h3>Otimizado por plataforma</h3>
+          <p>Versões no formato e proporção certos para cada rede — Instagram, YouTube, TikTok e afins, sem retrabalho.</p>
+        </div>
+        <div class="deliv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3>Revisões inclusas</h3>
+          <p>Rodadas de ajuste dentro do prazo — entregamos o vídeo certo, alinhado com a sua marca, sem surpresas.</p>
+        </div>
+      </div>
+      <div class="scope-bar" id="scopeBar" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Investimento</div>
+      <h2>Transparente e sem surpresas</h2>
+      <div class="price-box">
+        <div class="price-head">
+          <div>
+            <div class="price-label">Valor do investimento</div>
+            <div class="price-val" id="priceVal"><small>R$</small>—<span class="per" id="pricePer"></span></div>
+          </div>
+          <div class="price-badge" id="priceBadge" style="display:none"></div>
+        </div>
+        <div class="price-rows" id="priceRows"></div>
+        <div class="price-forma" id="priceForma"><span id="pfSpan"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Próximos passos</div>
+      <h2>Como começamos</h2>
+      <div class="tl">
+        <div class="tl-step"><div class="tl-dot">1</div><h4>Aprovação</h4><p>Confirme o acordo pelo WhatsApp ou e-mail.</p></div>
+        <div class="tl-step"><div class="tl-dot">2</div><h4>Briefing</h4><p>Você nos envia os materiais brutos e preenche nosso briefing.</p></div>
+        <div class="tl-step"><div class="tl-dot">3</div><h4>Edição</h4><p>Entregamos a versão inicial no prazo combinado.</p></div>
+        <div class="tl-step"><div class="tl-dot">4</div><h4>Entrega final</h4><p>Aprovação e publicação — vídeo pronto para o mundo ver.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="container">
+    <div class="cta-band">
+      <h2 id="ctaTitle">Pronto para começar?</h2>
+      <p id="ctaText">Entre em contato e damos início ainda esta semana.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-md" id="ctaBtn" href="https://wa.me/5531996835764?text=Olá!+Quero+aprovar+a+proposta+de+edição+de+vídeo." target="_blank" rel="noopener">
+          Aprovar proposta
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-md" href="/cdn-cgi/l/email-protection#b4d7dbdac0d5c0dbf4d7d5d0d1c2dcc1d69ad7dbd9">Enviar por e-mail</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="inner">
+      <div class="validity" id="footerValidity">Proposta válida por 7 dias.</div>
+      <div class="contact">cadevhub.com · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d1e1213091c09123d1e1c19180b15081f531e1210">[email&#160;protected]</a> · (31) 9 7156-6510</div>
+    </div>
+  </div>
+</footer>
+
+<!-- EDIT BUTTON -->
+<button id="editBtn" title="Personalizar proposta" onclick="toggleEdit()">✏️</button>
+
+<!-- EDIT PANEL -->
+<div id="editPanel">
+  <h4>Personalizar <small>preencha e compartilhe o link</small></h4>
+
+  <div class="ep-group">
+    <label class="ep-label">Nome do cliente</label>
+    <input class="ep-fld" id="epNome" type="text" placeholder="João Silva">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Empresa</label>
+    <input class="ep-fld" id="epEmpresa" type="text" placeholder="JV Imóveis">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Segmento</label>
+    <input class="ep-fld" id="epSeg" type="text" placeholder="Imobiliário">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Tipo de vídeo</label>
+    <div class="ep-chips" id="epChips">
+      <span class="ep-chip" data-v="Reels">📱 Reels</span>
+      <span class="ep-chip" data-v="Institucional">🏢 Institucional</span>
+      <span class="ep-chip" data-v="Lançamento">🚀 Lançamento</span>
+      <span class="ep-chip" data-v="Depoimento">💬 Depoimento</span>
+      <span class="ep-chip" data-v="Motion design">✨ Motion</span>
+      <span class="ep-chip" data-v="Vlog">🎬 Vlog</span>
+    </div>
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Qtd. vídeos/mês</label>
+    <input class="ep-fld" id="epQtd" type="number" min="1" placeholder="4">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Prazo de entrega</label>
+    <input class="ep-fld" id="epPrazo" type="text" placeholder="3 dias úteis">
+  </div>
+  <div class="ep-divider"></div>
+  <div class="ep-group">
+    <label class="ep-label">Valor (ex: 1.200,00)</label>
+    <input class="ep-fld" id="epValor" type="text" placeholder="1.200,00">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Periodicidade</label>
+    <select class="ep-fld" id="epPeriod">
+      <option value="por mês">Por mês</option>
+      <option value="por projeto">Por projeto</option>
+      <option value="avulso">Avulso</option>
+    </select>
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Forma de pagamento</label>
+    <input class="ep-fld" id="epForma" type="text" placeholder="50% entrada + 50% entrega">
+  </div>
+  <div class="ep-group">
+    <label class="ep-label">Validade da proposta</label>
+    <input class="ep-fld" id="epValidade" type="text" placeholder="7 dias">
+  </div>
+  <div class="ep-divider"></div>
+  <div class="ep-group">
+    <label class="ep-label">Portfólio (selecione)</label>
+    <div class="ep-chips" id="epPort">
+      <span class="ep-chip" data-v="p1">🏙️ Imobiliário</span>
+      <span class="ep-chip" data-v="p2">🏥 Saúde</span>
+      <span class="ep-chip" data-v="p3">✨ Motion</span>
+      <span class="ep-chip" data-v="p4">💬 Depoimento</span>
+      <span class="ep-chip" data-v="p5">🎬 Vlog</span>
+      <span class="ep-chip" data-v="p6">🚀 Infoproduto</span>
+    </div>
+  </div>
+  <button class="btn btn-primary ep-btn" onclick="buildLink()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    Gerar link
+  </button>
+  <div class="ep-link" id="epLink" onclick="copyEpLink()">clique para copiar</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ─── Portfolio data ─────────────────────── */
+const PORTFOLIO = {
+  p1:{emoji:'🏙️',title:'Reels para Lançamento Imobiliário',cat:'Short-form · Imobiliário',bg:'#0a1628'},
+  p2:{emoji:'🏥',title:'Vídeo Institucional — Clínica Médica',cat:'Institucional · Saúde',bg:'#0d1f1a'},
+  p3:{emoji:'✨',title:'Motion Design — Identidade de Marca',cat:'Motion · Branding',bg:'#1a0d28'},
+  p4:{emoji:'💬',title:'Depoimento de Cliente · E-commerce',cat:'Depoimento · Varejo',bg:'#1a1000'},
+  p5:{emoji:'🎬',title:'Vlog de Bastidores · Lançamento',cat:'Vlog · Marketing',bg:'#0d1a0d'},
+  p6:{emoji:'🚀',title:'Teasers · Produto Digital',cat:'Short-form · Infoproduto',bg:'#1a0d0d'},
+};
+
+/* ─── Read URL params and apply ─────────── */
+function getP(){ return new URLSearchParams(location.search); }
+
+function applyParams(){
+  const p = getP();
+  const nome     = p.get('nome')    || '';
+  const empresa  = p.get('empresa') || '';
+  const seg      = p.get('seg')     || '';
+  const valor    = p.get('valor')   || '';
+  const period   = p.get('period')  || 'por mês';
+  const forma    = p.get('forma')   || '';
+  const validade = p.get('validade')|| '7 dias';
+  const qtd      = p.get('qtd')     || '';
+  const prazo    = p.get('prazo')   || '';
+  const tipos    = p.get('tipos')   ? p.get('tipos').split(',') : [];
+  const port     = p.get('port')    ? p.get('port').split(',') : [];
+
+  // Hero client strip
+  const hasClient = nome || empresa;
+  const strip = document.getElementById('clientStrip');
+  if(hasClient){ strip.style.display=''; }
+  if(nome){ document.getElementById('csNome').textContent = nome; }
+  if(empresa){ document.getElementById('csEmpresa').textContent = empresa; }
+  if(seg){
+    document.getElementById('csSeg').textContent = seg;
+    document.getElementById('csSegWrap').style.display='';
+    document.getElementById('csSegDiv').style.display='';
+  }
+  document.getElementById('csData').textContent = new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});
+
+  // Hero subtitle
+  if(nome || empresa){
+    const who = nome ? nome : empresa;
+    document.getElementById('heroSub').textContent = `Uma proposta preparada com cuidado para ${who} — edição profissional que transforma gravações brutas em conteúdo que converte.`;
+  }
+
+  // Header badge
+  if(empresa || nome){
+    document.getElementById('hBadge').textContent = `Proposta para ${empresa||nome}`;
+  }
+
+  // Scope
+  if(tipos.length || qtd || prazo){
+    const bar = document.getElementById('scopeBar');
+    bar.style.display = '';
+    const parts = [...tipos];
+    if(qtd) parts.push(`${qtd} vídeo${+qtd>1?'s':''}/mês`);
+    if(prazo) parts.push(`Prazo: ${prazo}`);
+    bar.innerHTML = parts.map(t=>`<span class="scope-tag">${t}</span>`).join('');
+  }
+
+  // Portfolio removed
+
+  // Pricing
+  if(valor){
+    document.getElementById('priceVal').innerHTML = `<small>R$</small>${valor}<span class="per" id="pricePer"> ${period}</span>`;
+    const badge = document.getElementById('priceBadge');
+    badge.style.display = ''; badge.textContent = period;
+  }
+
+  const rows = [];
+  const periodLabel = period === 'por mês' ? '/mês' : period === 'avulso' ? 'avulso' : period;
+  if(qtd) rows.push({label:`${qtd} vídeo${+qtd>1?'s':''} ${period}`,tag:'Edição completa'});
+  if(tipos.length) rows.push({label:'Tipos: '+tipos.join(', '),tag:''});
+  if(prazo) rows.push({label:'Prazo de entrega: '+prazo,tag:''});
+  rows.push({label:'Revisões inclusas',tag:'Sem custo extra'});
+  rows.push({label:'Entrega otimizada por plataforma',tag:''});
+
+  document.getElementById('priceRows').innerHTML = rows.map(r=>`
+    <div class="price-row">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>${r.label}</span>
+      </div>
+      ${r.tag?`<div class="tag">${r.tag}</div>`:''}
+    </div>`).join('');
+
+  if(forma){
+    const pf = document.getElementById('priceForma');
+    pf.style.display = '';
+    document.getElementById('pfSpan').innerHTML = `<strong>Pagamento: </strong>${forma}`;
+  }
+
+  // Validity
+  document.getElementById('footerValidity').textContent = `Proposta válida por ${validade}.`;
+
+  // CTA
+  if(nome || empresa){
+    const who = nome ? nome.split(' ')[0] : empresa;
+    document.getElementById('ctaTitle').textContent = `Pronto, ${who}?`;
+    document.getElementById('ctaText').textContent = `Entre em contato e damos início ainda esta semana.`;
+    const msg = encodeURIComponent(`Olá! Quero aprovar a proposta de edição de vídeo da CADev Hub.${nome?' Sou '+nome:''}`);
+    document.getElementById('ctaBtn').href = `https://wa.me/5531996835764?text=${msg}`;
+  }
+
+  // Pre-fill edit panel
+  if(nome) document.getElementById('epNome').value = nome;
+  if(empresa) document.getElementById('epEmpresa').value = empresa;
+  if(seg) document.getElementById('epSeg').value = seg;
+  if(valor) document.getElementById('epValor').value = valor;
+  if(forma) document.getElementById('epForma').value = forma;
+  if(validade) document.getElementById('epValidade').value = validade;
+  if(qtd) document.getElementById('epQtd').value = qtd;
+  if(prazo) document.getElementById('epPrazo').value = prazo;
+  document.querySelectorAll('.ep-chip[data-v]').forEach(c=>{
+    if(tipos.includes(c.dataset.v) || port.includes(c.dataset.v)) c.classList.add('on');
+  });
+  document.getElementById('epPeriod').value = period;
+}
+
+/* ─── Video player ─────────────────────── */
+const vid = document.getElementById('mainVideo');
+const overlay = document.getElementById('playOverlay');
+const icon = document.getElementById('playIcon');
+function togglePlay(){
+  if(vid.paused){ vid.play(); overlay.classList.add('hidden'); }
+  else { vid.pause(); overlay.classList.remove('hidden'); }
+}
+vid.addEventListener('ended', ()=>overlay.classList.remove('hidden'));
+vid.addEventListener('click', togglePlay);
+
+/* ─── Edit panel ────────────────────────── */
+function toggleEdit(){ document.getElementById('editPanel').classList.toggle('open'); }
+document.querySelectorAll('.ep-chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+
+function buildLink(){
+  const p = new URLSearchParams();
+  const n=document.getElementById('epNome').value.trim();
+  const e=document.getElementById('epEmpresa').value.trim();
+  const s=document.getElementById('epSeg').value.trim();
+  const v=document.getElementById('epValor').value.trim();
+  const f=document.getElementById('epForma').value.trim();
+  const val=document.getElementById('epValidade').value.trim();
+  const q=document.getElementById('epQtd').value.trim();
+  const pr=document.getElementById('epPrazo').value.trim();
+  const per=document.getElementById('epPeriod').value;
+  const tipos=[...document.querySelectorAll('#epChips .ep-chip.on')].map(c=>c.dataset.v);
+  const port=[...document.querySelectorAll('#epPort .ep-chip.on')].map(c=>c.dataset.v);
+  if(n) p.set('nome',n); if(e) p.set('empresa',e); if(s) p.set('seg',s);
+  if(v) p.set('valor',v); if(f) p.set('forma',f); if(val) p.set('validade',val);
+  if(q) p.set('qtd',q); if(pr) p.set('prazo',pr); p.set('period',per);
+  if(tipos.length) p.set('tipos',tipos.join(','));
+  if(port.length) p.set('port',port.join(','));
+  const url = location.origin + location.pathname + (p.toString()?'?'+p.toString():'');
+  const el = document.getElementById('epLink');
+  el.classList.add('show'); el.textContent = url;
+  history.replaceState(null,'',url);
+  applyParams();
+}
+
+function copyEpLink(){
+  const t = document.getElementById('epLink').textContent;
+  try{ navigator.clipboard.writeText(t).then(()=>{ document.getElementById('epLink').textContent='✅ Copiado!'; setTimeout(()=>document.getElementById('epLink').textContent=t,1800); }); }
+  catch(e){ alert('Copie manualmente: '+t); }
+}
+
+/* ─── Init ─────────────────────────────── */
+applyParams();
+// auto-open edit panel if ?edit=1
+if(getP().get('edit')==='1') document.getElementById('editPanel').classList.add('open');
+</script>
+</body>
+</html>

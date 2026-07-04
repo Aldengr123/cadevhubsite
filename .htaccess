@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# URL sem .html
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# ============================================================
+# CADev Hub — Proteção de arquivos sensíveis
+# ============================================================
+
+<FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule !mod_authz_core.c>
+    <FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADev Hub — Solicitar orçamento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="orcamento.css?v=2">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="fp">
+  <!-- ===== Left aside ===== -->
+  <aside class="fp-aside">
+    <a class="fp-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao site
+    </a>
+    <svg class="fp-logo" viewBox="0 0 67 39" fill="url(#cadGradF)" aria-hidden="true">
+      <defs><linearGradient id="cadGradF" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#A5FFA9"/><stop offset="0.55" stop-color="#41E248"/><stop offset="1" stop-color="#179E1D"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <h1 class="fp-headline">Vamos criar algo incrível juntos!</h1>
+    <div class="fp-steps">
+      <div class="fp-step active" data-step="1"><div class="n">1</div><div class="t">Suas informações</div></div>
+      <div class="fp-step" data-step="2"><div class="n">2</div><div class="t">Sobre o projeto</div></div>
+      <div class="fp-step" data-step="3"><div class="n">3</div><div class="t">Entraremos em contato</div></div>
+    </div>
+  </aside>
+
+  <!-- ===== Right form ===== -->
+  <main class="fp-main">
+    <div class="fp-progress">
+      <span class="fill"></span><span></span><span></span>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="fp-step-panel show" data-panel="1">
+      <div class="q">
+        <label for="nome">Olá! Qual o seu nome?</label>
+        <input class="fld" id="nome" type="text" placeholder="Digite aqui..." required>
+      </div>
+      <div class="q">
+        <label for="zap">Qual o seu WhatsApp para contato?</label>
+        <div class="phone">
+          <div class="cc"><span class="flag"></span> +55</div>
+          <input class="fld" id="zap" type="tel" placeholder="11 96123-4567" required>
+        </div>
+      </div>
+      <div class="q">
+        <label for="neg">Me conta um pouco sobre seu negócio.</label>
+        <textarea class="fld" id="neg" placeholder="Somos uma agência que..."></textarea>
+      </div>
+      <div class="q">
+        <label for="link">Qual o Instagram ou site da sua empresa?</label>
+        <input class="fld" id="link" type="text" placeholder="Insira o link aqui">
+      </div>
+      <input type="text" id="hp_field" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="fp-err" data-err="1"></div>
+      <div class="fp-actions">
+        <button class="btn btn-primary btn-md" data-next="2">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="fp-step-panel" data-panel="2">
+      <div class="q">
+        <span class="qlabel">Atualmente, como está sua presença digital?</span>
+        <div class="opts" data-field="presenca" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não tenho site nem redes estruturadas</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tenho redes sociais ativas, mas não tenho site</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tenho site, mas ele não converte / está desatualizado</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tenho site e sistema funcionando, quero melhorar/escalar</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual tipo de projeto você precisa? <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts" data-field="tipo" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Landing Page</b><small>página única para captação/venda</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Site institucional</b><small>apresentar a empresa</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Blog</b><small>conteúdo e SEO</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>E-commerce</b><small>loja virtual</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sistema / Aplicativo sob medida</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei, preciso de consultoria</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual é o principal objetivo desse projeto?</span>
+        <div class="opts" data-field="objetivo" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Aumentar vendas / gerar mais leads</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Profissionalizar a marca / ganhar autoridade</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Automatizar processos internos</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Substituir um site/sistema que no funciona</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Lançar um novo produto/serviço</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual a média mensal de faturamento da sua empresa?</span>
+        <div class="opts grid" data-field="faturamento" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Até 5k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>5k – 10k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>10k  30k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>30k – 50k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>50k – 100k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Acima de 100k</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Prefiro não informar</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Você já tem um orçamento aproximado em mente?</span>
+        <div class="opts" data-field="orcamento" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 1 mil – R$ 2 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 2 mil – R$ 5 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 5 mil – R$ 15 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 15 mil – R$ 30 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Acima de R$ 30 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não tenho essa referência</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Quem será responsável por decidir a contratação?</span>
+        <div class="opts" data-field="decisor" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Apenas eu</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Eu com meu(s) scio(s)</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Eu preciso apresentar para um superior / diretor</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Decisão em equipe / comitê</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual o prazo ideal para começar o projeto?</span>
+        <div class="opts" data-field="prazo" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Preciso começar essa semana</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Nos próximos 30 dias</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Nos próximos 2–3 meses</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda estou pesquisando, sem prazo definido</b></span></label>
+        </div>
+      </div>
+
+      <div class="fp-err" data-err="2"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="1">Voltar</button>
+        <button class="btn btn-primary btn-md" data-submit>Enviar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===== Success modal ===== -->
+<div class="fp-modal" id="successModal">
+  <div class="card">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <h3>Obrigado pelas informações!</h3>
+    <p>Em breve entraremos em contato pelo WhatsApp para dar início ao seu projeto. Fique de olho!</p>
+    <a class="btn btn-primary btn-md" href="index.html" style="width:100%">Voltar ao site</a>
+  </div>
+</div>
+
+<script src="orcamento.js?v=2"></script>
+</body>
+</html>

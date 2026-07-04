@@ -1,0 +1,106 @@
+/* ===== CADev Hub — Planos de site (pricing) ===== */
+.plans-page{padding-top:120px}
+
+.plans-hero{text-align:center;padding:40px 0 24px}
+.plans-hero .eyebrow{justify-content:center}
+.plans-hero .eyebrow::before{display:none}
+.plans-hero h1{font-family:"DM Sans",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(2.4rem,5vw,4rem);line-height:1.04;max-width:18ch;margin:0 auto}
+.plans-hero h1 em{color:var(--accent);font-style:normal}
+.plans-hero p{margin:26px auto 0;max-width:60ch;color:var(--text-dim);
+  font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.6;text-wrap:pretty}
+
+/* billing note pill */
+.plans-note{display:inline-flex;align-items:center;gap:10px;margin-top:30px;
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:10px 20px;color:var(--text-dim);font-size:.95rem}
+.plans-note b{color:#fff}
+.plans-note .dot{width:8px;height:8px;border-radius:50%;background:var(--green-hi);
+  box-shadow:0 0 10px var(--green-glow)}
+
+/* ===== grid ===== */
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;align-items:start}
+@media(max-width:1200px){.plans-grid{grid-template-columns:repeat(2,1fr);gap:22px}}
+@media(max-width:640px){.plans-grid{grid-template-columns:1fr}}
+
+.plan{position:relative;display:flex;flex-direction:column;height:100%;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);
+  padding:34px 28px;transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.plan:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+
+/* featured */
+.plan.featured{border-color:var(--accent);
+  background:radial-gradient(120% 80% at 50% 0%,rgba(23,158,29,.16),transparent 60%),var(--surface)}
+.plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;font-family:"DM Sans",sans-serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 16px;border-radius:999px;white-space:nowrap}
+
+.plan .name{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.35rem;color:#fff}
+.plan .tier{font-size:.9rem;color:var(--text-mute);margin-top:6px;min-height:2.6em;line-height:1.35}
+
+.plan .price{display:flex;align-items:baseline;gap:6px;margin:24px 0 4px}
+.plan .price .cur{font-size:1.1rem;color:var(--text-dim);font-weight:600}
+.plan .price .val{font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(2.4rem,3vw,3rem);
+  color:#fff;letter-spacing:-.02em;line-height:1}
+.plan .price .per{font-size:.95rem;color:var(--text-mute)}
+.plan .pricenote{font-size:.85rem;color:var(--text-mute);margin-bottom:24px}
+
+.plan .btn{width:100%;margin-bottom:28px}
+
+.plan .feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.plan .feats li{display:flex;gap:12px;align-items:flex-start;color:var(--text-dim);
+  font-size:.98rem;line-height:1.45}
+.plan .feats li svg{flex:none;width:20px;height:20px;color:var(--green-hi);margin-top:1px}
+.plan .feats li b{color:#fff;font-weight:600}
+.plan .feats li.off{color:var(--text-mute);opacity:.6}
+.plan .feats li.off svg{color:var(--surface-3)}
+.plan .feats .group{margin-top:8px;color:var(--text-mute);font-size:.78rem;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+/* comparison strip */
+.plans-foot{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:860px){.plans-foot{grid-template-columns:1fr}}
+.pfeat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:28px}
+.pfeat .ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(23,158,29,.14);color:var(--green-hi);margin-bottom:18px}
+.pfeat .ico svg{width:24px;height:24px}
+.pfeat h3{font-family:"DM Sans",sans-serif;font-size:1.15rem;margin-bottom:10px}
+.pfeat p{color:var(--text-dim);font-size:.98rem;line-height:1.5}
+
+/* FAQ */
+.faq{max-width:820px;margin:96px auto 0}
+.faq h2{text-align:center;font-family:"DM Sans",sans-serif;font-weight:700;
+  font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:40px}
+.faq details{border:1px solid var(--line);border-radius:var(--radius-m);
+  background:var(--surface);margin-bottom:14px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;
+  justify-content:space-between;align-items:center;gap:16px;
+  font-family:"DM Sans",sans-serif;font-weight:600;font-size:1.08rem;color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .chev{flex:none;width:22px;height:22px;color:var(--text-mute);transition:transform .3s var(--ease)}
+.faq details[open] summary .chev{transform:rotate(180deg);color:var(--green-hi)}
+.faq details p{padding:0 26px 24px;color:var(--text-dim);line-height:1.6;font-size:1rem;margin:0}
+
+/* CTA band */
+.plans-cta{margin:96px 0 0;border-radius:var(--radius-l);overflow:hidden;border:1px solid var(--line);
+  padding:clamp(40px,6vw,72px);text-align:center;
+  background:radial-gradient(120% 160% at 50% 0%,rgba(23,158,29,.14),transparent 60%),
+             linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.plans-cta h2{font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(1.8rem,3.4vw,2.8rem);max-width:20ch;margin:0 auto}
+.plans-cta p{color:var(--text-dim);margin:20px auto 0;max-width:50ch;font-size:1.1rem;line-height:1.5}
+.plans-cta .row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+
+/* ===== mobile (vw) ===== */
+@media(max-width:767px){
+  .plans-page{padding-top:24vw}
+  .plans-hero h1{font-size:9vw}
+  .plans-hero p{font-size:4.4vw}
+  .plans-grid{gap:5vw;margin-top:12vw}
+  .plan{padding:8vw 6vw;border-radius:6vw}
+  .plan .name{font-size:6vw}
+  .plan .price .val{font-size:11vw}
+  .plan .feats li{font-size:4vw}
+  .faq summary{font-size:4.4vw;padding:5vw}
+  .faq details p{font-size:4vw;padding:0 5vw 5vw}
+}

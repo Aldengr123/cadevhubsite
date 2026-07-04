@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADev Hub — Briefing · Identidade Visual + Landing Page + Infoproduto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="orcamento.css?v=2">
+<link rel="stylesheet" href="briefing.css?v=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="fp">
+  <!-- ===== Aside ===== -->
+  <aside class="fp-aside">
+    <a class="fp-back" href="CADev Hub.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao site
+    </a>
+    <svg class="fp-logo" viewBox="0 0 67 39" fill="url(#cadGradB)" aria-hidden="true">
+      <defs><linearGradient id="cadGradB" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#A5FFA9"/><stop offset="0.55" stop-color="#41E248"/><stop offset="1" stop-color="#179E1D"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <h1 class="fp-headline">Briefing do<br>seu projeto.</h1>
+    <div class="fp-steps">
+      <div class="fp-step active" data-step="1"><div class="n">1</div><div class="t">Você &amp; contato</div></div>
+      <div class="fp-step" data-step="2"><div class="n">2</div><div class="t">Identidade visual</div></div>
+      <div class="fp-step" data-step="3"><div class="n">3</div><div class="t">Landing page</div></div>
+      <div class="fp-step" data-step="4"><div class="n">4</div><div class="t">Infoproduto</div></div>
+      <div class="fp-step" data-step="5"><div class="n">5</div><div class="t">Fechamento</div></div>
+    </div>
+  </aside>
+
+  <!-- ===== Form ===== -->
+  <main class="fp-main">
+    <div class="fp-progress">
+      <span class="fill"></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- ========== STEP 1 — Você & contato ========== -->
+    <section class="fp-step-panel show" data-panel="1">
+      <div class="fp-stepcount">Etapa 1 de 5</div>
+      <h2 class="fp-steptitle">Vamos nos conhecer</h2>
+      <p class="fp-stepsub">Esse projeto reúne <b>identidade visual + landing page + infoproduto</b>. Comece com seus dados — o resto a gente detalha nas próximas etapas.</p>
+
+      <div class="q">
+        <label for="nome">Seu nome</label>
+        <input class="fld" id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required>
+      </div>
+      <div class="frow">
+        <div class="q">
+          <label for="zap">WhatsApp</label>
+          <div class="phone">
+            <div class="cc"><span class="flag"></span> +55</div>
+            <input class="fld" id="zap" name="zap" type="tel" placeholder="11 96123-4567" required>
+          </div>
+        </div>
+        <div class="q">
+          <label for="email">E-mail</label>
+          <input class="fld" id="email" name="email" type="email" placeholder="voce@email.com">
+        </div>
+      </div>
+      <div class="q">
+        <label for="marca">Nome da marca / projeto</label>
+        <input class="fld" id="marca" name="marca" type="text" placeholder="Como sua marca se chama (ou vai se chamar)?" required>
+      </div>
+      <div class="q">
+        <label for="segmento">Segmento / nicho</label>
+        <input class="fld" id="segmento" name="segmento" type="text" placeholder="Ex.: educação financeira, moda, saúde, marketing...">
+      </div>
+
+      <input type="text" id="hp_field" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="fp-err" data-err="1"></div>
+      <div class="fp-actions">
+        <button class="btn btn-primary btn-md" data-next="2">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== STEP 2 — Identidade visual ========== -->
+    <section class="fp-step-panel" data-panel="2">
+      <div class="fp-stepcount">Etapa 2 de 5</div>
+      <h2 class="fp-steptitle">Identidade visual</h2>
+      <p class="fp-stepsub">A base de tudo: como sua marca deve parecer e o que deve transmitir.</p>
+
+      <div class="q">
+        <span class="qlabel">Em que ponto está a marca?</span>
+        <div class="opts" data-field="marca_status" data-type="radio" data-required="true" data-label="ponto da marca">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Marca nova, do zero</b><small>ainda não tem identidade</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Rebranding</b><small>já existe, mas quero renovar</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Só ajustes</b><small>tenho identidade e quero refinar</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="marca_desc">Descreva sua marca em poucas linhas</label>
+        <textarea class="fld" id="marca_desc" name="marca_desc" placeholder="O que ela faz, no que acredita, o que a torna diferente..." required></textarea>
+      </div>
+
+      <div class="q">
+        <label for="adjetivos">3 a 5 palavras que a marca deve transmitir</label>
+        <input class="fld" id="adjetivos" name="adjetivos" type="text" placeholder="Ex.: confiável, moderna, premium, acolhedora">
+      </div>
+
+      <div class="q">
+        <label for="publico">Quem é o seu público?</label>
+        <textarea class="fld" id="publico" name="publico" placeholder="Idade, perfil, dores, desejos — quanto mais específico, melhor."></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Estilo visual desejado <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="estilo" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Minimalista</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Moderno / tech</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sofisticado / luxo</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Divertido / jovem</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Orgânico / natural</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Corporativo / sério</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Famílias de cor que combinam com a marca</span>
+        <div class="swatches" data-field="cores" data-type="swatch">
+          <span class="swatch" data-color="Verde" style="background:#179E1D"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Azul" style="background:#2A6FDB"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Roxo" style="background:#7A3FF2"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Rosa" style="background:#E84393"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Vermelho" style="background:#E0392B"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Laranja" style="background:#F2820F"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Amarelo" style="background:#F5C518"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Preto &amp; branco" style="background:linear-gradient(135deg,#111 50%,#fff 50%)"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+          <span class="swatch" data-color="Tons terrosos" style="background:linear-gradient(135deg,#A6764B,#D9B38C)"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></span>
+        </div>
+        <div class="fhelp">Selecione as que mais combinam. Você detalha tons exatos abaixo, se quiser.</div>
+      </div>
+
+      <div class="q">
+        <label for="cores_evitar">Cores ou estilos que você NÃO quer</label>
+        <input class="fld" id="cores_evitar" name="cores_evitar" type="text" placeholder="Ex.: nada de tons pastel, evitar vermelho...">
+      </div>
+
+      <div class="q">
+        <label for="referencias_marca">Marcas/referências visuais que você admira</label>
+        <textarea class="fld" id="referencias_marca" name="referencias_marca" placeholder="Cole perfis, sites ou nomes de marcas que te inspiram."></textarea>
+      </div>
+
+      <div class="fp-err" data-err="2"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="1">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="3">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== STEP 3 — Landing page ========== -->
+    <section class="fp-step-panel" data-panel="3">
+      <div class="fp-stepcount">Etapa 3 de 5</div>
+      <h2 class="fp-steptitle">Landing page</h2>
+      <p class="fp-stepsub">A página que vai transformar visitantes em clientes do seu infoproduto.</p>
+
+      <div class="q">
+        <span class="qlabel">Objetivo principal da página</span>
+        <div class="opts" data-field="lp_objetivo" data-type="radio" data-required="true" data-label="objetivo da página">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Vender o infoproduto direto</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Captar leads (e-mail / WhatsApp)</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Divulgar um lançamento</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Inscrição em evento / aula gratuita</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="lp_oferta">O que será oferecido na página?</label>
+        <textarea class="fld" id="lp_oferta" name="lp_oferta" placeholder="Descreva a oferta: o produto, o que a pessoa recebe, o resultado prometido." required></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Seções que a página deve ter <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="lp_secoes" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Hero / chamada principal</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sobre / autoridade</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Benefícios / o que aprende</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Depoimentos / provas</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Preço / planos</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>FAQ / dúvidas</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Garantia</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>CTA / WhatsApp</b></span></label>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="q">
+          <label for="lp_dominio">Já tem domínio?</label>
+          <input class="fld" id="lp_dominio" name="lp_dominio" type="text" placeholder="seudominio.com.br (ou deixe em branco)">
+        </div>
+        <div class="q">
+          <span class="qlabel" style="font-size:1.35rem">Conteúdo / textos</span>
+          <div class="opts" data-field="lp_conteudo" data-type="radio">
+            <label class="opt" style="padding:13px 18px"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Já tenho prontos</b></span></label>
+            <label class="opt" style="padding:13px 18px"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tenho parte</b></span></label>
+            <label class="opt" style="padding:13px 18px"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Preciso de ajuda</b></span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="lp_referencias">Sites / páginas de referência</label>
+        <textarea class="fld" id="lp_referencias" name="lp_referencias" placeholder="Cole links de landing pages que você curtiu (e diga o que gostou em cada)."></textarea>
+      </div>
+
+      <div class="fp-err" data-err="3"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="2">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="4">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== STEP 4 — Infoproduto ========== -->
+    <section class="fp-step-panel" data-panel="4">
+      <div class="fp-stepcount">Etapa 4 de 5</div>
+      <h2 class="fp-steptitle">Seu infoproduto</h2>
+      <p class="fp-stepsub">Aqui falamos do <b>produto digital</b> que você vai vender (um curso, e-book, mentoria...). Não precisa saber de tecnologia — responda com suas palavras. Onde tiver dúvida, marque <b>“não sei”</b> que a gente te orienta. 😉</p>
+
+      <div class="q">
+        <span class="qlabel">Em que pé está o seu produto hoje?</span>
+        <div class="opts" data-field="ip_status" data-type="radio" data-required="true" data-label="em que pé está o produto">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Só tenho a ideia</b><small>ainda não comecei a criar</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Estou criando agora</b><small>já comecei, falta terminar</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Já está pronto</b><small>só falta vender</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Já vendo</b><small>e quero melhorar / vender mais</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Que tipo de produto é? <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="ip_formato" data-type="check">
+          <label class="opt"><span class="ico">🎬</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Curso gravado</b><small>vídeo-aulas que o aluno assiste quando quiser</small></span></label>
+          <label class="opt"><span class="ico">🧭</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Mentoria / consultoria</b><small>você acompanha a pessoa de perto</small></span></label>
+          <label class="opt"><span class="ico">📘</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>E-book / PDF</b><small>material escrito para baixar</small></span></label>
+          <label class="opt"><span class="ico">👥</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Comunidade / assinatura</b><small>grupo pago com conteúdo todo mês</small></span></label>
+          <label class="opt"><span class="ico">🔴</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Live / imersão</b><small>aulas ao vivo em data marcada</small></span></label>
+          <label class="opt"><span class="ico">🧩</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Templates / ferramentas</b><small>planilhas, modelos prontos, etc</small></span></label>
+          <label class="opt"><span class="ico">🤔</span><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei</b><small>me ajudem a decidir o formato</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="ip_promessa">O que a pessoa ganha com o seu produto?</label>
+        <textarea class="fld" id="ip_promessa" name="ip_promessa" placeholder="Ex.: ela aprende a organizar as contas e sair das dívidas em 30 dias." required></textarea>
+        <div class="fhelp">Pense no resultado final: depois de consumir seu produto, o que a pessoa <b>consegue fazer ou resolve</b>? Escreva como se estivesse explicando para um amigo.</div>
+      </div>
+
+      <div class="q">
+        <label for="ip_publico">Para quem é esse produto?</label>
+        <input class="fld" id="ip_publico" name="ip_publico" type="text" placeholder="Ex.: mães que querem começar um negócio em casa">
+        <div class="fhelp">Quem é a pessoa ideal para comprar? Idade, profissão, o que ela quer resolver.</div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">O conteúdo já existe?</span>
+        <div class="opts" data-field="ip_conteudo" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Já gravei / escrevi tudo</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tenho uma parte pronta</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não comecei</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Preciso de ajuda para montar</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual o tamanho aproximado?</span>
+        <div class="opts grid" data-field="ip_tamanho" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Curtinho</b><small>1 a 5 aulas</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Médio</b><small>6 a 15 aulas</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Completo</b><small>16 aulas ou mais</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não faço ideia</b><small>preciso de orientação</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Faixa de preço pretendida</span>
+        <div class="opts grid" data-field="ip_preco" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Até R$ 97</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 97 – R$ 297</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 297 – R$ 997</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Acima de R$ 997</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não defini</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Você já tem onde divulgar?  <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="ip_audiencia" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Instagram</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Grupo de WhatsApp / Telegram</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>YouTube / TikTok</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Lista de e-mails</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não tenho público</b><small>preciso construir do zero</small></span></label>
+        </div>
+        <div class="fhelp">“Público” é onde as pessoas já te acompanham. Quanto mais gente, mais fácil vender — mas dá pra começar do zero também, sem problema.</div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Você já vendeu algum produto na internet?</span>
+        <div class="opts" data-field="ip_vendeu" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sim, já vendi online</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Nunca, será a primeira vez</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Como você quer receber os pagamentos? <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="ip_pagamento" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Pix</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Cartão (parcelado)</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Boleto</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não sei</b><small>me orientem o melhor</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Onde o produto vai ficar hospedado?</span>
+        <div class="opts grid" data-field="ip_plataforma" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Hotmart</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Kiwify</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Eduzz</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Nunca usei nenhuma</b><small>preciso de orientação</small></span></label>
+        </div>
+        <div class="fhelp">A “plataforma” é o site onde o aluno faz a compra e assiste às aulas (ex.: Hotmart, Kiwify). Se você nunca usou, sem problema — a gente indica e configura para você.</div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Vai oferecer suporte aos alunos?</span>
+        <div class="opts grid" data-field="ip_suporte" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Grupo de alunos</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Atendimento individual</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sem suporte por enquanto</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não sei ainda</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Quer incluir algum desses extras? <span class="qhint">(opcional)</span></span>
+        <div class="opts grid" data-field="ip_extras" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Certificado</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Aulas ao vivo</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Materiais em PDF</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Comunidade fechada</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="ip_bonus">Vai ter algum bônus ou oferta especial?</label>
+        <input class="fld" id="ip_bonus" name="ip_bonus" type="text" placeholder="Ex.: 3 bônus + grupo VIP (ou deixe em branco)">
+        <div class="fhelp">Bônus são “brindes” que aumentam o valor da oferta. Não é obrigatório — se não tiver, tudo bem.</div>
+      </div>
+
+      <div class="fp-err" data-err="4"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="3">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="5">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== STEP 5 — Fechamento ========== -->
+    <section class="fp-step-panel" data-panel="5">
+      <div class="fp-stepcount">Etapa 5 de 5</div>
+      <h2 class="fp-steptitle">Quase lá!</h2>
+      <p class="fp-stepsub">Só mais alguns detalhes para fecharmos o escopo do seu projeto.</p>
+
+      <div class="q">
+        <span class="qlabel">Prazo desejado para o lançamento</span>
+        <div class="opts" data-field="prazo" data-type="radio" data-required="true" data-label="prazo">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>O quanto antes / urgente</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Próximos 30 dias</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>60 a 90 dias</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sem pressa / planejando</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Orçamento previsto para o projeto</span>
+        <div class="opts grid" data-field="orcamento" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 2 mil – R$ 5 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 5 mil – R$ 10 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>R$ 10 mil – R$ 20 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Acima de R$ 20 mil</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Quero uma proposta</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="materiais">Links de materiais que já tem</label>
+        <textarea class="fld" id="materiais" name="materiais" placeholder="Drive, logo, fotos, textos, perfis de rede social — cole tudo que ajudar."></textarea>
+      </div>
+
+      <div class="q">
+        <label for="observacoes">Algo mais que devemos saber?</label>
+        <textarea class="fld" id="observacoes" name="observacoes" placeholder="Fique à vontade — qualquer detalhe ajuda no projeto."></textarea>
+      </div>
+
+      <div class="fp-err" data-err="5"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="4">Voltar</button>
+        <button class="btn btn-primary btn-md" data-submit>Enviar briefing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===== Success modal ===== -->
+<div class="fp-modal" id="successModal">
+  <div class="card">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <h3>Briefing recebido! 🚀</h3>
+    <p>Obrigado por detalhar seu projeto. Vamos analisar tudo e entrar em contato pelo WhatsApp para os próximos passos.</p>
+    <a class="btn btn-primary btn-md" href="CADev Hub.html" style="width:100%">Voltar ao site</a>
+  </div>
+</div>
+
+<script src="briefing.js?v=1"></script>
+</body>
+</html>

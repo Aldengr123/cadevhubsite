@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000;overflow:hidden}
+#v{position:fixed;inset:0;width:100vw;height:100vh;object-fit:fill;background:#000;display:block}</style>
+</head><body>
+<video id="v" muted playsinline preload="auto">
+  <source src="uploads/magnific_c_cDShgyh0eP.webm" type="video/webm">
+</video>
+<script>
+const v=document.getElementById('v');
+window.__ready=false;
+v.addEventListener('loadeddata',()=>{window.__ready=true;});
+v.addEventListener('canplay',()=>{window.__ready=true;});
+window.__seek=(t)=>new Promise(res=>{
+  const h=()=>{v.removeEventListener('seeked',h);res(v.currentTime);};
+  v.addEventListener('seeked',h);
+  v.currentTime=t;
+  setTimeout(()=>{v.removeEventListener('seeked',h);res(v.currentTime);},2500);
+});
+</script>
+</body></html>
