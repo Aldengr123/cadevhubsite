@@ -5,20 +5,33 @@
   const API = 'orcamentos-api.php';
 
   /* ---------- API helpers ---------- */
-  function adminToken(force){
-    let t=localStorage.getItem('cadev_admin_token');
-    if(!t||force){ t=prompt('Senha de administrador (a mesma definida em config-db.php):')||''; if(t) localStorage.setItem('cadev_admin_token',t); }
-    return t;
+  function storedToken(){ return localStorage.getItem('cadev_admin_token')||''; }
+  function askToken(msg){
+    return new Promise(resolve=>{
+      const modal=$('#authModal'), input=$('#authInput'), ok=$('#authOk');
+      $('#authMsg').textContent=msg||'Digite a senha para salvar e gerenciar orçamentos.';
+      input.value=''; modal.classList.add('open'); setTimeout(()=>input.focus(),60);
+      function done(){ const v=input.value.trim(); if(!v) return; localStorage.setItem('cadev_admin_token',v); modal.classList.remove('open'); ok.onclick=null; input.onkeydown=null; resolve(v); }
+      ok.onclick=done;
+      input.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); done(); } };
+    });
   }
   async function apiGet(id){
     try{ const r=await fetch(API+'?action=get&id='+encodeURIComponent(id)); return await r.json(); }
     catch(e){ return {ok:false,error:'offline'}; }
   }
   async function apiAdmin(action,payload){
-    const r=await fetch(API+'?action='+action,{method:'POST',
-      headers:{'Content-Type':'application/json','X-Admin-Token':adminToken()},
+    let token=storedToken(); if(!token) token=await askToken();
+    const send=t=>fetch(API+'?action='+action,{method:'POST',
+      headers:{'Content-Type':'application/json','X-Admin-Token':t},
       body:JSON.stringify(payload||{})});
-    if(r.status===401){ adminToken(true); throw new Error('senha incorreta'); }
+    let r=await send(token);
+    if(r.status===401){
+      localStorage.removeItem('cadev_admin_token');
+      token=await askToken('Senha incorreta. Tente de novo.');
+      r=await send(token);
+      if(r.status===401){ throw new Error('senha incorreta'); }
+    }
     return await r.json();
   }
 
