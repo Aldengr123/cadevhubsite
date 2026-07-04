@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADev Hub — Tecnologia que destaca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" data-screen-label="Header">
+  <a class="brand" href="#top">
+    <svg class="mark" viewBox="0 0 67 39" fill="url(#cadGradH)" aria-hidden="true">
+      <defs><linearGradient id="cadGradH" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <span class="name">CADev hub</span>
+  </a>
+  <nav class="nav">
+    <a href="#top">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="planos-de-site.html">Planos</a>
+    <a class="btn btn-primary" href="orcamento.html">Solicitar orçamento</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===== Scroll-scrub reveal ===== -->
+  <section class="reveal" data-screen-label="Reveal">
+    <div class="reveal-pin">
+      <canvas id="revealCanvas" class="reveal-canvas"></canvas>
+      <div class="reveal-vignette"></div>
+
+      <div class="loader">
+        <div>Carregando experiência</div>
+        <div class="bar"><i></i></div>
+      </div>
+
+      <div class="hint">
+        <span>Role para começar sua experiência</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+
+      <div class="hero-copy">
+        <h1>Tecnologia que destaca.<br>Não entregamos o suficiente, <em>entregamos o que <span class="rotator"><span class="rot-word">impressiona</span></span>.</em></h1>
+        <p class="sub">Sites que convertem, sistemas que funcionam, automações que economizam tempo e animações que encantam.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-md" href="orcamento.html">Solicitar orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20CADev%20Hub%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Entrar em contato
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Intro ===== -->
+  <section class="section intro" id="sobre" data-screen-label="Intro">
+    <div class="container">
+      <svg class="mark fx" viewBox="0 0 67 39" fill="url(#cadGradI)" aria-hidden="true" style="height:auto">
+        <defs><linearGradient id="cadGradI" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+          <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+        </linearGradient></defs>
+        <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+        <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+      </svg>
+      <h2 class="reveal-words">Somos um hub de tecnologia focado em construir o que seu negócio realmente precisa.</h2>
+      <p class="fx">Quando a operação cresce, a tecnologia precisa acompanhar. Processo que consome tempo, presença digital que não converte, marca que ainda não impressiona como deveria. A gente cuida disso.</p>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="section" data-screen-label="Stats">
+    <div class="container">
+      <div class="stats">
+        <div class="stat fx">
+          <div class="ring" data-pct="0.70" data-val="70">
+            <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="prog" cx="60" cy="60" r="54"/></svg>
+            <div class="num">+0</div>
+          </div>
+          <div class="label">sites entregues</div>
+        </div>
+        <div class="stat fx">
+          <div class="ring" data-pct="0.92" data-val="500">
+            <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="prog" cx="60" cy="60" r="54"/></svg>
+            <div class="num">+0</div>
+          </div>
+          <div class="label">usuários em SaaS construídos</div>
+        </div>
+        <div class="stat fx">
+          <div class="ring" data-pct="0.85" data-val="140">
+            <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="prog" cx="60" cy="60" r="54"/></svg>
+            <div class="num">+0</div>
+          </div>
+          <div class="label">clientes satisfeitos</div>
+        </div>
+        <div class="stat fx">
+          <div class="ring" data-pct="0.62" data-val="7">
+            <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="prog" cx="60" cy="60" r="54"/></svg>
+            <div class="num">+0</div>
+          </div>
+          <div class="label">anos de mercado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section class="section" id="projetos" data-screen-label="Projetos">
+    <div class="container">
+      <div class="proj-head">
+        <span class="eyebrow fx">Projetos Recentes</span>
+        <h2 class="reveal-words">Cada projeto é pensado do zero, unindo estratégia, design e desenvolvimento.</h2>
+      </div>
+      <div class="cards">
+        <article class="card fx">
+          <picture>
+            <source media="(max-width:767px)" srcset="uploads/pedrogomes-mockup-mobile.avif" type="image/avif">
+            <source media="(max-width:767px)" srcset="uploads/pedrogomes-mockup-mobile.webp" type="image/webp">
+            <source srcset="uploads/pedrogomes-mockup.avif" type="image/avif">
+            <img src="uploads/pedrogomes-mockup.png" alt="Site institucional Pedro Gomes — imóveis" loading="lazy">
+          </picture>
+          <span class="chip">Site institucional</span>
+          <div class="meta"><h3>Presença que converte</h3><span>Design + Desenvolvimento web</span></div>
+          <a class="card-link" href="https://pedrogomesimoveis.com.br/" target="_blank" rel="noopener" aria-label="Abrir projeto Pedro Gomes" style="position:absolute;inset:0;z-index:3"></a>
+        </article>
+        <article class="card fx">
+          <picture>
+            <source media="(max-width:767px)" srcset="uploads/falaalicia-mockup-mobile.avif" type="image/avif">
+            <source media="(max-width:767px)" srcset="uploads/falaalicia-mockup-mobile.webp" type="image/webp">
+            <source srcset="uploads/falaalicia-mockup.avif" type="image/avif">
+            <img src="uploads/falaalicia-mockup.png" alt="Fala Alícia — landing page e automação" loading="lazy">
+          </picture>
+          <span class="chip">Landing page • Automação / SaaS</span>
+          <div class="meta"><h3>Fluxos que escalam</h3><span>Produto + Automação</span></div>
+          <a class="card-link" href="https://falaalicia.com.br/" target="_blank" rel="noopener" aria-label="Abrir projeto Fala Alícia" style="position:absolute;inset:0;z-index:3"></a>
+        </article>
+        <article class="card fx" data-video>
+          <picture>
+            <source media="(max-width:767px)" srcset="uploads/animação-thumb-mobile.avif" type="image/avif">
+            <source media="(max-width:767px)" srcset="uploads/animação-thumb-mobile.webp" type="image/webp">
+            <source srcset="uploads/animação-thumb.avif" type="image/avif">
+            <img src="uploads/animação-thumb.png" alt="Animação com I.A" loading="lazy">
+          </picture>
+          <span class="chip">Animação com I.A</span>
+          <div class="play"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></div>
+          <div class="meta"><h3>Marcas que encantam</h3><span>Motion + Inteligência Artificial</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="section footer" id="contato" data-screen-label="Footer">
+    <div class="container">
+      <div class="panel fx">
+        <div class="left">
+          <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="509" height="94" viewBox="0 0 509 94" fill="none">
+  <path d="M 79.421 0 C 80.674 1.206 94.379 28.08 96.191 31.536 L 112.849 63.147 C 115.885 68.898 119.547 75.477 122.311 81.304 C 140.477 76.514 149.901 58.52 146.169 40.887 C 144.3 32.316 139.079 24.809 131.632 19.985 C 123.494 14.761 115.009 14.302 105.683 16.249 C 105.798 20.88 105.366 29.455 105.991 33.705 C 105.123 31.295 103.106 27.829 101.928 25.434 C 98.968 19.419 95.459 13.334 92.6 7.295 C 105.589 2.358 122.875 1.763 135.371 8.343 C 145.839 13.968 153.598 23.457 156.939 34.714 C 160.767 46.959 159.399 60.205 153.143 71.443 C 151.609 74.173 149.773 76.728 147.671 79.062 C 144.203 82.918 140.094 86.166 135.517 88.667 C 120.934 96.631 109.855 92.932 94.41 93.915 L 94.421 82.225 C 99.425 82.156 104.43 82.15 109.434 82.208 C 99.91 63.33 89.115 44.471 79.555 25.525 C 77.859 28.365 75.77 32.674 74.184 35.679 L 62.048 58.623 L 88.085 58.635 C 89.498 61.275 92.723 68.033 94.227 70.165 C 81.914 70.408 68.912 70.178 56.523 70.201 C 52.753 73.995 45.175 74.574 40.128 74.545 L 79.421 0 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 41.142 3.506 C 42.339 3.311 45.432 3.479 46.653 3.567 C 53.826 4.081 59.16 5.872 65.387 9.311 C 63.733 12.785 61.671 16.599 59.845 20.009 C 58.084 18.593 53.807 16.793 51.603 16.205 C 34.336 11.603 18.042 22.699 13.316 39.061 C 10.778 47.953 11.893 57.469 16.421 65.562 C 20.819 73.263 27.742 78.818 36.422 81.166 C 45.326 83.574 53.369 81.812 61.275 77.445 C 62.026 77.122 63.825 75.854 64.586 75.344 L 64.594 88.81 C 48.767 96.918 31.229 95.56 17.202 84.498 C 7.793 77.134 1.728 66.413 0.33 54.672 C -1.099 41.692 2.085 29.375 10.462 19.131 C 16.545 11.651 25.047 6.439 34.558 4.363 C 36.495 3.948 39.126 3.718 41.142 3.506 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 206.65 72.68 C 201.887 72.68 197.771 71.643 194.303 69.569 C 190.835 67.448 188.152 64.521 186.257 60.787 C 184.407 57.007 183.482 52.627 183.482 47.648 C 183.482 42.67 184.407 38.313 186.257 34.579 C 188.152 30.799 190.835 27.872 194.303 25.797 C 197.771 23.676 201.887 22.616 206.65 22.616 C 212.245 22.616 216.777 23.93 220.245 26.558 C 223.713 29.185 225.933 32.896 226.904 37.691 L 220.453 37.691 C 219.713 34.694 218.21 32.297 215.944 30.499 C 213.679 28.701 210.58 27.802 206.65 27.802 C 203.181 27.802 200.153 28.609 197.563 30.223 C 194.973 31.79 192.962 34.072 191.528 37.068 C 190.141 40.019 189.447 43.545 189.447 47.648 C 189.447 51.751 190.141 55.301 191.528 58.297 C 192.962 61.248 194.973 63.53 197.563 65.143 C 200.153 66.71 203.181 67.494 206.65 67.494 C 210.58 67.494 213.702 66.618 216.014 64.866 C 218.372 63.069 219.921 60.718 220.661 57.813 L 226.904 57.813 C 225.933 62.469 223.713 66.111 220.245 68.739 C 216.777 71.367 212.245 72.68 206.65 72.68 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 228.547 71.851 L 245.125 23.446 L 254.143 23.446 L 270.443 71.851 L 264.27 71.851 L 249.773 27.733 L 249.495 27.733 L 234.651 71.851 L 228.547 71.851 Z M 236.732 56.707 L 238.397 52.005 L 260.385 52.005 L 262.05 56.707 L 236.732 56.707 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 272.574 71.851 L 272.574 23.446 L 287.488 23.446 C 293.176 23.446 297.869 24.437 301.569 26.419 C 305.268 28.356 307.996 31.145 309.754 34.786 C 311.557 38.382 312.459 42.716 312.459 47.787 C 312.459 52.765 311.557 57.053 309.754 60.648 C 307.996 64.244 305.268 67.01 301.569 68.946 C 297.869 70.882 293.176 71.851 287.488 71.851 L 272.574 71.851 Z M 278.401 67.01 L 287.349 67.01 C 292.066 67.01 295.811 66.249 298.586 64.728 C 301.407 63.161 303.418 60.948 304.621 58.09 C 305.823 55.186 306.424 51.751 306.424 47.787 C 306.424 43.73 305.823 40.249 304.621 37.345 C 303.418 34.441 301.407 32.205 298.586 30.638 C 295.811 29.07 292.066 28.286 287.349 28.286 L 278.401 28.286 L 278.401 67.01 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 333.565 72.68 C 330.281 72.68 327.368 71.943 324.825 70.468 C 322.281 68.946 320.27 66.849 318.79 64.175 C 317.357 61.455 316.64 58.297 316.64 54.702 C 316.64 51.06 317.357 47.902 318.79 45.228 C 320.224 42.554 322.212 40.48 324.755 39.005 C 327.345 37.483 330.328 36.723 333.703 36.723 C 337.079 36.723 339.969 37.483 342.374 39.005 C 344.779 40.48 346.628 42.439 347.923 44.882 C 349.218 47.279 349.865 49.907 349.865 52.765 C 349.865 53.226 349.865 53.733 349.865 54.287 C 349.865 54.794 349.842 55.37 349.796 56.015 L 321.01 56.015 L 321.01 51.521 L 344.108 51.521 C 343.969 48.248 342.906 45.712 340.917 43.914 C 338.975 42.116 336.524 41.217 333.565 41.217 C 331.576 41.217 329.727 41.655 328.016 42.531 C 326.305 43.407 324.917 44.721 323.854 46.473 C 322.836 48.225 322.328 50.437 322.328 53.111 L 322.328 55.047 C 322.328 57.905 322.859 60.28 323.923 62.17 C 324.987 64.06 326.374 65.489 328.085 66.457 C 329.842 67.379 331.669 67.84 333.565 67.84 C 335.969 67.84 337.981 67.287 339.599 66.18 C 341.218 65.074 342.397 63.553 343.137 61.616 L 348.894 61.616 C 348.293 63.737 347.299 65.627 345.911 67.287 C 344.524 68.946 342.79 70.26 340.709 71.228 C 338.674 72.196 336.293 72.68 333.565 72.68 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 363.975 71.851 L 351.628 37.552 L 357.732 37.552 L 367.582 67.218 L 367.859 67.218 L 377.778 37.552 L 383.744 37.552 L 371.397 71.851 L 363.975 71.851 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 401.075 71.851 L 401.075 23.446 L 406.901 23.446 L 406.901 43.292 L 407.179 43.292 C 408.566 41.125 410.254 39.489 412.242 38.382 C 414.277 37.276 416.45 36.723 418.762 36.723 C 421.398 36.723 423.71 37.276 425.699 38.382 C 427.687 39.443 429.213 41.102 430.277 43.361 C 431.387 45.574 431.942 48.386 431.942 51.797 L 431.942 71.851 L 426.184 71.851 L 426.184 52.42 C 426.184 48.87 425.445 46.196 423.965 44.398 C 422.531 42.6 420.381 41.701 417.514 41.701 C 415.525 41.701 413.722 42.185 412.103 43.154 C 410.485 44.122 409.213 45.528 408.288 47.372 C 407.364 49.17 406.901 51.405 406.901 54.079 L 406.901 71.851 L 401.075 71.851 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 450.003 72.68 C 447.368 72.68 445.055 72.15 443.067 71.09 C 441.125 69.984 439.599 68.324 438.489 66.111 C 437.379 63.852 436.824 61.017 436.824 57.606 L 436.824 37.552 L 442.651 37.552 L 442.651 56.983 C 442.651 60.533 443.414 63.207 444.94 65.005 C 446.466 66.803 448.662 67.702 451.529 67.702 C 453.518 67.702 455.275 67.218 456.801 66.249 C 458.373 65.281 459.599 63.875 460.478 62.031 C 461.402 60.187 461.865 57.952 461.865 55.324 L 461.865 37.552 L 467.691 37.552 L 467.691 71.851 L 462.558 71.851 L 462.004 66.457 L 461.726 66.457 C 460.57 68.301 458.998 69.799 457.009 70.952 C 455.067 72.104 452.732 72.68 450.003 72.68 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 492.769 72.68 C 490.919 72.68 489.139 72.404 487.428 71.851 C 485.763 71.297 484.237 70.491 482.85 69.43 C 481.462 68.324 480.26 66.941 479.243 65.281 L 478.965 65.281 L 478.41 71.851 L 473.555 71.851 L 473.555 23.446 L 479.381 23.446 L 479.381 43.223 C 480.491 41.563 482.064 40.065 484.098 38.728 C 486.179 37.391 488.815 36.723 492.006 36.723 C 495.659 36.723 498.734 37.529 501.231 39.143 C 503.775 40.71 505.694 42.854 506.988 45.574 C 508.329 48.294 509 51.336 509 54.702 C 509 58.067 508.329 61.109 506.988 63.829 C 505.694 66.549 503.821 68.716 501.37 70.329 C 498.965 71.897 496.098 72.68 492.769 72.68 Z M 491.382 67.632 C 493.786 67.632 495.867 67.102 497.624 66.042 C 499.381 64.936 500.723 63.414 501.647 61.478 C 502.618 59.542 503.104 57.283 503.104 54.702 C 503.104 52.12 502.618 49.861 501.647 47.925 C 500.723 45.989 499.381 44.49 497.624 43.43 C 495.867 42.324 493.786 41.771 491.382 41.771 C 488.977 41.771 486.873 42.324 485.069 43.43 C 483.312 44.49 481.948 45.989 480.977 47.925 C 480.006 49.861 479.52 52.12 479.52 54.702 C 479.52 57.283 480.006 59.542 480.977 61.478 C 481.948 63.414 483.312 64.936 485.069 66.042 C 486.873 67.102 488.977 67.632 491.382 67.632 Z" fill="currentColor" fill-rule="nonzero"></path>
+</svg>
+          <p>© 2026 CADev hub — todos os direitos reservados</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/cadev.hub/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61590234766808" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+            <a href="https://www.linkedin.com/in/cadev-hub-b001ab414/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7c0-1.67-.03-3.8-2.32-3.8-2.32 0-2.68 1.8-2.68 3.68V24H8V8z"/></svg></a>
+            <a href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20CADev%20Hub%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg></a>
+          </div>
+        </div>
+        <div class="right">
+          <h2>Tecnologia que acompanha o seu negócio e impulsiona o seu crescimento.</h2>
+          <p>Se você chegou até aqui, já é um sinal de que está pronto para o próximo nível.</p>
+          <div class="cta">
+            <a class="btn btn-primary btn-md" href="orcamento.html">Solicitar orçamento
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20CADev%20Hub%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Entrar em contato
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ===== Lightbox (reuses the source video) ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Fechar">✕</button>
+  <video src="uploads/trailer.mp4" controls playsinline></video>
+</div>
+
+<script src="app.js?v=2"></script>
+
+<!-- ===== Tweaks panel (React island) ===== -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<div id="tweaks-root"></div>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#179E1D",
+  "revealLength": "Cinematic",
+  "copyReveal": "Late",
+  "grain": true
+}/*EDITMODE-END*/;
+
+const ACCENTS = ["#179E1D", "#32BCFA", "#41E248", "#FD9800"];
+const REVEAL_H = { Compact: "230vh", Cinematic: "340vh", Epic: "470vh" };
+const COPY_START = { Early: 0.66, Late: 0.80 };
+
+function CadevTweaks(){
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(()=>{
+    const root = document.documentElement;
+    root.style.setProperty('--accent', t.accent);
+    root.style.setProperty('--reveal-h', REVEAL_H[t.revealLength] || "340vh");
+    root.style.setProperty('--grain-op', t.grain ? .05 : 0);
+    window.dispatchEvent(new CustomEvent('cadev:tweak', { detail:{ copyStart: COPY_START[t.copyReveal] ?? 0.80 } }));
+  }, [t]);
+  return (
+    <TweaksPanel>
+      <TweakSection label="Brand reveal" />
+      <TweakRadio label="Reveal length" value={t.revealLength}
+        options={["Compact","Cinematic","Epic"]}
+        onChange={v=>setTweak('revealLength', v)} />
+      <TweakRadio label="Headline reveal" value={t.copyReveal}
+        options={["Early","Late"]}
+        onChange={v=>setTweak('copyReveal', v)} />
+      <TweakSection label="Aparência" />
+      <TweakColor label="Cor de destaque" value={t.accent}
+        options={ACCENTS} onChange={v=>setTweak('accent', v)} />
+      <TweakToggle label="Granulado de filme" value={t.grain}
+        onChange={v=>setTweak('grain', v)} />
+    </TweaksPanel>
+  );
+}
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<CadevTweaks/>);
+</script>
+</body>
+</html>

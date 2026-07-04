@@ -1,25 +1,42 @@
-RewriteEngine On
-
-# URL sem .html
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^ %1 [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^([^/]+)/?$ $1.html [L]
-
 # ============================================================
-# CADev Hub — Proteção de arquivos sensíveis
+#  CADev Hub — URLs limpas (sem .html) + Proteção de arquivos sensíveis
+#  Funciona em Apache E em OpenLiteSpeed/LiteSpeed (CyberPanel)
 # ============================================================
 
+# ---- URLs limpas: /orcamento em vez de /orcamento.html ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Se o arquivo/diretório NÃO existir, tenta .html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
+  
+  # Redireciona .html para a versão limpa (HTTP 301)
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([a-zA-Z0-9_-]+)\.html\ HTTP
+  RewriteRule ^([a-zA-Z0-9_-]+)\.html$ /$1 [R=301,L]
+</IfModule>
+
+# ---- Bloqueia acesso web direto a arquivos sensíveis ----
 <FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
     Require all denied
 </FilesMatch>
 
+# Fallback para Apache < 2.4
 <IfModule !mod_authz_core.c>
     <FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
         Order allow,deny
         Deny from all
     </FilesMatch>
+</IfModule>
+
+# ---- Headers de segurança ----
+<IfModule mod_headers.c>
+    # Impede clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Bloqueia MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    # Ativa proteção XSS no navegador
+    Header set X-XSS-Protection "1; mode=block"
 </IfModule>

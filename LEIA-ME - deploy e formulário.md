@@ -2,7 +2,7 @@
 
 ## Arquivos do site
 ```
-CADev Hub.html          → página principal (renomeie para index.html ao subir)
+index.html               → página principal
 orcamento.html          → formulário de orçamento
 styles.css, orcamento.css, app.js, orcamento.js
 config-email.php        → ÚNICO lugar com a chave do Resend (protegido)
@@ -46,8 +46,7 @@ A chave fica em `config-email.php`, com **três camadas** de proteção:
 ---
 
 ## 2) Subir na VPS (CyberPanel / LiteSpeed)
-1. Envie os arquivos para o **Document Root** do site (no CyberPanel: `/home/cadevhub.com/public_html/`).
-2. Renomeie `CADev Hub.html` → **`index.html`** (os links internos para `orcamento.html` já estão certos).
+1. Envie os arquivos para o **Document Root** do site (no CyberPanel: `/home/cadevhub.com/public_html/`). A página principal já é o **`index.html`**.
 3. PHP já vem habilitado (lsphp). Precisa da extensão **cURL** (padrão) ou `allow_url_fopen=on` — qualquer uma serve para o HTTPS do Resend.
 4. Permissões: arquivos `644`, pastas `755`. A pasta precisa de **escrita** para gravar o log de debug.
 5. **Não** exponha `config-email.php` em repositório público (tem a chave).

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CADev Hub — Orçamentos</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<style>
+/* ===== Orçamentos — construtor ===== */
+.oc-app{display:grid;grid-template-columns:minmax(420px,480px) 1fr;gap:0;min-height:100vh}
+.oc-editor{background:#0e1310;border-right:1px solid var(--line);padding:28px 26px 120px;overflow-y:auto;height:100vh}
+.oc-preview-wrap{background:#0a0c0c;padding:36px;overflow-y:auto;height:100vh;
+  background-image:radial-gradient(120% 60% at 50% 0,rgba(23,158,29,.08),transparent 60%)}
+
+/* editor header */
+.oc-brand{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.oc-brand svg{width:40px}
+.oc-brand b{font-family:"DM Sans",sans-serif;font-size:1.15rem;font-weight:700}
+.oc-brand span{color:var(--text-mute);font-size:.82rem;display:block;margin-top:1px}
+.oc-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+.oc-tool{display:inline-flex;align-items:center;gap:7px;font:600 .82rem "Inter",sans-serif;
+  padding:9px 13px;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);
+  color:var(--text-dim);cursor:pointer;transition:.18s}
+.oc-tool:hover{color:#fff;border-color:var(--green-hi);background:rgba(23,158,29,.12)}
+.oc-tool svg{width:15px;height:15px}
+.oc-tool.primary{background:var(--green);color:#fff;border-color:var(--green)}
+.oc-tool.primary:hover{background:var(--btn-green-hover)}
+
+/* editor sections */
+.oc-sec{margin-bottom:26px}
+.oc-sec>h3{font:700 .78rem "Inter",sans-serif;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green-hi);margin:0 0 14px;display:flex;align-items:center;gap:8px}
+.oc-sec>h3 svg{width:15px;height:15px}
+.oc-field{margin-bottom:12px}
+.oc-field label{display:block;font:600 .82rem "Inter",sans-serif;color:var(--text-dim);margin-bottom:6px}
+.oc-field input,.oc-field textarea,.oc-field select{width:100%;background:var(--bg);border:1px solid var(--line-strong);
+  border-radius:10px;padding:11px 13px;color:#fff;font:400 .92rem "Inter",sans-serif;transition:.18s}
+.oc-field input:focus,.oc-field textarea:focus,.oc-field select:focus{outline:none;border-color:var(--green-hi);
+  box-shadow:0 0 0 3px rgba(65,226,72,.14)}
+.oc-field textarea{resize:vertical;min-height:70px;line-height:1.5}
+.oc-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* service chips */
+.oc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.oc-chip{font:600 .82rem "Inter",sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line-strong);background:var(--bg);color:var(--text-dim);transition:.16s;user-select:none}
+.oc-chip:hover{border-color:var(--green-hi)}
+.oc-chip.on{background:var(--green);border-color:var(--green);color:#fff}
+
+/* line items */
+.oc-items{display:flex;flex-direction:column;gap:10px}
+.oc-item{background:var(--bg);border:1px solid var(--line-strong);border-radius:12px;padding:12px;position:relative}
+.oc-item .oc-item-top{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:8px}
+.oc-item select{font-size:.82rem;padding:8px 10px}
+.oc-item .del{width:34px;height:34px;flex:none;border-radius:8px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--text-mute);cursor:pointer;display:grid;place-items:center;transition:.16s}
+.oc-item .del:hover{color:#ff6b6b;border-color:rgba(255,107,107,.4)}
+.oc-item .del svg{width:15px;height:15px}
+.oc-item .oc-item-bot{display:grid;grid-template-columns:1fr 130px;gap:8px}
+.oc-rec{display:flex;gap:0;border:1px solid var(--line-strong);border-radius:9px;overflow:hidden;margin-top:8px}
+.oc-rec button{flex:1;background:var(--bg);border:none;color:var(--text-mute);font:600 .76rem "Inter",sans-serif;
+  padding:8px 4px;cursor:pointer;transition:.15s}
+.oc-rec button.on{background:var(--green);color:#fff}
+.oc-add{margin-top:12px;width:100%;padding:11px;border-radius:10px;border:1px dashed var(--line-strong);
+  background:transparent;color:var(--text-dim);font:600 .85rem "Inter",sans-serif;cursor:pointer;transition:.16s;
+  display:flex;align-items:center;justify-content:center;gap:7px}
+.oc-add:hover{border-color:var(--green-hi);color:#fff;background:rgba(23,158,29,.08)}
+.oc-add svg{width:15px;height:15px}
+.oc-list-mini{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.oc-list-mini li{display:flex;gap:8px}
+.oc-list-mini input{flex:1}
+.oc-list-mini .del{width:38px;flex:none}
+
+/* saved drawer */
+.oc-saved{position:fixed;top:0;right:0;bottom:0;width:340px;background:#0e1310;border-left:1px solid var(--line-strong);
+  z-index:60;transform:translateX(100%);transition:transform .3s var(--ease);padding:24px;overflow-y:auto;box-shadow:-30px 0 60px rgba(0,0,0,.5)}
+.oc-saved.open{transform:translateX(0)}
+.oc-saved h3{font-family:"DM Sans",sans-serif;margin:0 0 4px}
+.oc-saved .sub{color:var(--text-mute);font-size:.85rem;margin-bottom:18px}
+.oc-saved-item{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.16s}
+.oc-saved-item:hover{border-color:var(--green-hi)}
+.oc-saved-item b{display:block;font-size:.95rem;margin-bottom:3px}
+.oc-saved-item small{color:var(--text-mute);font-size:.78rem}
+.oc-saved-item .r{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.oc-saved-item .val{color:var(--green-hi);font-weight:700;font-size:.85rem}
+.oc-saved-item .rm{color:var(--text-mute);font-size:.76rem;text-decoration:underline}
+.oc-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;opacity:0;pointer-events:none;transition:.3s}
+.oc-backdrop.open{opacity:1;pointer-events:auto}
+
+/* ===== PROPOSAL (client view / preview) ===== */
+.oc-doc{max-width:760px;margin:0 auto;background:linear-gradient(180deg,#12181500,#0e131000);
+  border:1px solid var(--line);border-radius:var(--radius-l);overflow:hidden}
+.oc-doc-hd{padding:44px 48px 36px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 100% at 50% 0,rgba(23,158,29,.28),rgba(12,14,14,0) 62%),#0e1310;
+  border-bottom:1px solid var(--line)}
+.oc-doc-hd .logo{width:52px;margin-bottom:22px}
+.oc-doc-hd .eyebrow{font:700 .74rem "Inter",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--green-hi);margin-bottom:12px}
+.oc-doc-hd h1{font-family:"DM Sans",sans-serif;font-weight:700;font-size:2.4rem;line-height:1.08;letter-spacing:-.02em;margin:0 0 8px;
+  text-wrap:balance}
+.oc-doc-hd .meta{color:var(--text-dim);font-size:.98rem;margin-top:14px;line-height:1.6}
+.oc-doc-hd .meta b{color:#fff;font-weight:600}
+.oc-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.oc-badges span{font:600 .78rem "Inter",sans-serif;padding:6px 12px;border-radius:999px;
+  background:rgba(65,226,72,.12);border:1px solid rgba(65,226,72,.3);color:var(--green-hi)}
+.oc-doc-body{padding:40px 48px 48px}
+.oc-block{margin-bottom:40px}
+.oc-block>h2{font:700 .8rem "Inter",sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--text-mute);margin:0 0 16px}
+.oc-block p.lead{font-size:1.06rem;line-height:1.7;color:var(--text-dim);margin:0}
+.oc-video{position:relative;border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--line-strong);aspect-ratio:16/9;background:#000}
+.oc-video video,.oc-video iframe{width:100%;height:100%;display:block;border:0}
+.oc-video .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--text-mute);gap:10px;text-align:center;
+  background:linear-gradient(135deg,#0e1310,#11201a);font-size:.9rem}
+.oc-video .ph svg{width:40px;height:40px;color:var(--green-hi)}
+.oc-deliv{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.oc-deliv li{display:flex;gap:12px;align-items:flex-start;color:var(--text-dim);font-size:1rem;line-height:1.5}
+.oc-deliv li svg{width:20px;height:20px;color:var(--green-hi);flex:none;margin-top:2px}
+.oc-portfolio{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.oc-pf{display:block;border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;text-decoration:none;background:var(--surface);transition:.2s}
+.oc-pf:hover{border-color:var(--green-hi);transform:translateY(-2px)}
+.oc-pf .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#0e1310,#11201a);background-size:cover;background-position:center;position:relative}
+.oc-pf .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0,rgba(65,226,72,.18),transparent 70%)}
+.oc-pf .cap{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.oc-pf .cap b{font-size:.92rem;color:#fff}
+.oc-pf .cap svg{width:15px;height:15px;color:var(--green-hi);flex:none}
+
+/* investment table */
+.oc-inv-group{margin-bottom:22px}
+.oc-inv-group>h3{font:700 .82rem "DM Sans",sans-serif;color:#fff;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.oc-inv-group>h3 .tag{font:600 .68rem "Inter",sans-serif;padding:3px 8px;border-radius:6px;letter-spacing:.05em;text-transform:uppercase}
+.tag.once{background:rgba(50,188,250,.14);color:var(--cyan-soft);border:1px solid rgba(50,188,250,.3)}
+.tag.month{background:rgba(65,226,72,.12);color:var(--green-hi);border:1px solid rgba(65,226,72,.3)}
+.oc-inv-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.oc-inv-row .d{color:var(--text-dim);font-size:.98rem}
+.oc-inv-row .d small{display:block;color:var(--text-mute);font-size:.8rem;margin-top:2px}
+.oc-inv-row .v{font-weight:600;color:#fff;white-space:nowrap;font-size:1rem}
+.oc-totals{margin-top:26px;display:grid;gap:12px}
+.oc-total{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-radius:16px;border:1px solid var(--line-strong)}
+.oc-total.initial{background:rgba(50,188,250,.08)}
+.oc-total.monthly{background:rgba(23,158,29,.12);border-color:rgba(65,226,72,.3)}
+.oc-total .lbl{font-family:"DM Sans",sans-serif;font-weight:600;font-size:1.05rem}
+.oc-total .lbl small{display:block;color:var(--text-mute);font-size:.78rem;font-weight:400;margin-top:2px}
+.oc-total .amt{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:-.02em}
+.oc-total.initial .amt{color:var(--cyan-soft)}
+.oc-total.monthly .amt{color:var(--green-hi)}
+.oc-note{color:var(--text-mute);font-size:.85rem;line-height:1.6;margin-top:14px;padding-left:14px;border-left:2px solid var(--line-strong)}
+.oc-cta{margin-top:36px;padding:32px;border-radius:var(--radius-m);text-align:center;
+  background:radial-gradient(120% 100% at 50% 0,rgba(23,158,29,.2),transparent 70%),#0e1310;border:1px solid var(--line-strong)}
+.oc-cta h3{font-family:"DM Sans",sans-serif;font-size:1.4rem;margin:0 0 8px}
+.oc-cta p{color:var(--text-dim);margin:0 0 20px}
+.oc-cta .btn{width:auto}
+.oc-foot{text-align:center;color:var(--text-mute);font-size:.82rem;padding:22px;border-top:1px solid var(--line)}
+.oc-empty{color:var(--text-mute);font-size:.92rem;font-style:italic}
+
+/* client-only mode hides editor */
+body.client-mode .oc-editor,body.client-mode .oc-saved,body.client-mode .oc-backdrop{display:none}
+body.client-mode .oc-app{grid-template-columns:1fr}
+body.client-mode .oc-preview-wrap{height:auto;min-height:100vh}
+
+@media(max-width:980px){
+  .oc-app{grid-template-columns:1fr}
+  .oc-editor{height:auto;border-right:none;border-bottom:1px solid var(--line)}
+  .oc-preview-wrap{height:auto}
+}
+@media print{
+  .oc-editor,.oc-saved,.oc-backdrop{display:none!important}
+  .oc-app{grid-template-columns:1fr}
+  .oc-preview-wrap{height:auto;padding:0;background:#fff}
+  .oc-doc{border:none;max-width:none}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="oc-app">
+  <!-- ========== EDITOR ========== -->
+  <aside class="oc-editor">
+    <div class="oc-brand">
+      <svg viewBox="0 0 67 39" fill="url(#ocG)" aria-hidden="true">
+        <defs><linearGradient id="ocG" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+          <stop offset="0" stop-color="#A5FFA9"/><stop offset="0.55" stop-color="#41E248"/><stop offset="1" stop-color="#179E1D"/>
+        </linearGradient></defs>
+        <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+        <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+      </svg>
+      <div><b>Orçamentos</b><span>Construtor de propostas — CADev Hub</span></div>
+    </div>
+
+    <div class="oc-toolbar">
+      <button class="oc-tool primary" id="btnSave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>Salvar</button>
+      <button class="oc-tool" id="btnNew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Novo</button>
+      <button class="oc-tool" id="btnOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v13H3zM3 7l2-3h6l2 3"/></svg>Salvos</button>
+      <button class="oc-tool" id="btnLink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Copiar link</button>
+      <button class="oc-tool" id="btnPrint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>PDF</button>
+    </div>
+
+    <!-- Cliente -->
+    <div class="oc-sec">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>Cliente</h3>
+      <div class="oc-field"><label>Nome do cliente</label><input data-k="cliente.nome" placeholder="Ex.: Dra. Ana Ribeiro"></div>
+      <div class="oc-row2">
+        <div class="oc-field"><label>Empresa / marca</label><input data-k="cliente.empresa" placeholder="Ribeiro Advocacia"></div>
+        <div class="oc-field"><label>WhatsApp do cliente</label><input data-k="cliente.contato" placeholder="(31) 9..."></div>
+      </div>
+    </div>
+
+    <!-- Projeto -->
+    <div class="oc-sec">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Projeto</h3>
+      <div class="oc-field"><label>Título da proposta</label><input data-k="projeto.titulo" placeholder="Site + automação de atendimento"></div>
+      <div class="oc-field">
+        <label>Tipo de serviço</label>
+        <div class="oc-chips" id="chips"></div>
+      </div>
+      <div class="oc-field"><label>Resumo / escopo</label><textarea data-k="projeto.resumo" placeholder="Descreva o que será entregue, o problema que resolve e o diferencial..."></textarea></div>
+      <div class="oc-row2">
+        <div class="oc-field"><label>Prazo de entrega</label><input data-k="projeto.prazo" placeholder="Ex.: 3 semanas"></div>
+        <div class="oc-field"><label>Validade (dias)</label><input data-k="projeto.validade" type="number" placeholder="15"></div>
+      </div>
+    </div>
+
+    <!-- Entregáveis -->
+    <div class="oc-sec">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Entregáveis</h3>
+      <ul class="oc-list-mini" id="delivList"></ul>
+      <button class="oc-add" id="addDeliv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar entregável</button>
+    </div>
+
+    <!-- Mídia -->
+    <div class="oc-sec">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7zM1 5h15v14H1z"/></svg>Vídeo & Portfólio</h3>
+      <div class="oc-field"><label>Vídeo de apresentação (URL .mp4 ou YouTube)</label><input data-k="video" placeholder="uploads/trailer.mp4 ou https://youtu.be/..."></div>
+      <label style="display:block;font:600 .82rem 'Inter';color:var(--text-dim);margin-bottom:6px">Exemplos de portfólio</label>
+      <div class="oc-items" id="pfList"></div>
+      <button class="oc-add" id="addPf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar exemplo</button>
+    </div>
+
+    <!-- Investimento -->
+    <div class="oc-sec">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Investimento</h3>
+      <div class="oc-items" id="itemList"></div>
+      <button class="oc-add" id="addItem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar item de custo</button>
+      <div class="oc-field" style="margin-top:16px"><label>Observação sobre valores (opcional)</label><textarea data-k="observacoes" placeholder="Ex.: verba de anúncio paga direto à plataforma; tokens estimados podem variar conforme volume..."></textarea></div>
+    </div>
+  </aside>
+
+  <!-- ========== PREVIEW / CLIENT VIEW ========== -->
+  <div class="oc-preview-wrap">
+    <div class="oc-doc" id="doc"><!-- rendered by JS --></div>
+  </div>
+</div>
+
+<!-- saved drawer -->
+<div class="oc-backdrop" id="backdrop"></div>
+<aside class="oc-saved" id="drawer">
+  <h3>Orçamentos salvos</h3>
+  <div class="sub">Guardados neste navegador. O banco MySQL entra na próxima etapa.</div>
+  <div id="savedList"></div>
+</aside>
+
+<script src="orcamentos.js?v=1"></script>
+</body>
+</html>
