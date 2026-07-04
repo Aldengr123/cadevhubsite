@@ -1,3 +1,4 @@
 config-email.php
 *.log
 uploads/
+config-db.php

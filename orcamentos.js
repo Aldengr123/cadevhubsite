@@ -2,6 +2,25 @@
 (function(){
   const WA = '5531996835764';
   const LS_KEY = 'cadev_orcamentos';
+  const API = 'orcamentos-api.php';
+
+  /* ---------- API helpers ---------- */
+  function adminToken(force){
+    let t=localStorage.getItem('cadev_admin_token');
+    if(!t||force){ t=prompt('Senha de administrador (a mesma definida em config-db.php):')||''; if(t) localStorage.setItem('cadev_admin_token',t); }
+    return t;
+  }
+  async function apiGet(id){
+    try{ const r=await fetch(API+'?action=get&id='+encodeURIComponent(id)); return await r.json(); }
+    catch(e){ return {ok:false,error:'offline'}; }
+  }
+  async function apiAdmin(action,payload){
+    const r=await fetch(API+'?action='+action,{method:'POST',
+      headers:{'Content-Type':'application/json','X-Admin-Token':adminToken()},
+      body:JSON.stringify(payload||{})});
+    if(r.status===401){ adminToken(true); throw new Error('senha incorreta'); }
+    return await r.json();
+  }
 
   const GRUPOS = {
     setup:      {label:'Investimento inicial (setup)', rec:'unico'},
@@ -179,33 +198,70 @@
   function encodeState(){ return btoa(unescape(encodeURIComponent(JSON.stringify(state)))); }
   function decodeState(str){ try{ return JSON.parse(decodeURIComponent(escape(atob(str)))); }catch(e){ return null; } }
 
-  function copyLink(){
-    const url=location.origin+location.pathname+'?view=1#p='+encodeState();
-    navigator.clipboard.writeText(url).then(()=>toast('Link copiado! Cole no WhatsApp do cliente.'),()=>prompt('Copie o link:',url));
+  async function copyLink(){
+    let short=null;
+    try{ const res=await doSave(true); if(res&&res.ok) short=location.origin+location.pathname+'?id='+encodeURIComponent(state.id)+'&view=1'; }catch(e){}
+    const url = short || (location.origin+location.pathname+'?view=1#p='+encodeState());
+    navigator.clipboard.writeText(url).then(
+      ()=>toast(short?'Link curto copiado! Cole no WhatsApp.':'Sem banco — link longo copiado.'),
+      ()=>prompt('Copie o link:',url));
   }
 
-  /* ---------- localStorage archive ---------- */
+  /* ---------- persistência: MySQL (primary) + localStorage (backup) ---------- */
   function loadAll(){ try{ return JSON.parse(localStorage.getItem(LS_KEY))||{}; }catch(e){ return {}; } }
   function saveAll(o){ localStorage.setItem(LS_KEY,JSON.stringify(o)); }
-  function save(){
-    if(!state.id) state.id='oc_'+Date.now().toString(36);
-    const all=loadAll();
-    all[state.id]={data:JSON.parse(JSON.stringify(state)),savedAt:Date.now(),
-      titulo:state.projeto.titulo||'Sem título',cliente:state.cliente.nome||'',
-      total:state.itens.filter(i=>i.rec==='unico').reduce((a,i)=>a+(+i.valor||0),0)};
-    saveAll(all); toast('Orçamento salvo.');
+  function meta(){
+    return {
+      titulo:state.projeto.titulo||'Sem título', cliente:state.cliente.nome||'',
+      total_inicial:state.itens.filter(i=>i.rec==='unico').reduce((a,i)=>a+(+i.valor||0),0),
+      total_mensal:state.itens.filter(i=>i.rec==='mensal').reduce((a,i)=>a+(+i.valor||0),0)
+    };
   }
-  function renderSaved(){
-    const box=$('#savedList'); const all=loadAll();
+  function saveLocal(){
+    const all=loadAll(); const m=meta();
+    all[state.id]={data:JSON.parse(JSON.stringify(state)),savedAt:Date.now(),titulo:m.titulo,cliente:m.cliente,total:m.total_inicial};
+    saveAll(all);
+  }
+  async function doSave(silent){
+    if(!state.id) state.id='oc_'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+    saveLocal();
+    const m=meta();
+    try{
+      const res=await apiAdmin('save',{id:state.id,titulo:m.titulo,cliente:m.cliente,total_inicial:m.total_inicial,total_mensal:m.total_mensal,dados:state});
+      if(res&&res.ok){ if(!silent)toast('Salvo no banco de dados.'); return res; }
+      throw new Error(res&&res.error||'falha');
+    }catch(e){ if(!silent)toast('Sem banco — salvo só neste navegador ('+e.message+').'); return {ok:false}; }
+  }
+  function save(){ doSave(false); }
+
+  async function renderSaved(){
+    const box=$('#savedList'); box.innerHTML='<p class="oc-empty">Carregando...</p>';
+    let itens=null;
+    try{ const res=await apiAdmin('list'); if(res&&res.ok) itens=res.itens; }catch(e){}
+    if(itens){
+      if(!itens.length){ box.innerHTML='<p class="oc-empty">Nenhum orçamento no banco ainda.</p>'; return; }
+      box.innerHTML='';
+      itens.forEach(r=>{
+        const d=document.createElement('div'); d.className='oc-saved-item';
+        const dt=r.atualizado_em?new Date(r.atualizado_em.replace(' ','T')).toLocaleDateString('pt-BR'):'';
+        d.innerHTML=`<b>${escT(r.titulo)}</b><small>${escT(r.cliente)||'—'} · ${dt}</small><div class="r"><span class="val">${BRL(r.total_inicial)}</span><span class="rm">Excluir</span></div>`;
+        d.querySelector('.rm').onclick=async e=>{ e.stopPropagation(); if(confirm('Excluir este orçamento do banco?')){ try{ await apiAdmin('delete',{id:r.id}); }catch(err){} renderSaved(); } };
+        d.onclick=async ()=>{ const g=await apiGet(r.id); if(g&&g.ok){ state=g.dados; state.id=r.id; hydrate(); closeDrawer(); toast('Carregado do banco.'); } };
+        box.appendChild(d);
+      });
+      return;
+    }
+    // fallback: cópias locais
+    const all=loadAll();
     const keys=Object.keys(all).sort((a,b)=>all[b].savedAt-all[a].savedAt);
-    if(!keys.length){ box.innerHTML='<p class="oc-empty">Nenhum orçamento salvo ainda.</p>'; return; }
-    box.innerHTML='';
+    if(!keys.length){ box.innerHTML='<p class="oc-empty">Sem conexão com o banco e nada salvo localmente.</p>'; return; }
+    box.innerHTML='<p class="oc-empty" style="margin-bottom:10px">Sem banco — mostrando cópias locais:</p>';
     keys.forEach(k=>{
       const r=all[k];
       const d=document.createElement('div'); d.className='oc-saved-item';
       d.innerHTML=`<b>${escT(r.titulo)}</b><small>${escT(r.cliente)||'—'} · ${new Date(r.savedAt).toLocaleDateString('pt-BR')}</small><div class="r"><span class="val">${BRL(r.total)}</span><span class="rm">Excluir</span></div>`;
-      d.querySelector('.rm').onclick=e=>{ e.stopPropagation(); if(confirm('Excluir este orçamento?')){ const a=loadAll(); delete a[k]; saveAll(a); renderSaved(); } };
-      d.onclick=()=>{ state=JSON.parse(JSON.stringify(all[k].data)); state.id=k; hydrate(); closeDrawer(); toast('Orçamento carregado.'); };
+      d.querySelector('.rm').onclick=e=>{ e.stopPropagation(); if(confirm('Excluir cópia local?')){ const a=loadAll(); delete a[k]; saveAll(a); renderSaved(); } };
+      d.onclick=()=>{ state=JSON.parse(JSON.stringify(all[k].data)); state.id=k; hydrate(); closeDrawer(); };
       box.appendChild(d);
     });
   }
@@ -224,7 +280,7 @@
   function hydrate(){ fillFields(); buildChips(); renderDeliv(); renderPf(); renderItems(); render(); }
 
   /* ---------- init ---------- */
-  function init(){
+  async function init(){
     bindFields();
     $('#addDeliv').onclick=()=>{ state.entregaveis.push(''); renderDeliv(); render(); };
     $('#addPf').onclick=()=>{ state.portfolio.push({titulo:'',url:'',img:''}); renderPf(); render(); };
@@ -236,12 +292,23 @@
     $('#btnPrint').onclick=()=>window.print();
     $('#backdrop').onclick=closeDrawer;
 
-    // client view via hash
-    const m=location.hash.match(/p=([^&]+)/);
-    if(m){ const decoded=decodeState(m[1]); if(decoded){ state=decoded; } }
-    if(new URLSearchParams(location.search).has('view')) document.body.classList.add('client-mode');
+    // client view: por id (banco) ou hash (offline)
+    const params=new URLSearchParams(location.search);
+    const id=params.get('id');
+    if(id){
+      document.body.classList.add('client-mode');
+      const g=await apiGet(id);
+      if(g&&g.ok&&g.dados){ state=g.dados; state.id=id; }
+      else {
+        const m=location.hash.match(/p=([^&]+)/); const dec=m&&decodeState(m[1]);
+        if(dec){ state=dec; } else { hydrate(); doc.innerHTML='<p style="color:var(--text-mute);text-align:center;padding:100px 20px;font-size:1.05rem">Proposta não encontrada ou expirada.</p>'; return; }
+      }
+    } else {
+      const m=location.hash.match(/p=([^&]+)/);
+      if(m){ const dec=decodeState(m[1]); if(dec) state=dec; }
+      if(params.has('view')) document.body.classList.add('client-mode');
+    }
 
-    // seed one item for empty editor
     if(!state.itens.length && !document.body.classList.contains('client-mode')){
       state.itens.push({grupo:'setup',descricao:'',valor:'',rec:'unico'});
     }

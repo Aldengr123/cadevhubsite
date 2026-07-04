@@ -7,25 +7,25 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  
+
   # Se o arquivo/diretório NÃO existir, tenta .html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
-  
+
   # Redireciona .html para a versão limpa (HTTP 301)
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([a-zA-Z0-9_-]+)\.html\ HTTP
   RewriteRule ^([a-zA-Z0-9_-]+)\.html$ /$1 [R=301,L]
 </IfModule>
 
 # ---- Bloqueia acesso web direto a arquivos sensíveis ----
-<FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
+<FilesMatch "(^config-(email|db)\.php$|^\.htaccess$|\.log$|\.env$|\.sql$)">
     Require all denied
 </FilesMatch>
 
 # Fallback para Apache < 2.4
 <IfModule !mod_authz_core.c>
-    <FilesMatch "(^config-email\.php$|^\.htaccess$|\.log$|\.env$)">
+    <FilesMatch "(^config-(email|db)\.php$|^\.htaccess$|\.log$|\.env$|\.sql$)">
         Order allow,deny
         Deny from all
     </FilesMatch>
@@ -33,10 +33,7 @@
 
 # ---- Headers de segurança ----
 <IfModule mod_headers.c>
-    # Impede clickjacking
     Header set X-Frame-Options "SAMEORIGIN"
-    # Bloqueia MIME type sniffing
     Header set X-Content-Type-Options "nosniff"
-    # Ativa proteção XSS no navegador
     Header set X-XSS-Protection "1; mode=block"
 </IfModule>
