@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta de Parceria: DGEX x CADev Hub</title>
+<meta name="description" content="Plataforma white-label de IA + CRM para a carteira de clínicas da DGEX. A DGEX vende e fica com a marca e a margem; a CADev opera tudo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="planos.css?v=2">
+<link rel="stylesheet" href="lancamento.css?v=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<style>
+/* ===== Proposta DGEX (white-label saúde) ===== */
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.dg-hero{text-align:center;padding:56px 0 8px}
+.dg-lockup{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:34px;flex-wrap:wrap}
+.dg-lockup .cad{height:40px;width:auto}
+.dg-lockup .x{color:var(--text-mute);font-family:"DM Sans",sans-serif;font-size:1.4rem}
+.dg-lockup .client{height:38px;width:auto}
+.dg-tag{display:inline-flex;align-items:center;gap:9px;background:rgba(65,226,72,.1);border:1px solid rgba(65,226,72,.3);
+  color:var(--green-hi);font:700 .76rem "Inter",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:20px}
+.dg-tag svg{width:14px;height:14px}
+.dg-hero h1{font-family:"DM Sans",sans-serif;font-weight:700;letter-spacing:-.025em;
+  font-size:clamp(2.3rem,5vw,4.1rem);line-height:1.04;max-width:19ch;margin:0 auto}
+.dg-hero h1 em{color:var(--accent);font-style:normal}
+.dg-hero .sub{margin:22px auto 0;max-width:60ch;color:var(--text-dim);font-size:clamp(1.08rem,1.5vw,1.32rem);line-height:1.6;text-wrap:pretty}
+
+/* meta bar */
+.dg-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
+.dg-meta span{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+  border-radius:999px;padding:9px 16px;font-size:.9rem;color:var(--text-dim)}
+.dg-meta span b{color:#fff;font-weight:600}
+.dg-meta span svg{width:15px;height:15px;color:var(--green-hi)}
+
+/* quick 3 */
+.dg-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+@media(max-width:820px){.dg-quick{grid-template-columns:1fr}}
+.dg-q{display:flex;gap:15px;align-items:flex-start;text-align:left;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-m);padding:22px}
+.dg-q .ico{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;background:rgba(23,158,29,.14);color:var(--green-hi)}
+.dg-q .ico svg{width:23px;height:23px}
+.dg-q b{display:block;font-family:"DM Sans",sans-serif;font-size:1.08rem;color:#fff;margin-bottom:4px}
+.dg-q p{color:var(--text-dim);font-size:.94rem;line-height:1.5;margin:0}
+
+/* "por que agora": antes/depois */
+.dg-thenow{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:40px}
+@media(max-width:820px){.dg-thenow{grid-template-columns:1fr}}
+.dg-then,.dg-now{border-radius:var(--radius-l);padding:30px}
+.dg-then{background:var(--surface);border:1px solid var(--line)}
+.dg-now{background:radial-gradient(120% 100% at 0% 0%,rgba(23,158,29,.14),transparent 60%),var(--surface);border:1px solid rgba(65,226,72,.3)}
+.dg-then .lbl,.dg-now .lbl{font:700 .74rem "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;display:inline-flex;align-items:center;gap:8px}
+.dg-then .lbl{color:var(--text-mute)}
+.dg-now .lbl{color:var(--green-hi)}
+.dg-then .lbl svg,.dg-now .lbl svg{width:15px;height:15px}
+.dg-then h3,.dg-now h3{font-family:"DM Sans",sans-serif;font-size:1.3rem;margin:0 0 12px;color:#fff}
+.dg-then p,.dg-now p{color:var(--text-dim);font-size:.98rem;line-height:1.6;margin:0}
+
+/* tech pillars */
+.dg-tech{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.dg-tech{grid-template-columns:1fr}}
+.dg-tech .t{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px}
+.dg-tech .t .ico{width:42px;height:42px;border-radius:11px;flex:none;display:grid;place-items:center;background:rgba(23,158,29,.14);color:var(--green-hi)}
+.dg-tech .t .ico svg{width:22px;height:22px}
+.dg-tech .t b{display:block;font-family:"DM Sans",sans-serif;font-size:1.05rem;color:#fff;margin-bottom:5px}
+.dg-tech .t p{color:var(--text-dim);font-size:.93rem;line-height:1.5;margin:0}
+
+/* parceria roles */
+.dg-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.dg-roles{grid-template-columns:1fr}}
+.dg-role{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px}
+.dg-role.brand{border-color:rgba(65,226,72,.3);background:radial-gradient(120% 80% at 50% 0,rgba(23,158,29,.14),transparent 60%),var(--surface)}
+.dg-role .k{font:700 .76rem "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green-hi);margin-bottom:12px}
+.dg-role h3{font-family:"DM Sans",sans-serif;font-size:1.35rem;margin:0 0 10px}
+.dg-role p{color:var(--text-dim);font-size:.97rem;line-height:1.55;margin:0}
+.dg-callout{display:flex;gap:16px;align-items:center;margin-top:24px;padding:22px 26px;border-radius:var(--radius-m);
+  background:radial-gradient(120% 140% at 0 0,rgba(50,188,250,.12),transparent 60%),var(--surface);border:1px solid rgba(50,188,250,.28)}
+.dg-callout .ico{width:46px;height:46px;border-radius:13px;flex:none;display:grid;place-items:center;background:rgba(50,188,250,.16);color:var(--cyan-soft)}
+.dg-callout .ico svg{width:24px;height:24px}
+.dg-callout b{color:#fff;font-family:"DM Sans",sans-serif;font-size:1.1rem}
+.dg-callout p{color:var(--text-dim);font-size:.95rem;margin:3px 0 0;line-height:1.5}
+
+/* feature checklist */
+.dg-feats{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:34px}
+@media(max-width:760px){.dg-feats{grid-template-columns:1fr}}
+.dg-feats li{display:flex;gap:12px;align-items:flex-start;color:var(--text-dim);font-size:1rem;line-height:1.5;list-style:none}
+.dg-feats li svg{flex:none;width:20px;height:20px;color:var(--green-hi);margin-top:2px}
+.dg-feats li b{color:#fff;font-weight:600}
+
+/* investment table */
+.dg-invest{border:1px solid var(--line-strong);border-radius:var(--radius-l);overflow:hidden;max-width:760px;margin:0 auto}
+.dg-inv-row{display:grid;grid-template-columns:1fr auto;gap:18px;padding:18px 26px;align-items:center}
+.dg-inv-row+.dg-inv-row{border-top:1px solid var(--line)}
+.dg-inv-row .d{color:var(--text-dim);font-size:1rem}
+.dg-inv-row .d b{color:#fff;font-weight:600;display:block;font-family:"DM Sans",sans-serif;font-size:1.05rem}
+.dg-inv-row .v{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.15rem;white-space:nowrap;text-align:right}
+.dg-inv-row .v.free{color:var(--green-hi)}
+.dg-inv-row.hl{background:rgba(23,158,29,.1)}
+.dg-inv-row.hl .v{color:var(--green-hi);font-size:1.4rem}
+.dg-note{max-width:760px;margin:22px auto 0;color:var(--text-dim);font-size:.96rem;line-height:1.6}
+.dg-note b{color:#fff;font-weight:600}
+.dg-subcard{max-width:760px;margin:20px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:26px}
+.dg-subcard h4{font-family:"DM Sans",sans-serif;font-size:1.12rem;margin:0 0 10px;color:#fff;display:flex;align-items:center;gap:9px}
+.dg-subcard h4 svg{width:18px;height:18px;color:var(--green-hi)}
+.dg-subcard p{color:var(--text-dim);font-size:.96rem;line-height:1.6;margin:0}
+
+/* projection table */
+.dg-proj{border:1px solid var(--line-strong);border-radius:var(--radius-l);overflow:hidden;max-width:820px;margin:0 auto}
+.dg-proj .head,.dg-proj .r{display:grid;grid-template-columns:1fr 1.1fr 1.4fr 1.4fr}
+.dg-proj .head{background:#0e1310;padding:16px 22px}
+.dg-proj .head span{font:700 .74rem "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute)}
+.dg-proj .r{padding:16px 22px;align-items:center}
+.dg-proj .r+.r,.dg-proj .head+.r{border-top:1px solid var(--line)}
+.dg-proj .r .p{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.1rem;color:var(--green-hi)}
+.dg-proj .r .c{color:#fff;font-weight:600}
+.dg-proj .r .m{color:var(--text-dim);font-size:.95rem}
+.dg-proj .r .y{color:#fff;font-weight:600;font-size:.98rem}
+.dg-proj .r.best{background:rgba(23,158,29,.1)}
+@media(max-width:720px){
+  .dg-proj .head{display:none}
+  .dg-proj .r{grid-template-columns:1fr 1fr;gap:6px 14px;padding:18px 20px}
+  .dg-proj .r .p{grid-column:1/-1}
+  .dg-proj .r .m::before{content:"Margem/mês: ";color:var(--text-mute);font-size:.82rem}
+  .dg-proj .r .y::before{content:"Ano: ";color:var(--text-mute);font-size:.82rem;font-weight:400}
+}
+
+/* resolve na prática */
+.dg-solve{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.dg-solve{grid-template-columns:1fr}}
+.dg-solve .s{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:32px}
+.dg-solve .s .ico{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(23,158,29,.14);color:var(--green-hi);margin-bottom:18px}
+.dg-solve .s .ico svg{width:26px;height:26px}
+.dg-solve .s h3{font-family:"DM Sans",sans-serif;font-size:1.3rem;margin:0 0 10px}
+.dg-solve .s p{color:var(--text-dim);font-size:.99rem;line-height:1.6;margin:0}
+
+/* steps */
+.dg-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+@media(max-width:860px){.dg-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.dg-steps{grid-template-columns:1fr}}
+.dg-step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:26px;position:relative}
+.dg-step .n{width:38px;height:38px;border-radius:11px;background:rgba(23,158,29,.14);color:var(--green-hi);
+  font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.1rem;display:grid;place-items:center;margin-bottom:16px}
+.dg-step p{color:var(--text-dim);font-size:.96rem;line-height:1.55;margin:0}
+.dg-step p b{color:#fff;font-weight:600}
+
+/* benefícios números */
+.dg-bstats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.dg-bstats{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.dg-bstats{grid-template-columns:1fr}}
+.dg-bstat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:28px 24px}
+.dg-bstat .n{font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(2.2rem,3.2vw,2.9rem);letter-spacing:-.02em;line-height:1;
+  background:linear-gradient(120deg,#5BFF62,#179E1D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px}
+.dg-bstat b{display:block;font-family:"DM Sans",sans-serif;font-size:1.12rem;color:#fff;margin-bottom:8px}
+.dg-bstat p{color:var(--text-dim);font-size:.94rem;line-height:1.5;margin:0}
+.dg-bnote{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:760px){.dg-bnote{grid-template-columns:1fr}}
+.dg-bn{display:flex;gap:15px;align-items:flex-start;background:radial-gradient(120% 100% at 0 0,rgba(23,158,29,.1),transparent 60%),var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-m);padding:24px}
+.dg-bn .ico{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;background:rgba(23,158,29,.14);color:var(--green-hi)}
+.dg-bn .ico svg{width:23px;height:23px}
+.dg-bn b{display:block;font-family:"DM Sans",sans-serif;font-size:1.08rem;color:#fff;margin-bottom:5px}
+.dg-bn p{color:var(--text-dim);font-size:.95rem;line-height:1.55;margin:0}
+
+/* feature cards */
+.dg-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.dg-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.dg-cards{grid-template-columns:1fr}}
+.dg-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:26px 22px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.dg-card:hover{transform:translateY(-3px);border-color:rgba(65,226,72,.4)}
+.dg-card .ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:rgba(23,158,29,.14);color:var(--green-hi);margin-bottom:18px}
+.dg-card .ico svg{width:24px;height:24px}
+.dg-card b{display:block;font-family:"DM Sans",sans-serif;font-size:1.08rem;color:#fff;margin-bottom:7px;line-height:1.25}
+.dg-card p{color:var(--text-dim);font-size:.93rem;line-height:1.5;margin:0}
+
+/* switch de produtos */
+.dg-switchwrap{display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:44px}
+.dg-ask{font-family:"DM Sans",sans-serif;font-weight:500;font-size:clamp(1.1rem,1.6vw,1.4rem);color:#fff}
+.dg-switch{position:relative;display:inline-flex;background:var(--surface);border:1px solid var(--line-strong);border-radius:999px;padding:6px;gap:2px}
+.dg-thumb{position:absolute;top:6px;bottom:6px;left:0;border-radius:999px;background:var(--green);
+  box-shadow:0 6px 20px rgba(23,158,29,.35);transition:transform .38s cubic-bezier(.5,0,.2,1),width .38s cubic-bezier(.5,0,.2,1);z-index:0}
+.dg-sw{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;border:none;background:none;cursor:pointer;
+  font:600 1rem "Inter",sans-serif;color:var(--text-dim);padding:13px 24px;border-radius:999px;transition:color .28s;white-space:nowrap}
+.dg-sw svg{width:19px;height:19px}
+.dg-sw:hover{color:#fff}
+.dg-sw.on{color:#fff}
+@media(max-width:720px){
+  .dg-switch{flex-direction:column;width:100%;max-width:340px}
+  .dg-thumb{display:none}
+  .dg-sw{width:100%;justify-content:center}
+  .dg-sw.on{background:var(--green)}
+}
+/* painéis */
+.dg-panel{display:none}
+
+/* tabela de preços de sites */
+.dg-table{border:1px solid var(--line-strong);border-radius:var(--radius-l);overflow-x:auto;margin-top:30px}
+.dg-table table{width:100%;border-collapse:collapse;min-width:680px}
+.dg-table th{text-align:left;font:700 .74rem "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);
+  background:#0e1310;padding:14px 18px;border-bottom:1px solid var(--line)}
+.dg-table td{padding:16px 18px;border-bottom:1px solid var(--line);color:var(--text-dim);font-size:.95rem;vertical-align:top}
+.dg-table tr:last-child td{border-bottom:none}
+.dg-table tr.group td{background:rgba(23,158,29,.08);color:var(--green-hi);font:700 .78rem "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
+.dg-table td b{color:#fff;font-weight:600}
+.dg-table td.price{color:var(--green-hi);font-weight:700;font-family:"DM Sans",sans-serif;white-space:nowrap}
+.dg-table td.mute{color:var(--text-mute)}
+.dg-panel.on{display:block;animation:dgFade .5s var(--ease)}
+@keyframes dgFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+@media(max-width:767px){
+  .dg-hero{padding:10vw 0 2vw}
+  .dg-hero h1{font-size:9vw}
+  .dg-lockup .cad{height:8vw}.dg-lockup .client{height:7.4vw}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header show solid" data-screen-label="Header">
+  <a class="brand" href="index.html">
+    <svg class="mark" viewBox="0 0 67 39" fill="url(#cadGradH)" aria-hidden="true">
+      <defs><linearGradient id="cadGradH" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <span class="name">CADev hub</span>
+  </a>
+  <nav class="nav">
+    <a class="btn btn-primary" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20DGEX%20e%20quero%20conversar%20sobre%20a%20proposta%20de%20parceria." target="_blank" rel="noopener">Agendar call</a>
+  </nav>
+</header>
+
+<main class="li-page">
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <section class="dg-hero">
+      <div class="dg-lockup">
+        <svg class="cad" viewBox="0 0 67 39" fill="url(#cadGradLk)" aria-hidden="true">
+          <defs><linearGradient id="cadGradLk" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+            <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+          </linearGradient></defs>
+          <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+          <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+        </svg>
+        <span class="x">×</span>
+        <img class="client" src="assets/dgex-logo.avif" alt="DGEX">
+      </div>
+
+      <div class="dg-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Proposta de parceria</div>
+      <h1>Uma parceria entre <em>CADev</em> e DGEX.</h1>
+      <p class="sub">Tecnologia, inteligência artificial e automação sob medida, com a marca da DGEX. Escolha por onde quer começar.</p>
+    </section>
+
+    <!-- ===== AMANDA: prova social (comum, acima do switch) ===== -->
+    <section class="li-sec" id="amanda" style="margin-top:64px">
+      <div class="li-sec-head">
+        <span class="eyebrow">Quem já confia na CADev</span>
+        <h2>A <em>Amanda Normadía</em> colocou a cara no resultado.</h2>
+        <p>Dona do maior curso de tráfego pago para corretores do Brasil, com mais de 13 mil alunos, e à frente da agência que cuida da maior loteadora do Rio de Janeiro. Ela trabalha com a gente, e faz questão de contar por quê.</p>
+      </div>
+
+      <div class="li-amanda">
+        <div class="li-amanda-media">
+          <div class="video">
+            <video src="uploads/amanda-depoimento.mp4" controls playsinline preload="metadata" poster=""></video>
+          </div>
+        </div>
+        <div class="li-amanda-body">
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6-6.3 4.6L8 13.8 2 9.4h7.6z"/></svg> Depoimento em destaque</div>
+          <blockquote class="quote">"O pessoal da CADev deu resultado pra gente. Tanto pra <span>nossa agência</span>, que cuida da maior loteadora do Rio de Janeiro, quanto pros <span>nossos clientes</span>."</blockquote>
+          <div class="who">
+            <div class="av">AN</div>
+            <div>
+              <b>Amanda Normadía</b>
+              <small>Maior curso de tráfego para corretores do Brasil · +13 mil alunos</small>
+            </div>
+          </div>
+          <a class="who-link" href="https://www.instagram.com/anunciosparacorretores/" target="_blank" rel="noopener">@anunciosparacorretores
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dg-hero" style="padding:56px 0 0">
+      <div class="dg-switchwrap">
+        <div class="dg-ask">O que você quer ver agora?</div>
+        <div class="dg-switch" role="tablist">
+          <span class="dg-thumb"></span>
+          <button class="dg-sw on" data-panel="ia-crm" role="tab"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg> IA + CRM</button>
+          <button class="dg-sw" data-panel="ia-interna" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2zM9 21h6M10 23h4"/></svg> IA interna</button>
+          <button class="dg-sw" data-panel="sites" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 9h18"/></svg> Sites</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAINEL: IA + CRM ================= -->
+    <div class="dg-panel on" data-panel="ia-crm">
+
+      <section class="dg-hero" style="padding:48px 0 0">
+        <h2 style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.025em;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;max-width:19ch;margin:0 auto">Uma plataforma de <em style="color:var(--accent);font-style:normal">IA + CRM</em> com a marca da DGEX.</h2>
+        <p class="sub" style="margin:20px auto 0;max-width:60ch;color:var(--text-dim);font-size:clamp(1.05rem,1.4vw,1.28rem);line-height:1.6">A DGEX vende e fica com a marca, o cliente e a margem. A CADev constrói e opera tudo: IA no WhatsApp, agendamento e CRM, sob medida para clínicas do nicho de saúde.</p>
+
+        <div class="dg-quick">
+          <div class="dg-q">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div><b>Marca é sua</b><p>Domínio, identidade e relação com o cliente 100% da DGEX.</p></div>
+          </div>
+          <div class="dg-q">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.9 6.91a2.12 2.12 0 0 1-3-3l6.91-6.9a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><b>Operação é nossa</b><p>Onboarding, treino do agente, infra e suporte ficam com a CADev.</p></div>
+          </div>
+          <div class="dg-q">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div><b>Margem recorrente</b><p>Preço de atacado fixo; você define o preço final ao cliente.</p></div>
+          </div>
+        </div>
+      </section>
+
+    <!-- ===== BENEFÍCIOS CRM + IA (números) ===== -->
+    <section class="li-sec" id="beneficios">
+      <div class="li-sec-head">
+        <span class="eyebrow">O impacto no consultório</span>
+        <h2>O que <em>IA + CRM</em> muda nos números da clínica.</h2>
+        <p>Referências de mercado para atendimento automatizado e CRM na saúde. É esse resultado que a DGEX passa a entregar, com a marca de vocês.</p>
+      </div>
+
+      <div class="dg-bstats">
+        <div class="dg-bstat">
+          <div class="n">−38%</div>
+          <b>Menos no-show</b>
+          <p>Confirmação e lembrete automáticos no WhatsApp reduzem a falta na consulta, a maior perda silenciosa do consultório.</p>
+        </div>
+        <div class="dg-bstat">
+          <div class="n">&lt;1 min</div>
+          <b>Tempo de resposta</b>
+          <p>O lead é respondido na hora, dia e noite. Clínica que responde em minutos converte muito mais que a que responde em horas.</p>
+        </div>
+        <div class="dg-bstat">
+          <div class="n">24/7</div>
+          <b>Agenda sempre aberta</b>
+          <p>Fim de semana, feriado e horário de almoço deixam de ser buraco. O paciente marca sozinho, na conversa.</p>
+        </div>
+        <div class="dg-bstat">
+          <div class="n">+30%</div>
+          <b>Mais leads agendados</b>
+          <p>Qualificação e agendamento no mesmo fluxo: menos lead perdido entre o "oi" e a visita marcada.</p>
+        </div>
+      </div>
+
+      <div class="dg-bnote">
+        <div class="dg-bn">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div><b>Para a clínica</b><p>Cada falta evitada é uma cadeira que volta a faturar. Menos no-show e resposta imediata pagam a mensalidade da ferramenta com folga já no primeiro mês.</p></div>
+        </div>
+        <div class="dg-bn">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
+          <div><b>Para o médico</b><p>A equipe para de correr atrás de confirmação e planilha. O CRM mostra a situação real de cada paciente, e o profissional foca no atendimento, não no WhatsApp.</p></div>
+        </div>
+      </div>
+      <p class="dg-note" style="text-align:center">Percentuais são referências médias de mercado para automação de atendimento e CRM na saúde; o resultado varia conforme o volume e a rotina de cada clínica.</p>
+    </section>
+
+    <!-- ===== COMO FUNCIONA A PARCERIA ===== -->
+    <section class="li-sec" id="parceria">
+      <div class="li-sec-head">
+        <span class="eyebrow">Como funciona a parceria</span>
+        <h2>Vocês ficam com a marca e a receita. <em>Nós ficamos com o trabalho.</em></h2>
+        <p>O desenho parte de uma condição que o Rafael colocou: isso não pode consumir o tempo da equipe da DGEX. Então a divisão é clara.</p>
+      </div>
+
+      <div class="dg-roles">
+        <div class="dg-role brand">
+          <div class="k">A DGEX</div>
+          <h3>Vende</h3>
+          <p>A plataforma leva a marca, a identidade e o domínio da DGEX. A relação comercial, o faturamento e a margem são de vocês.</p>
+        </div>
+        <div class="dg-role">
+          <div class="k">A CADev</div>
+          <h3>Opera</h3>
+          <p>Configuração, onboarding de cada cliente, treino do agente, integrações, infraestrutura, monitoramento e manutenção ficam integralmente conosco.</p>
+        </div>
+        <div class="dg-role">
+          <div class="k">O painel</div>
+          <h3>É de vocês</h3>
+          <p>Acesso completo ao painel de gestão, com visão consolidada de todos os clientes ativos. Vocês administram quando quiserem; a operação é nossa.</p>
+        </div>
+      </div>
+
+      <div class="dg-callout">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div><b>É white-label gerenciado.</b><p>No mercado, white-label costuma ser um software para o parceiro administrar sozinho. Aqui é o contrário: vocês ficam com a marca e a receita, nós ficamos com o trabalho.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== O QUE ENTREGA ===== -->
+    <section class="li-sec" id="plataforma">
+      <div class="li-sec-head">
+        <span class="eyebrow">O que a plataforma entrega</span>
+        <h2>Uma aplicação web própria, <em>com a marca da DGEX</em>.</h2>
+        <p>Desenvolvida sob medida, não é template nem ferramenta de prateleira com logo trocado.</p>
+      </div>
+
+      <div class="dg-cards">
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h5v18H6a2 2 0 0 1-2-2zM13 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5z"/></svg></div>
+          <b>Multi-tenant</b>
+          <p>Isolamento total de dados entre clientes.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20z"/></svg></div>
+          <b>Agente de IA no WhatsApp</b>
+          <p>API oficial da Meta, atendendo 24h por dia.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM9 16l2 2 4-4"/></svg></div>
+          <b>Qualificação automática</b>
+          <p>Qualifica o lead e agenda direto na agenda.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h7v7H3zM14 5h7v4h-7zM14 13h7v6h-7zM3 16h7v3H3z"/></svg></div>
+          <b>CRM integrado</b>
+          <p>Integra com o CRM já ativo do cliente ou com o CRM próprio da CADev.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <b>Base de conhecimento por cliente</b>
+          <p>Serviços, preços e políticas, sem cruzar dados.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18.7 8l-5.2 5.2-3-3L7 14"/></svg></div>
+          <b>Painel de gestão</b>
+          <p>Visão consolidada, com acesso liberado para a DGEX.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <b>Onboarding e treino</b>
+          <p>Cada novo cliente configurado pela CADev.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.9 6.91a2.12 2.12 0 0 1-3-3l6.91-6.9a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <b>Manutenção contínua</b>
+          <p>Evolução, monitoramento e suporte técnico.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <b>Agente de follow-ups</b>
+          <p>Retoma sozinho o contato com leads que não responderam.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <b>Agente de lembretes</b>
+          <p>Confirmação e lembrete automáticos, reduzindo o no-show.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <b>Médicos ilimitados</b>
+          <p>Sem limite de número de profissionais cadastrados.</p>
+        </div>
+        <div class="dg-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM8 14h3M13 14h3M8 18h3"/></svg></div>
+          <b>Direcionamento por agenda</b>
+          <p>Cada doutor com a própria agenda; o agente direciona certo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INVESTIMENTO ===== -->
+    <section class="li-sec" id="investimento">
+      <div class="li-sec-head">
+        <span class="eyebrow">Investimento</span>
+        <h2>Sem taxa escondida. <em>Você só paga por cliente ativo.</em></h2>
+        <p>Toda a tecnologia e infraestrutura ficam em conta da CADev, incluídas na mensalidade, sem repasse de custo técnico e sem surpresa na fatura.</p>
+      </div>
+
+      <div class="dg-invest">
+        <div class="dg-inv-row"><div class="d"><b>Setup e implantação da plataforma</b></div><div class="v free">Isento</div></div>
+        <div class="dg-inv-row"><div class="d"><b>Setup e onboarding de cada cliente</b></div><div class="v free">Isento</div></div>
+        <div class="dg-inv-row hl"><div class="d"><b>Mensalidade por cliente ativo</b>Tudo incluso: ferramentas, infra, suporte</div><div class="v">R$ 1.500<span style="font-size:.7em;color:var(--text-mute)">/mês</span></div></div>
+        <div class="dg-inv-row"><div class="d"><b>Investimento inicial</b>Valor de 2 mensalidades, pago para a CADev construir tudo</div><div class="v">R$ 3.000</div></div>
+        <div class="dg-inv-row"><div class="d"><b>Prazo de implantação</b></div><div class="v" style="font-size:1.05rem;color:var(--text-dim)">30 a 45 dias</div></div>
+      </div>
+
+      <p class="dg-note"><b>Como funciona o investimento inicial:</b> a CADev cobra R$ 3.000 para dar início e construir toda a estrutura (o equivalente a 2 mensalidades). Assim que os 2 primeiros clientes ativos começarem a pagar, o valor de cada um é abatido desse start, ou seja, você não faz os 2 primeiros repasses de R$ 1.500. Do 3º cliente em diante, o repasse é normal.</p>
+
+      <div class="dg-subcard">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg> Escopo da mensalidade</h4>
+        <p>Cobre integralmente o atendimento receptivo, pacientes que chamam a clínica, sem limite prático para o padrão de consultórios. Campanhas de disparo ativo em massa não fazem parte do escopo e, quando desejadas, são orçadas à parte mediante alinhamento prévio.</p>
+      </div>
+
+      <div class="dg-subcard">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg> Melhorias inclusas todo mês</h4>
+        <p>A mensalidade dá direito a <b>5 horas de programação por mês</b>, para melhorias e novas features na plataforma, sem custo adicional.</p>
+      </div>
+    </section>
+
+      <!-- ===== PRÓXIMOS PASSOS (parceria) ===== -->
+      <section class="li-sec" id="passos">
+        <div class="li-sec-head">
+          <span class="eyebrow">Próximos passos</span>
+          <h2>Do "sim" ao <em>primeiro cliente rodando</em>.</h2>
+        </div>
+        <div class="dg-steps">
+          <div class="dg-step"><div class="n">1</div><p><b>Call de 30 min</b> para validar o modelo e alinhar os valores finais em toda a página.</p></div>
+          <div class="dg-step"><div class="n">2</div><p><b>Assinatura</b> do contrato de parceria.</p></div>
+          <div class="dg-step"><div class="n">3</div><p><b>Implantação</b> da plataforma (30 a 45 dias), em paralelo à preparação comercial da DGEX.</p></div>
+          <div class="dg-step"><div class="n">4</div><p><b>Onboarding</b> dos primeiros clientes, com acompanhamento semanal nas primeiras semanas.</p></div>
+        </div>
+      </section>
+
+    </div><!-- /panel ia-crm -->
+
+    <!-- ================= PAINEL: IA INTERNA ================= -->
+    <div class="dg-panel" data-panel="ia-interna">
+      <section class="dg-hero" style="padding:48px 0 0">
+        <div class="dg-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2zM9 21h6M10 23h4"/></svg> Produto independente</div>
+        <h2 style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.025em;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;max-width:18ch;margin:0 auto">Uma IA <em style="color:var(--accent);font-style:normal">interna</em> para a própria DGEX.</h2>
+        <p class="sub" style="margin:20px auto 0;max-width:58ch;color:var(--text-dim);font-size:clamp(1.05rem,1.4vw,1.28rem);line-height:1.6">Um agente treinado nos processos, materiais e histórico da agência, para uso da equipe. Contratável de forma independente da plataforma white-label.</p>
+      </section>
+
+      <section class="li-sec" style="margin-top:56px">
+        <div class="dg-cards">
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/></svg></div>
+            <b>Copy e criativo</b>
+            <p>No tom e na metodologia da DGEX, prontos para campanha.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18.7 8l-5.2 5.2-3-3L7 14"/></svg></div>
+            <b>Relatórios automáticos</b>
+            <p>Consolidação de dados de campanha sem trabalho manual.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <b>Base interna</b>
+            <p>Todo o conhecimento da agência consultável em linguagem natural.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+            <b>Prospecção</b>
+            <p>Agente de apoio para a operação comercial da própria DGEX.</p>
+          </div>
+        </div>
+
+        <div class="dg-invest" style="margin-top:30px">
+          <div class="dg-inv-row"><div class="d"><b>Setup e treinamento</b>Uso interno da equipe DGEX</div><div class="v">R$ 6.000<span style="font-size:.7em;color:var(--text-mute)"> único</span></div></div>
+          <div class="dg-inv-row hl"><div class="d"><b>Mensalidade</b>Uso interno da equipe DGEX</div><div class="v">R$ 997<span style="font-size:.7em;color:var(--text-mute)">/mês</span></div></div>
+          <div class="dg-inv-row"><div class="d"><b>Custos de estrutura / API</b>Conforme uso, cobrado à parte</div><div class="v" style="font-size:1.05rem;color:var(--text-dim)">Indeterminado</div></div>
+          <div class="dg-inv-row"><div class="d"><b>Hospedagem</b></div><div class="v">R$ 60<span style="font-size:.7em;color:var(--text-mute)">/mês</span></div></div>
+        </div>
+      </section>
+    </div><!-- /panel ia-interna -->
+
+    <!-- ================= PAINEL: SITES ================= -->
+    <div class="dg-panel" data-panel="sites">
+      <section class="dg-hero" style="padding:48px 0 0">
+        <div class="dg-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 9h18"/></svg> Desenvolvimento sob medida</div>
+        <h2 style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.025em;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;max-width:20ch;margin:0 auto">Sites que fazem o paciente <em style="color:var(--accent);font-style:normal">marcar consulta</em>, não só navegar.</h2>
+        <p class="sub" style="margin:20px auto 0;max-width:60ch;color:var(--text-dim);font-size:clamp(1.05rem,1.4vw,1.28rem);line-height:1.6">Sites bem planejados, rápidos e pensados para o nicho de saúde: cada página é construída para gerar consulta e venda de verdade para o cliente final, não só para ficar bonita.</p>
+      </section>
+
+      <section class="li-sec" style="margin-top:56px">
+        <div class="dg-cards">
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M9 21V9M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></div>
+            <b>Landing pages</b>
+            <p>Uma página por campanha, rápida e feita para captar o lead certo.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM7 9h4M7 13h10"/></svg></div>
+            <b>Sites institucionais</b>
+            <p>Autoridade e credibilidade para a clínica ou o profissional.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12l3 6-9 14L3 8z"/></svg></div>
+            <b>E-commerce & catálogos</b>
+            <p>Loja e catálogo integrados a pagamento e WhatsApp.</p>
+          </div>
+          <div class="dg-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg></div>
+            <b>Web apps & sistemas</b>
+            <p>Aplicações sob medida, como a própria plataforma de IA + CRM.</p>
+          </div>
+        </div>
+
+        <div class="dg-callout" style="margin-top:26px">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div><b>Também em white-label.</b><p>A DGEX oferece o desenvolvimento com a marca dela; a CADev entrega. Cada projeto é orçado conforme escopo, fale com a gente para montar o pacote.</p></div>
+        </div>
+
+        <div class="dg-callout" style="margin-top:16px">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+          <div><b>Hospedagem à parte: R$ 450/ano por site.</b><p>Oferecemos hospedagem em VPS própria da CADev, rápida e segura, por R$ 450/ano por site (não incluída no valor de desenvolvimento).</p></div>
+        </div>
+
+        <div class="li-sec-head" style="margin-top:56px">
+          <span class="eyebrow">Tabela de preços</span>
+          <h2 style="font-size:clamp(1.6rem,2.6vw,2.2rem)">Valores de referência por tipo de projeto.</h2>
+        </div>
+        <div class="dg-table">
+          <table>
+            <thead><tr><th>Tipo de site</th><th>Valor</th><th>Página adicional</th><th>Sessão adicional</th><th>Prazo médio</th></tr></thead>
+            <tbody>
+              <tr class="group"><td colspan="5">Institucional</td></tr>
+              <tr><td>Template pronto <b>até 5 páginas</b></td><td class="price">R$ 2.200</td><td>R$ 200</td><td class="mute">—</td><td>10 dias úteis</td></tr>
+              <tr><td>Design do zero (Figma) <b>até 5 páginas</b></td><td class="price">R$ 4.500</td><td>R$ 500</td><td class="mute">—</td><td>20 dias úteis</td></tr>
+              <tr class="group"><td colspan="5">Landing page</td></tr>
+              <tr><td>Template pronto <b>até 10 sessões</b></td><td class="price">R$ 1.100</td><td class="mute">—</td><td>R$ 50</td><td>7 dias úteis</td></tr>
+              <tr><td>Design do zero (Figma) <b>até 10 sessões</b></td><td class="price">R$ 2.500</td><td class="mute">—</td><td>R$ 200</td><td>15 dias úteis</td></tr>
+              <tr class="group"><td colspan="5">E-commerce completo</td></tr>
+              <tr><td>Template pronto</td><td class="price">R$ 2.500<span style="color:var(--text-mute);font-weight:400;font-size:.85em"> + R$250/mês</span></td><td class="mute">—</td><td class="mute">—</td><td>20 dias úteis</td></tr>
+              <tr><td>Design do zero (Figma)</td><td class="price">R$ 6.000<span style="color:var(--text-mute);font-weight:400;font-size:.85em"> + R$250/mês</span></td><td class="mute">—</td><td class="mute">—</td><td>30 dias úteis</td></tr>
+              <tr class="group"><td colspan="5">Feito com I.A</td></tr>
+              <tr><td>Landing page</td><td class="price">R$ 600</td><td class="mute">—</td><td class="mute">—</td><td>5 dias úteis</td></tr>
+              <tr><td>Institucional <b>até 7 páginas</b></td><td class="price">R$ 900</td><td class="mute">—</td><td class="mute">—</td><td>8 dias úteis</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div><!-- /panel sites -->
+
+    <!-- ===== CTA band ===== -->
+    <section class="plans-cta" style="margin-top:96px">
+      <h2>Vamos validar o modelo numa call de 30 minutos?</h2>
+      <p>É o suficiente para alinhar os valores finais em toda a página e destravar a implantação. A proposta vale por 10 dias.</p>
+      <div class="row">
+        <a class="btn btn-primary btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20DGEX%20e%20quero%20agendar%20a%20call%20sobre%20a%20proposta%20de%20parceria." target="_blank" rel="noopener">Agendar a call
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== NOSSOS TRABALHOS ===== -->
+    <section class="li-sec" id="trabalhos">
+      <div class="li-sec-head">
+        <span class="eyebrow">Portfólio</span>
+        <h2>Alguns dos nossos <em>trabalhos</em>.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <picture>
+            <source media="(max-width:767px)" srcset="uploads/pedrogomes-mockup-mobile.avif" type="image/avif">
+            <source media="(max-width:767px)" srcset="uploads/pedrogomes-mockup-mobile.webp" type="image/webp">
+            <source srcset="uploads/pedrogomes-mockup.avif" type="image/avif">
+            <img src="uploads/pedrogomes-mockup.png" alt="Site institucional Pedro Gomes — imóveis" loading="lazy">
+          </picture>
+          <span class="chip">Site institucional</span>
+          <div class="meta"><h3>Presença que converte</h3><span>Design + Desenvolvimento web</span></div>
+          <a class="card-link" href="https://pedrogomesimoveis.com.br/" target="_blank" rel="noopener" aria-label="Abrir projeto Pedro Gomes" style="position:absolute;inset:0;z-index:3"></a>
+        </article>
+        <article class="card">
+          <picture>
+            <source media="(max-width:767px)" srcset="uploads/falaalicia-mockup-mobile.avif" type="image/avif">
+            <source media="(max-width:767px)" srcset="uploads/falaalicia-mockup-mobile.webp" type="image/webp">
+            <source srcset="uploads/falaalicia-mockup.avif" type="image/avif">
+            <img src="uploads/falaalicia-mockup.png" alt="Fala Alícia — landing page e automação" loading="lazy">
+          </picture>
+          <span class="chip">Landing page • Automação / SaaS</span>
+          <div class="meta"><h3>Fluxos que escalam</h3><span>Produto + Automação</span></div>
+          <a class="card-link" href="https://falaalicia.com.br/" target="_blank" rel="noopener" aria-label="Abrir projeto Fala Alícia" style="position:absolute;inset:0;z-index:3"></a>
+        </article>
+        <article class="card">
+          <img src="assets/criativos-print.webp" alt="Criativos Imobiliários — app de criativos" loading="lazy">
+          <span class="chip">App próprio</span>
+          <div class="meta"><h3>Criativos Imobiliários</h3><span>+500 usuários</span></div>
+          <a class="card-link" href="https://criativosimobiliarios.com/" target="_blank" rel="noopener" aria-label="Abrir Criativos Imobiliários" style="position:absolute;inset:0;z-index:3"></a>
+        </article>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="section footer" style="padding-top:96px">
+  <div class="container">
+    <div class="panel">
+      <div class="left">
+        <svg class="mark" viewBox="0 0 509 94" fill="currentColor" aria-hidden="true" style="height:38px;width:auto">
+          <path d="M 47.5 0 C 21.266 0 0 21.043 0 47 C 0 72.957 21.266 94 47.5 94 C 64.626 94 79.637 85.043 88 71.598 L 73.4 63 C 68.06 71.59 58.452 77.3 47.5 77.3 C 30.624 77.3 16.95 63.749 16.95 47 C 16.95 30.251 30.624 16.7 47.5 16.7 C 58.452 16.7 68.06 22.41 73.4 31 L 88 22.402 C 79.637 8.957 64.626 0 47.5 0 Z" fill-rule="nonzero"></path>
+          <path d="M 110.547 71.851 L 127.125 23.446 L 136.143 23.446 L 152.443 71.851 L 146.27 71.851 L 131.773 27.733 L 131.495 27.733 L 116.651 71.851 L 110.547 71.851 Z M 118.732 56.707 L 120.397 52.005 L 142.385 52.005 L 144.05 56.707 L 118.732 56.707 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 154.574 71.851 L 154.574 23.446 L 169.488 23.446 C 175.176 23.446 179.869 24.437 183.569 26.419 C 187.268 28.356 189.996 31.145 191.754 34.786 C 193.557 38.382 194.459 42.716 194.459 47.787 C 194.459 52.765 193.557 57.053 191.754 60.648 C 189.996 64.244 187.268 67.01 183.569 68.946 C 179.869 70.882 175.176 71.851 169.488 71.851 L 154.574 71.851 Z M 160.401 67.01 L 169.349 67.01 C 174.066 67.01 177.811 66.249 180.586 64.728 C 183.407 63.161 185.418 60.948 186.621 58.09 C 187.823 55.186 188.424 51.751 188.424 47.787 C 188.424 43.73 187.823 40.249 186.621 37.345 C 185.418 34.441 183.407 32.205 180.586 30.638 C 177.811 29.07 174.066 28.286 169.349 28.286 L 160.401 28.286 L 160.401 67.01 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 215.565 72.68 C 212.281 72.68 209.368 71.943 206.825 70.468 C 204.281 68.946 202.27 66.849 200.79 64.175 C 199.357 61.455 198.64 58.297 198.64 54.702 C 198.64 51.06 199.357 47.902 200.79 45.228 C 202.224 42.554 204.212 40.48 206.755 39.005 C 209.345 37.483 212.328 36.723 215.703 36.723 C 219.079 36.723 221.969 37.483 224.374 39.005 C 226.779 40.48 228.628 42.439 229.923 44.882 C 231.218 47.279 231.865 49.907 231.865 52.765 C 231.865 53.226 231.865 53.733 231.865 54.287 C 231.865 54.794 231.842 55.37 231.796 56.015 L 203.01 56.015 L 203.01 51.521 L 226.108 51.521 C 225.969 48.248 224.906 45.712 222.917 43.914 C 220.975 42.116 218.524 41.217 215.565 41.217 C 213.576 41.217 211.727 41.655 210.016 42.531 C 208.305 43.407 206.917 44.721 205.854 46.473 C 204.836 48.225 204.328 50.437 204.328 53.111 L 204.328 55.047 C 204.328 57.905 204.859 60.28 205.923 62.17 C 206.987 64.06 208.374 65.489 210.085 66.457 C 211.842 67.379 213.669 67.84 215.565 67.84 C 217.969 67.84 219.981 67.287 221.599 66.18 C 223.218 65.074 224.397 63.553 225.137 61.616 L 230.894 61.616 C 230.293 63.737 229.299 65.627 227.911 67.287 C 226.524 68.946 224.79 70.26 222.709 71.228 C 220.674 72.196 218.293 72.68 215.565 72.68 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 245.975 71.851 L 233.628 37.552 L 239.732 37.552 L 249.582 67.218 L 249.859 67.218 L 259.778 37.552 L 265.744 37.552 L 253.397 71.851 L 245.975 71.851 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 283.075 71.851 L 283.075 23.446 L 288.901 23.446 L 288.901 43.292 L 289.179 43.292 C 290.566 41.125 292.254 39.489 294.242 38.382 C 296.277 37.276 298.45 36.723 300.762 36.723 C 303.398 36.723 305.71 37.276 307.699 38.382 C 309.687 39.443 311.213 41.102 312.277 43.361 C 313.387 45.574 313.942 48.386 313.942 51.797 L 313.942 71.851 L 308.184 71.851 L 308.184 52.42 C 308.184 48.87 307.445 46.196 305.965 44.398 C 304.531 42.6 302.381 41.701 299.514 41.701 C 297.525 41.701 295.722 42.185 294.103 43.154 C 292.485 44.122 291.213 45.528 290.288 47.372 C 289.364 49.17 288.901 51.405 288.901 54.079 L 288.901 71.851 L 283.075 71.851 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 331.003 72.68 C 328.368 72.68 326.055 72.15 324.067 71.09 C 322.125 69.984 320.599 68.324 319.489 66.111 C 318.379 63.852 317.824 61.017 317.824 57.606 L 317.824 37.552 L 323.651 37.552 L 323.651 56.983 C 323.651 60.533 324.414 63.207 325.94 65.005 C 327.466 66.803 329.662 67.702 332.529 67.702 C 334.518 67.702 336.275 67.218 337.801 66.249 C 339.373 65.281 340.599 63.875 341.478 62.031 C 342.402 60.187 342.865 57.952 342.865 55.324 L 342.865 37.552 L 348.691 37.552 L 348.691 71.851 L 343.558 71.851 L 343.004 66.457 L 342.726 66.457 C 341.57 68.301 339.998 69.799 338.009 70.952 C 336.067 72.104 333.732 72.68 331.003 72.68 Z" fill="currentColor" fill-rule="nonzero"></path>
+          <path d="M 373.769 72.68 C 371.919 72.68 370.139 72.404 368.428 71.851 C 366.763 71.297 365.237 70.491 363.85 69.43 C 362.462 68.324 361.26 66.941 360.243 65.281 L 359.965 65.281 L 359.41 71.851 L 354.555 71.851 L 354.555 23.446 L 360.381 23.446 L 360.381 43.223 C 361.491 41.563 363.064 40.065 365.098 38.728 C 367.179 37.391 369.815 36.723 373.006 36.723 C 376.659 36.723 379.734 37.529 382.231 39.143 C 384.775 40.71 386.694 42.854 387.988 45.574 C 389.329 48.294 390 51.336 390 54.702 C 390 58.067 389.329 61.109 387.988 63.829 C 386.694 66.549 384.821 68.716 382.37 70.329 C 379.965 71.897 377.098 72.68 373.769 72.68 Z M 372.382 67.632 C 374.786 67.632 376.867 67.102 378.624 66.042 C 380.381 64.936 381.723 63.414 382.647 61.478 C 383.618 59.542 384.104 57.283 384.104 54.702 C 384.104 52.12 383.618 49.861 382.647 47.925 C 381.723 45.989 380.381 44.49 378.624 43.43 C 376.867 42.324 374.786 41.771 372.382 41.771 C 369.977 41.771 367.873 42.324 366.069 43.43 C 364.312 44.49 362.948 45.989 361.977 47.925 C 361.006 49.861 360.52 52.12 360.52 54.702 C 360.52 57.283 361.006 59.542 361.977 61.478 C 362.948 63.414 364.312 64.936 366.069 66.042 C 367.873 67.102 369.977 67.632 372.382 67.632 Z" fill="currentColor" fill-rule="nonzero"></path>
+        </svg>
+        <p>© 2026 CADev hub · proposta exclusiva para a DGEX</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/cadev.hub/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/in/cadev-hub-b001ab414/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7c0-1.67-.03-3.8-2.32-3.8-2.32 0-2.68 1.8-2.68 3.68V24H8V8z"/></svg></a>
+          <a href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20DGEX%20e%20quero%20conversar%20sobre%20a%20proposta%20de%20parceria." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="right">
+        <h2>Marca da DGEX. Operação da CADev. Margem recorrente.</h2>
+        <p>Uma call de 30 minutos destrava a implantação. A proposta é válida por 10 dias corridos.</p>
+        <div class="cta">
+          <a class="btn btn-primary btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20DGEX%20e%20quero%20agendar%20a%20call%20sobre%20a%20proposta%20de%20parceria." target="_blank" rel="noopener">Agendar a call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var sw=document.querySelector('.dg-switch');
+  if(!sw) return;
+  var thumb=sw.querySelector('.dg-thumb');
+  var btns=[].slice.call(document.querySelectorAll('.dg-sw'));
+  var panels=[].slice.call(document.querySelectorAll('.dg-panel'));
+  function moveThumb(btn){
+    if(window.innerWidth<=720){thumb.style.width='';thumb.style.transform='';return;}
+    thumb.style.width=btn.offsetWidth+'px';
+    thumb.style.transform='translateX('+(btn.offsetLeft-6)+'px)';
+  }
+  function activate(name){
+    var active;
+    btns.forEach(function(b){var on=b.dataset.panel===name;b.classList.toggle('on',on);if(on)active=b;});
+    panels.forEach(function(p){p.classList.toggle('on',p.dataset.panel===name);});
+    if(active) moveThumb(active);
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){activate(b.dataset.panel);});});
+  function init(){var a=btns.filter(function(b){return b.classList.contains('on');})[0]||btns[0];moveThumb(a);}
+  if(document.readyState==='complete') init(); else window.addEventListener('load',init);
+  window.addEventListener('resize',function(){var a=btns.filter(function(b){return b.classList.contains('on');})[0];if(a)moveThumb(a);});
+})();
+</script>
+</body>
+</html>
