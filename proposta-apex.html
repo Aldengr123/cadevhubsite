@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parceria CADev × Apex Company — IA + CRM para açougues</title>
+<meta name="description" content="Como a IA + CRM da CADev, com a força de mercado da Apex Company, transforma o atendimento e a recompra dos açougues e casas de carnes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<style>
+/* ===== Parceria CADev × Apex (IA + CRM p/ açougues) ===== */
+:root{--apex:#3B8FD4;--apex-hi:#5FA9EE;--apex-deep:#1E5FA0}
+h1,h2,h3,h4{text-wrap:balance}
+p{text-wrap:pretty}
+.ap-page{padding-top:0}
+
+/* HERO / lockup das duas marcas */
+.ap-hero{text-align:center;padding:150px 0 12px}
+.ap-lockup{display:flex;align-items:center;justify-content:center;gap:26px;margin-bottom:38px;flex-wrap:wrap}
+.ap-lockup .cad{height:46px;width:auto}
+.ap-lockup .apex{height:30px;width:auto;filter:drop-shadow(0 0 18px rgba(59,143,212,.55))}
+.ap-join{position:relative;width:58px;height:58px;flex:none}
+.ap-join svg{width:100%;height:100%}
+.ap-tag{display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(90deg,rgba(23,158,29,.12),rgba(59,143,212,.12));
+  border:1px solid rgba(120,180,200,.32);color:#dff0ff;
+  font:700 .76rem "Inter",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:22px}
+.ap-tag svg{width:14px;height:14px}
+.ap-hero h1{font-family:"DM Sans",sans-serif;font-weight:700;letter-spacing:-.025em;
+  font-size:clamp(2.3rem,5.2vw,4.2rem);line-height:1.04;max-width:17ch;margin:0 auto}
+.ap-hero h1 .g{color:var(--green-hi)}
+.ap-hero h1 .b{color:var(--apex-hi)}
+.ap-hero .sub{margin:24px auto 0;max-width:60ch;color:var(--text-dim);font-size:clamp(1.08rem,1.5vw,1.34rem);line-height:1.6}
+.ap-hero .cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-apex{background:var(--apex);color:#fff}
+.btn-apex:hover{background:var(--apex-deep)}
+
+/* section shell */
+.ap-sec{margin-top:112px}
+.ap-sec-head{text-align:center;max-width:64ch;margin:0 auto 52px}
+.ap-eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;color:var(--green-hi)}
+.ap-eyebrow.blue{color:var(--apex-hi)}
+.ap-sec-head h2{font-family:"DM Sans",sans-serif;font-weight:700;letter-spacing:-.02em;font-size:clamp(2rem,4vw,3.2rem);line-height:1.06;margin:0}
+.ap-sec-head h2 .g{color:var(--green-hi)}
+.ap-sec-head h2 .b{color:var(--apex-hi)}
+.ap-sec-head p{margin:22px auto 0;color:var(--text-dim);font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.6}
+
+/* AS DUAS MÃOS — parceria */
+.ap-hands{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;
+  border-radius:var(--radius-l);overflow:hidden;border:1px solid var(--line-strong)}
+@media(max-width:860px){.ap-hands{grid-template-columns:1fr}}
+.ap-hand{padding:44px 40px}
+.ap-hand .k{font:700 .76rem "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:inline-flex;align-items:center;gap:9px}
+.ap-hand .logo-sm{height:26px;width:auto;display:block;margin-bottom:20px}
+.ap-hand h3{font-family:"DM Sans",sans-serif;font-size:1.5rem;margin:0 0 12px;color:#fff}
+.ap-hand p{color:var(--text-dim);font-size:1rem;line-height:1.6;margin:0 0 20px}
+.ap-hand ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.ap-hand li{display:flex;gap:11px;align-items:flex-start;color:var(--text-dim);font-size:.97rem;line-height:1.5}
+.ap-hand li svg{flex:none;width:19px;height:19px;margin-top:2px}
+.ap-hand.apex{background:radial-gradient(130% 100% at 100% 0,rgba(59,143,212,.16),transparent 62%),var(--surface)}
+.ap-hand.apex .k{color:var(--apex-hi)}
+.ap-hand.apex li svg{color:var(--apex-hi)}
+.ap-hand.cadev{background:radial-gradient(130% 100% at 0 0,rgba(23,158,29,.16),transparent 62%),var(--surface)}
+.ap-hand.cadev .k{color:var(--green-hi)}
+.ap-hand.cadev li svg{color:var(--green-hi)}
+.ap-clasp{display:grid;place-items:center;width:88px;background:var(--bg-2);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.ap-clasp svg{width:52px;height:52px}
+@media(max-width:860px){.ap-clasp{width:auto;height:80px;border:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}}
+
+/* PROBLEMA / contexto do nicho */
+.ap-problem{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:clamp(32px,5vw,56px);text-align:center;max-width:1000px;margin:0 auto}
+.ap-problem p{color:var(--text-dim);font-size:clamp(1.12rem,1.8vw,1.5rem);line-height:1.6;margin:0 auto;max-width:52ch}
+.ap-problem .punch{color:#fff;font-family:"DM Sans",sans-serif;font-weight:700;margin-top:24px;font-size:clamp(1.3rem,2.4vw,2rem);max-width:24ch;margin-left:auto;margin-right:auto}
+.ap-problem .punch b{color:var(--green-hi)}
+
+/* FEATURE CARDS */
+.ap-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.ap-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ap-cards{grid-template-columns:1fr}}
+.ap-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:28px 24px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.ap-card:hover{transform:translateY(-3px);border-color:rgba(95,169,238,.45)}
+.ap-card .ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(59,143,212,.14);color:var(--apex-hi)}
+.ap-card:nth-child(even) .ico{background:rgba(23,158,29,.14);color:var(--green-hi)}
+.ap-card .ico svg{width:24px;height:24px}
+.ap-card b{display:block;font-family:"DM Sans",sans-serif;font-size:1.1rem;color:#fff;margin-bottom:8px;line-height:1.25}
+.ap-card p{color:var(--text-dim);font-size:.94rem;line-height:1.55;margin:0}
+
+/* NÚMEROS */
+.ap-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.ap-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ap-stats{grid-template-columns:1fr}}
+.ap-stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:30px 26px}
+.ap-stat .n{font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(2.2rem,3.3vw,3rem);letter-spacing:-.02em;line-height:1;margin-bottom:14px;
+  background:linear-gradient(120deg,#5FA9EE,#179E1D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ap-stat b{display:block;font-family:"DM Sans",sans-serif;font-size:1.1rem;color:#fff;margin-bottom:8px}
+.ap-stat p{color:var(--text-dim);font-size:.93rem;line-height:1.5;margin:0}
+.ap-stat-note{text-align:center;color:var(--text-mute);font-size:.9rem;margin-top:22px}
+
+/* BENEFÍCIOS split */
+.ap-split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:860px){.ap-split{grid-template-columns:1fr}}
+.ap-bene{border-radius:var(--radius-l);padding:38px 34px}
+.ap-bene.apex{background:radial-gradient(120% 90% at 100% 0,rgba(59,143,212,.15),transparent 60%),var(--surface);border:1px solid rgba(95,169,238,.3)}
+.ap-bene.cadev{background:radial-gradient(120% 90% at 0 0,rgba(23,158,29,.15),transparent 60%),var(--surface);border:1px solid rgba(65,226,72,.3)}
+.ap-bene .k{font:700 .76rem "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ap-bene.apex .k{color:var(--apex-hi)}
+.ap-bene.cadev .k{color:var(--green-hi)}
+.ap-bene h3{font-family:"DM Sans",sans-serif;font-size:1.4rem;margin:0 0 22px;color:#fff}
+.ap-bene ul{list-style:none;margin:0;padding:0;display:grid;gap:15px}
+.ap-bene li{display:flex;gap:13px;align-items:flex-start;color:var(--text-dim);font-size:1rem;line-height:1.5}
+.ap-bene li svg{flex:none;width:21px;height:21px;margin-top:2px}
+.ap-bene.apex li svg{color:var(--apex-hi)}
+.ap-bene.cadev li svg{color:var(--green-hi)}
+.ap-bene li b{color:#fff;font-weight:600}
+
+/* COMO FUNCIONA — roles */
+.ap-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.ap-roles{grid-template-columns:1fr}}
+.ap-role{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:32px}
+.ap-role .k{font:700 .76rem "Inter",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;color:var(--text-mute)}
+.ap-role.apex{border-color:rgba(95,169,238,.3)}
+.ap-role.apex .k{color:var(--apex-hi)}
+.ap-role.cadev{border-color:rgba(65,226,72,.3)}
+.ap-role.cadev .k{color:var(--green-hi)}
+.ap-role h3{font-family:"DM Sans",sans-serif;font-size:1.3rem;margin:0 0 10px}
+.ap-role p{color:var(--text-dim);font-size:.98rem;line-height:1.6;margin:0}
+
+/* STEPS */
+.ap-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+@media(max-width:860px){.ap-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ap-steps{grid-template-columns:1fr}}
+.ap-step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:28px}
+.ap-step .n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
+  font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.15rem;
+  background:linear-gradient(135deg,rgba(59,143,212,.2),rgba(23,158,29,.2));color:#fff}
+.ap-step b{display:block;font-family:"DM Sans",sans-serif;font-size:1.08rem;color:#fff;margin-bottom:7px}
+.ap-step p{color:var(--text-dim);font-size:.95rem;line-height:1.55;margin:0}
+
+/* CTA final */
+.ap-cta{margin:120px 0 40px}
+.ap-cta .panel{position:relative;border-radius:var(--radius-l);overflow:hidden;border:1px solid var(--line);
+  padding:clamp(40px,6vw,72px);text-align:center;
+  background:radial-gradient(90% 130% at 0 0,rgba(23,158,29,.14),transparent 55%),radial-gradient(90% 130% at 100% 100%,rgba(59,143,212,.16),transparent 55%),var(--surface)}
+.ap-cta h2{font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(1.8rem,3.4vw,2.9rem);letter-spacing:-.02em;margin:0 auto;max-width:20ch;line-height:1.08}
+.ap-cta p{color:var(--text-dim);font-size:clamp(1.05rem,1.5vw,1.25rem);margin:20px auto 0;max-width:52ch;line-height:1.6}
+.ap-cta .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+@media(max-width:767px){
+  .ap-hero{padding:32vw 0 3vw}
+  .ap-sec{margin-top:88px}
+  .ap-lockup .cad{height:9vw}.ap-lockup .apex{height:6vw}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header show solid" data-screen-label="Header">
+  <a class="brand" href="index.html">
+    <svg class="mark" viewBox="0 0 67 39" fill="url(#cadGradH)" aria-hidden="true">
+      <defs><linearGradient id="cadGradH" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <span class="name">CADev hub</span>
+  </a>
+  <nav class="nav">
+    <a class="btn btn-primary btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20Apex%20Company%20e%20quero%20conversar%20sobre%20a%20parceria%20de%20IA%20%2B%20CRM." target="_blank" rel="noopener">Agendar call</a>
+  </nav>
+</header>
+
+<main class="li-page ap-page">
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <section class="ap-hero">
+      <div class="ap-lockup">
+        <svg class="cad" viewBox="0 0 67 39" fill="url(#cadGradLk)" aria-hidden="true">
+          <defs><linearGradient id="cadGradLk" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+            <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+          </linearGradient></defs>
+          <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+          <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+        </svg>
+        <div class="ap-join" aria-hidden="true">
+          <svg viewBox="0 0 58 58" fill="none">
+            <defs><linearGradient id="joinG" x1="0" y1="0" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#41E248"/><stop offset="1" stop-color="#5FA9EE"/>
+            </linearGradient></defs>
+            <circle cx="22" cy="29" r="13" stroke="#41E248" stroke-width="3.4"/>
+            <circle cx="36" cy="29" r="13" stroke="#5FA9EE" stroke-width="3.4"/>
+            <path d="M27 20a13 13 0 0 1 0 18" stroke="url(#joinG)" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <img class="apex" src="assets/apex-logo.png" alt="Apex Company">
+      </div>
+
+      <div class="ap-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Proposta de parceria</div>
+      <h1>Duas mãos que se juntam pelo <span class="b">açougue</span>.</h1>
+      <p class="sub">A Apex já leva marketing de verdade para casas de carne de toda a América Latina. A CADev entra com <span style="color:var(--green-hi)">IA + CRM</span> por baixo, para transformar cada atendimento em recompra. Juntas, uma coisa só: mais lucro no balcão e no delivery dos seus clientes.</p>
+      <div class="cta">
+        <a class="btn btn-apex btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20Apex%20Company%20e%20quero%20entender%20a%20IA%20%2B%20CRM%20para%20os%20a%C3%A7ougues." target="_blank" rel="noopener">Quero entender a parceria
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== AS DUAS FORÇAS ===== -->
+    <section class="ap-sec" id="parceria">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow blue">Por que juntas</span>
+        <h2>Cada uma faz o que faz de <span class="b">melhor</span>.</h2>
+        <p>A Apex conhece o mercado da carne como ninguém. A CADev constrói a tecnologia que sustenta esse crescimento. Uma mão não solta a outra.</p>
+      </div>
+      <div class="ap-hands">
+        <div class="ap-hand apex">
+          <img class="logo-sm" src="assets/apex-logo.png" alt="Apex Company">
+          <span class="k">A força de mercado</span>
+          <h3>Apex Company</h3>
+          <p>A maior assessoria de marketing para casas de carne da América Latina, com +500 empresas atendidas e a confiança de quem vive o açougue todo dia.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Relacionamento e carteira de açougues</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Marketing, tráfego e geração de demanda</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Autoridade e método já validados no nicho</li>
+          </ul>
+        </div>
+        <div class="ap-clasp" aria-hidden="true">
+          <svg viewBox="0 0 58 58" fill="none">
+            <defs><linearGradient id="claspG" x1="0" y1="0" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#41E248"/><stop offset="1" stop-color="#5FA9EE"/>
+            </linearGradient></defs>
+            <circle cx="22" cy="29" r="13" stroke="#41E248" stroke-width="3.4"/>
+            <circle cx="36" cy="29" r="13" stroke="#5FA9EE" stroke-width="3.4"/>
+            <path d="M27 20a13 13 0 0 1 0 18" stroke="url(#claspG)" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ap-hand cadev">
+          <svg class="logo-sm" viewBox="0 0 67 39" fill="url(#cadGradHand)" aria-hidden="true" style="height:26px">
+            <defs><linearGradient id="cadGradHand" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+              <stop offset="0" stop-color="#5BFF62"/><stop offset="0.55" stop-color="#29C030"/><stop offset="1" stop-color="#097C0E"/>
+            </linearGradient></defs>
+            <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+            <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+          </svg>
+          <span class="k">A força de tecnologia</span>
+          <h3>CADev Hub</h3>
+          <p>Desenvolvimento, inteligência artificial e automação sob medida. A gente coloca um cérebro de dados por trás do marketing que a Apex já entrega.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Atendente de IA no WhatsApp, 24 horas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> CRM com histórico, recompra e fidelização</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Infra, treino do agente e operação contínua</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== O NICHO MUDOU (problema) ===== -->
+    <section class="ap-sec" id="contexto">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow">O que mudou no açougue</span>
+        <h2>Hoje o balcão do açougue <span class="g">é o WhatsApp</span>.</h2>
+      </div>
+      <div class="ap-problem">
+        <p>O cliente não liga mais: manda mensagem pedindo a picanha do fim de semana, some por dois meses e ninguém percebe, e o pedido que chega às 22h fica sem resposta até o dia seguinte, quando ele já comprou no concorrente.</p>
+        <p class="punch">Cada mensagem sem resposta é uma <b>venda que foi embora</b>, e ninguém tem dados de quem comprou o quê.</p>
+      </div>
+    </section>
+
+    <!-- ===== IA + CRM NA PRÁTICA ===== -->
+    <section class="ap-sec" id="solucao">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow blue">A tecnologia por baixo</span>
+        <h2>O que a <span class="g">IA + CRM</span> faz por cada açougue.</h2>
+        <p>Não é um chatbot genérico. É um atendente treinado no jeito do açougue, ligado a uma base de dados que faz o cliente voltar.</p>
+      </div>
+      <div class="ap-cards">
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></div>
+          <b>Atende em segundos, 24h</b>
+          <p>Responde no WhatsApp na hora, de madrugada ou no domingo. Nenhum pedido fica esperando o açougue abrir.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <b>Anota pedido e corte certo</b>
+          <p>Entende "2kg de picanha limpa" e "costela em tiras", confirma peso, forma de pagamento e entrega, sem erro de anotação.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
+          <b>Disparo de promoções no WhatsApp</b>
+          <p>Envia a oferta da semana para a base certa e, quando o cliente responde, a própria IA atende, tira dúvida e fecha o pedido.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <b>Recompra e fidelidade</b>
+          <p>Programa de pontos, clube da carne e ofertas por perfil. O cliente vira recorrente em vez de comprar uma vez e sumir.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"/></svg></div>
+          <b>Base de dados própria</b>
+          <p>Quem compra, com que frequência, qual ticket, qual corte preferido. O açougue passa a ter dados, não achismo.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <b>Menos refém de marketplace</b>
+          <p>Venda direta no WhatsApp, sem pagar 20% a 30% de comissão de aplicativo. A margem fica com o açougue.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v13H3zM16 3v4M8 3v4M3 11h18"/></svg></div>
+          <b>Encomenda e datas fortes</b>
+          <p>Agenda o churrasco do fim de semana, a picanha do Dia dos Pais, a ceia. Avisa o cliente na hora certa, todo ano.</p>
+        </div>
+        <div class="ap-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.17L4 17.17zM8 9h8M8 12h5"/></svg></div>
+          <b>Painel simples pro dono</b>
+          <p>O açougueiro vê vendas, clientes e recompra numa tela só. Sem planilha, sem complicação, no celular.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NÚMEROS ===== -->
+    <section class="ap-sec" id="numeros">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow">O tamanho do ganho</span>
+        <h2>O que muda quando a tecnologia <span class="b">entra junto</span>.</h2>
+        <p>Referências de mercado para atendimento automatizado por WhatsApp e CRM no varejo de alimentos. É esse tipo de resultado que a parceria passa a entregar para a carteira da Apex.</p>
+      </div>
+      <div class="ap-stats">
+        <div class="ap-stat"><div class="n">&lt;1min</div><b>Tempo de resposta</b><p>De horas para segundos. O cliente é atendido no momento em que ainda está com fome e decidido a comprar.</p></div>
+        <div class="ap-stat"><div class="n">24/7</div><b>Sempre aberto</b><p>Pedidos fora do horário, de madrugada e no fim de semana deixam de ser vendas perdidas.</p></div>
+        <div class="ap-stat"><div class="n">+recompra</div><b>Cliente que volta</b><p>Base ativada com lembretes e ofertas por perfil transforma compra única em recorrência.</p></div>
+        <div class="ap-stat"><div class="n">0%</div><b>Comissão de app</b><p>Venda direta no WhatsApp corta a taxa de marketplace e devolve a margem para o balcão.</p></div>
+      </div>
+      <p class="ap-stat-note">Valores de referência do setor; o resultado real varia conforme cada açougue e o volume de base ativada.</p>
+    </section>
+
+    <!-- ===== BENEFÍCIOS split ===== -->
+    <section class="ap-sec" id="beneficios">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow blue">Ganha todo mundo</span>
+        <h2>Bom para a <span class="b">Apex</span>. Bom para o <span class="g">açougue</span>.</h2>
+      </div>
+      <div class="ap-split">
+        <div class="ap-bene apex">
+          <span class="k">Para a Apex Company</span>
+          <h3>Uma entrega nova, sem virar empresa de tecnologia.</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Amplia o portfólio com <b>IA + CRM</b> sem contratar time técnico.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Receita <b>recorrente</b> e cliente mais preso à agência.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Resultado <b>mensurável</b> para provar: mais pedidos e recompra.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>A CADev <b>opera nos bastidores</b>. A relação com o açougue segue sua.</span></li>
+          </ul>
+        </div>
+        <div class="ap-bene cadev">
+          <span class="k">Para o açougue, cliente da Apex</span>
+          <h3>Mais venda, menos trabalho manual no balcão.</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Nenhum pedido perdido por <b>demora</b> ou horário.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Clientes <b>voltam mais</b> com recompra e fidelidade ativas.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Atendente que <b>não erra pedido</b> e nunca fica de folga.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span>Dados do próprio negócio para <b>decidir a compra e a oferta</b>.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMO FUNCIONA A PARCERIA ===== -->
+    <section class="ap-sec" id="modelo">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow">Como a parceria funciona</span>
+        <h2>Papéis claros, <span class="b">uma entrega só</span>.</h2>
+        <p>Modelo white-label: para o açougue, tudo chega com a cara e o atendimento da Apex.</p>
+      </div>
+      <div class="ap-roles">
+        <div class="ap-role apex">
+          <div class="k">Apex Company</div>
+          <h3>A frente e a marca</h3>
+          <p>Traz a carteira de açougues, faz o marketing e mantém a relação comercial. A tecnologia entra dentro do que a Apex já entrega.</p>
+        </div>
+        <div class="ap-role cadev">
+          <div class="k">CADev Hub</div>
+          <h3>A tecnologia e a operação</h3>
+          <p>Constrói o agente de IA, o CRM e as automações, treina no nicho de carne e opera a infra e o suporte nos bastidores.</p>
+        </div>
+        <div class="ap-role">
+          <div class="k">Modelo comercial</div>
+          <h3>Alinhado numa call</h3>
+          <p>Condições, escopo por açougue e o modelo de recorrência ficam definidos a portas fechadas, do jeito que faz sentido para a Apex.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSOS ===== -->
+    <section class="ap-sec" id="passos">
+      <div class="ap-sec-head">
+        <span class="ap-eyebrow blue">Do sim ao no ar</span>
+        <h2>Simples de <span class="g">começar</span>.</h2>
+      </div>
+      <div class="ap-steps">
+        <div class="ap-step"><div class="n">1</div><b>Call de alinhamento</b><p>30 minutos para entender a carteira da Apex e desenhar o modelo da parceria.</p></div>
+        <div class="ap-step"><div class="n">2</div><b>Desenho do agente</b><p>Treinamos a IA e o CRM no jeito do açougue: cortes, encomendas, recompra.</p></div>
+        <div class="ap-step"><div class="n">3</div><b>Implantação piloto</b><p>Subimos em um ou dois açougues para provar o resultado com dados reais.</p></div>
+        <div class="ap-step"><div class="n">4</div><b>Escala na carteira</b><p>Replicamos para os demais clientes da Apex, com a operação toda na CADev.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="ap-cta">
+      <div class="panel">
+        <h2>Vamos juntar as duas mãos?</h2>
+        <p>Uma call de 30 minutos é suficiente para desenhar como a IA + CRM entra na carteira da Apex e começar por um piloto.</p>
+        <div class="cta">
+          <a class="btn btn-apex btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20Apex%20Company%20e%20quero%20agendar%20a%20call%20sobre%20a%20parceria%20de%20IA%20%2B%20CRM." target="_blank" rel="noopener">Agendar a call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-md" href="index.html">Conhecer a CADev</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="panel">
+      <div class="left">
+        <svg class="mark" viewBox="0 0 67 39" fill="#fff" aria-hidden="true" style="height:44px">
+          <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+          <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+        </svg>
+        <p>© 2026 CADev hub · proposta de parceria com a Apex Company</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/cadev.hub/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/in/cadev-hub-b001ab414/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7c0-1.67-.03-3.8-2.32-3.8-2.32 0-2.68 1.8-2.68 3.68V24H8V8z"/></svg></a>
+          <a href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20Apex%20Company%20e%20quero%20conversar%20sobre%20a%20parceria." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="right">
+        <h2>A força da Apex. A tecnologia da CADev. Um só resultado.</h2>
+        <p>Uma call de 30 minutos destrava o piloto e mostra o ganho com dados reais.</p>
+        <div class="cta">
+          <a class="btn btn-apex btn-md" href="https://wa.me/5531971566510?text=Ol%C3%A1!%20Sou%20da%20Apex%20Company%20e%20quero%20agendar%20a%20call%20sobre%20a%20parceria%20de%20IA%20%2B%20CRM." target="_blank" rel="noopener">Agendar a call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
