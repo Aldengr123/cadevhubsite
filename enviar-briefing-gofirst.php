@@ -40,44 +40,29 @@ if ($nome === '' || strlen(preg_replace('/\D/','',$zap)) < 10)
 
 /* rótulos amigáveis na ordem do briefing */
 $labels = [
-  'nome'               => 'Nome',
-  'zap'                => 'WhatsApp',
-  'email'              => 'E-mail',
-  'sistema_nome'       => 'Nome do sistema',
-  'sua_agencia'        => 'Agência',
-  'modulos_v1'         => '[Módulos] Módulos da v1',
-  'modulo_prioridade'  => '[Módulos] Módulo prioritário',
-  'modulo_prioridade_outro' => '[Módulos] Prioridade (outra)',
-  'modulos_v1_outro'   => '[Módulos] Outro módulo',
-  'modulos_fora'       => '[Módulos] Ficam de fora (futuro)',
-  'crm_detalhe'        => '[Funcionamento] CRM comercial',
-  'tarefas_detalhe'    => '[Funcionamento] Gestão de tarefas',
-  'relatorio_detalhe'  => '[Funcionamento] Relatórios',
-  'posts_detalhe'      => '[Funcionamento] Agendamento de posts',
-  'portal_detalhe'     => '[Funcionamento] Portal do cliente',
-  'inbox_detalhe'      => '[Funcionamento] Inbox unificado',
-  'automacoes_detalhe' => '[Funcionamento] Automações',
-  'ia_detalhe'         => '[Funcionamento] IA',
-  'integracoes'        => '[Funcionamento] Integrações',
-  'integracoes_outro'  => '[Funcionamento] Integrações (outra)',
-  'publico_alvo'       => '[Comercial] Público-alvo',
-  'modelo_venda'       => '[Comercial] Modelo de venda',
-  'modelo_venda_outro' => '[Comercial] Modelo de venda (outro)',
-  'publico_alvo_outro' => '[Comercial] Público-alvo (outro)',
-  'white_label'        => '[Comercial] White-label',
-  'white_label_outro'  => '[Comercial] White-label (detalhe)',
-  'branding'           => '[Comercial] Personalização (branding)',
-  'rebilling'          => '[Comercial] Revenda / cobrança',
-  'faixa_preco'        => '[Comercial] Faixa de preço pretendida',
-  'preco_setup'        => '[Precificação] Setup / entrada',
-  'preco_basico'       => '[Precificação] Plano básico (mensal)',
-  'preco_completo'     => '[Precificação] Plano completo (mensal)',
-  'preco_modulo'       => '[Precificação] Módulo adicional',
-  'equipe_vendas'       => '[Comercial] Equipe de vendas',
-  'prazo'              => '[Fecho] Prazo',
-  'referencias'        => '[Fecho] Referências',
-  'materiais'          => '[Fecho] Materiais',
-  'observacoes'        => '[Fecho] Observações',
+  'nome'                => 'Nome',
+  'zap'                 => 'WhatsApp',
+  'email'               => 'E-mail',
+  'sistema_nome'        => 'Nome do sistema',
+  'sua_empresa'         => 'Empresa',
+  'resumo'              => 'Resumo (o que resolve)',
+  'funcoes_vistas'      => '[Funções] Áreas confirmadas',
+  'funcoes_faltando'    => '[Funções] O que falta (aberto)',
+  'funcao_prioridade'   => '[Funções] Mais importante',
+  'painel_detalhe'      => '[Como funciona] Painel de clientes',
+  'cliente_detalhe'     => '[Como funciona] Cadastro de cliente',
+  'fluxo_detalhe'       => '[Como funciona] Onboarding/offboarding/crise',
+  'operacional_detalhe' => '[Como funciona] Operacional (Design/Social/AV)',
+  'permissoes_detalhe'  => '[Como funciona] Administração / permissões',
+  'outras_detalhe'      => '[Como funciona] Outras funções',
+  'publico_alvo'        => '[Comercial] Público-alvo',
+  'publico_alvo_outro'  => '[Comercial] Público-alvo (outro)',
+  'modelo_uso'          => '[Comercial] Uso / revenda',
+  'preco_ideia'         => '[Comercial] Preço por agência (ideia)',
+  'prazo'               => '[Fecho] Prazo',
+  'referencias'         => '[Fecho] Referências',
+  'materiais'           => '[Fecho] Materiais',
+  'observacoes'         => '[Fecho] Observações',
 ];
 
 function e($v){ return htmlspecialchars(is_array($v)?implode(', ',$v):(string)$v, ENT_QUOTES,'UTF-8'); }
@@ -108,7 +93,7 @@ $html = '<!doctype html><html><body style="margin:0;background:#0C0E0E;padding:2
   . '<div style="font:400 12px Arial;color:#999;margin-top:14px">Recebido em '.date('d/m/Y \à\s H:i').'</div>'
   . '</td></tr></table></body></html>';
 
-$subject = 'Novo briefing GoFirst — '.$nome.' ('.($d['sua_agencia'] ?? '—').')';
+$subject = 'Novo briefing GoFirst — '.$nome.' ('.($d['sua_empresa'] ?? '—').')';
 
 /* ---- Envio via Resend (HTTPS, porta 443) ---- */
 function resend_send($cfg, $subject, $html, $attachments=[]){

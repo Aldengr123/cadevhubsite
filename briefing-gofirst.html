@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GoFirst — Briefing do seu SaaS/CRM</title>
+<title>GoFirst — Briefing do seu CRM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,10 +31,10 @@
     </svg>
     <h1 class="fp-headline">Briefing do<br>seu <span style="color:var(--accent)">GoFirst</span>.</h1>
     <div class="fp-steps">
-      <div class="fp-step active" data-step="1"><div class="n">1</div><div class="t">Você &amp; GoFirst</div></div>
-      <div class="fp-step" data-step="2"><div class="n">2</div><div class="t">Módulos da v1</div></div>
-      <div class="fp-step" data-step="3"><div class="n">3</div><div class="t">Módulo a módulo</div></div>
-      <div class="fp-step" data-step="4"><div class="n">4</div><div class="t">Público &amp; modelo</div></div>
+      <div class="fp-step active" data-step="1"><div class="n">1</div><div class="t">Você &amp; o projeto</div></div>
+      <div class="fp-step" data-step="2"><div class="n">2</div><div class="t">Funções do sistema</div></div>
+      <div class="fp-step" data-step="3"><div class="n">3</div><div class="t">Como funciona</div></div>
+      <div class="fp-step" data-step="4"><div class="n">4</div><div class="t">Quem usa &amp; revenda</div></div>
       <div class="fp-step" data-step="5"><div class="n">5</div><div class="t">Fechamento</div></div>
     </div>
   </aside>
@@ -48,7 +48,7 @@
     <section class="fp-step-panel show" data-panel="1">
       <div class="fp-stepcount">Etapa 1 de 5</div>
       <h2 class="fp-steptitle">Vamos alinhar a GoFirst</h2>
-      <p class="fp-stepsub">A GoFirst é o <b>SaaS/CRM que sua agência vai vender para outras agências de marketing</b>. Esse briefing organiza tudo que a primeira versão precisa ter — respondendo aqui, a gente já sai direto para o desenvolvimento.</p>
+      <p class="fp-stepsub">A GoFirst é o <b>CRM que agências de marketing usam para gerir os clientes delas</b> — cadastro, onboarding, operação por área (design, social, tráfego) e resultados num painel só. Esse briefing serve pra você nos dizer tudo que a primeira versão precisa ter, com o máximo de detalhe possível.</p>
 
       <div class="q">
         <label for="nome">Seu nome</label>
@@ -72,8 +72,12 @@
         <input class="fld" id="sistema_nome" name="sistema_nome" type="text" placeholder="GoFirst" value="GoFirst">
       </div>
       <div class="q">
-        <label for="sua_agencia">Nome da sua agência</label>
-        <input class="fld" id="sua_agencia" name="sua_agencia" type="text" placeholder="Como sua agência se chama?" required>
+        <label for="sua_empresa">Nome da sua empresa</label>
+        <input class="fld" id="sua_empresa" name="sua_empresa" type="text" placeholder="Como sua empresa se chama?" required>
+      </div>
+      <div class="q">
+        <label for="resumo">Em uma frase, o que a GoFirst precisa resolver?</label>
+        <input class="fld" id="resumo" name="resumo" type="text" placeholder="Ex.: dar às agências um sistema para organizar clientes e mostrar resultado.">
       </div>
 
       <input type="text" id="hp_field" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -88,41 +92,31 @@
     <!-- STEP 2 -->
     <section class="fp-step-panel" data-panel="2">
       <div class="fp-stepcount">Etapa 2 de 5</div>
-      <h2 class="fp-steptitle">O que entra na primeira versão</h2>
-      <p class="fp-stepsub">Marque os módulos que a GoFirst <b>já precisa ter no lançamento</b>. O que ficar de fora entra depois, como módulo adicional.</p>
+      <h2 class="fp-steptitle">O que o sistema vai ter</h2>
+      <p class="fp-stepsub">Estas são as áreas que já identificamos na referência que você mostrou. Confirme o que entra na <b>primeira versão</b> — e, logo abaixo, escreva livremente tudo que faltar. Quanto mais detalhe, melhor.</p>
 
       <div class="q">
-        <span class="qlabel">Módulos da v1 <span class="qhint">(pode marcar mais de um)</span></span>
-        <div class="opts grid" data-field="modulos_v1" data-type="check">
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>CRM comercial</b><small>funil de vendas / pipeline de clientes</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestão de tarefas</b><small>organização do time por cliente/projeto</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Geração de relatórios</b><small>tipo "reportei", envio automático pro cliente</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agendamento de posts</b><small>calendário e publicação em redes sociais</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Portal do cliente</b><small>área branded onde o cliente final acompanha resultados</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Inbox unificado</b><small>WhatsApp, Instagram e mensagens num só lugar</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Automações / fluxos</b><small>follow-up, lembretes e disparos automáticos</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agenda / agendamento de reuniões</b><small>calendário de reuniões e confirmação</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Faturamento / cobrança</b><small>planos, assinaturas e cobrança dos clientes</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>IA integrada</b><small>resumo de relatórios, respostas e qualificação de leads</small></span></label>
+        <span class="qlabel">Áreas que vimos na referência <span class="qhint">(marque as que entram na v1)</span></span>
+        <div class="opts grid" data-field="funcoes_vistas" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Painel de clientes</b><small>clientes ativos, distribuição por plano, status de tráfego pago</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Cadastro de cliente</b><small>ficha de cada cliente da agência</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Onboarding &amp; offboarding</b><small>entrada e saída de cliente</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestão de crise</b><small>acompanhar clientes em risco</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>NPS / satisfação</b><small>medir a satisfação dos clientes</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Operacional por área</b><small>Design, Social Media e Audiovisual</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Tráfego pago</b><small>verba gerenciada e status por canal (Meta, Google)</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Administração do sistema</b><small>usuários e permissões do time</small></span></label>
         </div>
-        <input class="fld" name="modulos_v1_outro" type="text" placeholder="Outro módulo que não está na lista? Escreva aqui." style="margin-top:12px">
       </div>
 
       <div class="q">
-        <span class="qlabel">Qual desses é o mais importante para vender a v1?</span>
-        <div class="opts" data-field="modulo_prioridade" data-type="radio" data-required="true" data-label="módulo prioritário">
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>CRM comercial</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestão de tarefas</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Geração de relatórios</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agendamento de posts</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Portal do cliente</b></span></label>
-        </div>
-        <input class="fld" name="modulo_prioridade_outro" type="text" placeholder="Nenhum desses? Diga qual é a prioridade." style="margin-top:12px">
+        <label for="funcoes_faltando">O que mais a GoFirst precisa ter que <b>não</b> está na lista acima?</label>
+        <textarea class="fld" id="funcoes_faltando" name="funcoes_faltando" placeholder="Escreva à vontade tudo que você imagina para o sistema — cada função, tela ou ideia que não aparece acima. Não precisa se preocupar com ordem."></textarea>
       </div>
 
       <div class="q">
-        <label for="modulos_fora">Algum módulo que ficará de fora da v1, mas você já pensa em oferecer depois?</label>
-        <input class="fld" id="modulos_fora" name="modulos_fora" type="text" placeholder="Ex.: disparo de WhatsApp, automações, gestão financeira...">
+        <label for="funcao_prioridade">Se tivesse que escolher, qual função é a mais importante de todas?</label>
+        <input class="fld" id="funcao_prioridade" name="funcao_prioridade" type="text" placeholder="Ex.: o painel de clientes com o status de tráfego pago.">
       </div>
 
       <div class="fp-err" data-err="2"></div>
@@ -137,53 +131,44 @@
     <!-- STEP 3 -->
     <section class="fp-step-panel" data-panel="3">
       <div class="fp-stepcount">Etapa 3 de 5</div>
-      <h2 class="fp-steptitle">Como cada módulo deve funcionar</h2>
-      <p class="fp-stepsub">Detalhe o funcionamento esperado de cada módulo marcado. Se algum não se aplica, deixe em branco.</p>
+      <h2 class="fp-steptitle">Como cada parte funciona</h2>
+      <p class="fp-stepsub">Explique com suas palavras como cada área deveria funcionar no dia a dia. Preencha o que fizer sentido — o que ficar em branco, a gente pergunta depois.</p>
 
       <div class="q">
-        <label for="crm_detalhe">CRM comercial — como deve ser o funil?</label>
-        <textarea class="fld" id="crm_detalhe" name="crm_detalhe" placeholder="Etapas do funil (ex.: lead, contato, proposta, fechado), campos por cliente, quem usa (vendedor, gestor)..."></textarea>
+        <label for="painel_detalhe">Painel de clientes — quais números você quer enxergar?</label>
+        <textarea class="fld" id="painel_detalhe" name="painel_detalhe" placeholder="Ex.: total de clientes ativos, quantos em cada plano, verba de tráfego gerenciada, clientes em risco. O que precisa aparecer logo na primeira tela?"></textarea>
+        <label class="fp-attach" for="anx_painel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_painel" class="fp-file" data-list="anxlist_painel" data-origem="Print — Painel de clientes" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_painel"></div>
       </div>
       <div class="q">
-        <label for="tarefas_detalhe">Gestão de tarefas — como o time deve organizar o trabalho?</label>
-        <textarea class="fld" id="tarefas_detalhe" name="tarefas_detalhe" placeholder="Tarefas por cliente ou por projeto? Prazos, responsáveis, quadro tipo kanban?"></textarea>
+        <label for="cliente_detalhe">Cadastro de cliente — o que cada ficha precisa guardar?</label>
+        <textarea class="fld" id="cliente_detalhe" name="cliente_detalhe" placeholder="Ex.: dados de contato, plano contratado, responsável na agência, histórico, contratos, arquivos."></textarea>
+        <label class="fp-attach" for="anx_cliente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_cliente" class="fp-file" data-list="anxlist_cliente" data-origem="Print — Cadastro de cliente" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_cliente"></div>
       </div>
       <div class="q">
-        <label for="relatorio_detalhe">Relatórios — o que deve aparecer e com que frequência?</label>
-        <textarea class="fld" id="relatorio_detalhe" name="relatorio_detalhe" placeholder="Métricas (ex.: resultado de tráfego, entregas do mês), frequência (semanal/mensal), envio automático pro cliente final?"></textarea>
+        <label for="fluxo_detalhe">Onboarding / offboarding / gestão de crise — como é esse fluxo?</label>
+        <textarea class="fld" id="fluxo_detalhe" name="fluxo_detalhe" placeholder="Ex.: quais passos quando entra um cliente novo, o que dispara uma 'crise', o que acontece quando um cliente sai."></textarea>
+        <label class="fp-attach" for="anx_fluxo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_fluxo" class="fp-file" data-list="anxlist_fluxo" data-origem="Print — Onboarding/offboarding/crise" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_fluxo"></div>
       </div>
       <div class="q">
-        <label for="posts_detalhe">Agendamento de posts — quais redes e como aprova?</label>
-        <textarea class="fld" id="posts_detalhe" name="posts_detalhe" placeholder="Instagram, TikTok, LinkedIn... Precisa de aprovação do cliente final antes de publicar?"></textarea>
+        <label for="operacional_detalhe">Operacional (Design, Social, Audiovisual) — como o time se organiza?</label>
+        <textarea class="fld" id="operacional_detalhe" name="operacional_detalhe" placeholder="Ex.: tarefas por área e por cliente, prazos, aprovação, quadro tipo kanban, quem faz o quê."></textarea>
+        <label class="fp-attach" for="anx_operacional"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_operacional" class="fp-file" data-list="anxlist_operacional" data-origem="Print — Operacional (Design/Social/AV)" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_operacional"></div>
       </div>
       <div class="q">
-        <label for="portal_detalhe">Portal do cliente — o que o cliente final deve ver?</label>
-        <textarea class="fld" id="portal_detalhe" name="portal_detalhe" placeholder="Ex.: dashboard de resultados, aprovação de posts, arquivos, status das tarefas — tudo com a marca da agência dele."></textarea>
+        <label for="permissoes_detalhe">Administração — quem acessa o quê?</label>
+        <textarea class="fld" id="permissoes_detalhe" name="permissoes_detalhe" placeholder="Ex.: dono da agência vê tudo; designer só vê as tarefas dele; gestor de tráfego vê os números de mídia."></textarea>
+        <label class="fp-attach" for="anx_permissoes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_permissoes" class="fp-file" data-list="anxlist_permissoes" data-origem="Print — Administração/permissões" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_permissoes"></div>
       </div>
       <div class="q">
-        <label for="inbox_detalhe">Inbox unificado — quais canais entram?</label>
-        <textarea class="fld" id="inbox_detalhe" name="inbox_detalhe" placeholder="WhatsApp, Instagram Direct, Messenger, e-mail... Precisa distribuir conversas entre atendentes?"></textarea>
-      </div>
-      <div class="q">
-        <label for="automacoes_detalhe">Automações — que fluxos não podem faltar?</label>
-        <textarea class="fld" id="automacoes_detalhe" name="automacoes_detalhe" placeholder="Ex.: follow-up de lead sem resposta, lembrete de reunião, mensagem de boas-vindas, cobrança de material."></textarea>
-      </div>
-      <div class="q">
-        <label for="ia_detalhe">IA — onde ela deve ajudar?</label>
-        <textarea class="fld" id="ia_detalhe" name="ia_detalhe" placeholder="Ex.: resumir relatórios em linguagem simples, qualificar leads, sugerir legendas de post, responder dúvidas comuns."></textarea>
-      </div>
-
-      <div class="q">
-        <span class="qlabel">Integrações que o sistema precisa ter <span class="qhint">(pode marcar mais de um)</span></span>
-        <div class="opts grid" data-field="integracoes" data-type="check">
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Meta Ads</b><small>Facebook / Instagram</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Google Ads / Analytics</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>WhatsApp / API oficial</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Pagamentos</b><small>Stripe, Pix, Mercado Pago</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Google Agenda</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não sei ainda</b><small>preciso de orientação</small></span></label>
-        </div>
-        <input class="fld" name="integracoes_outro" type="text" placeholder="Outra ferramenta que precisa conectar? Escreva aqui." style="margin-top:12px">
+        <label for="outras_detalhe">Outras funções — detalhe qualquer coisa que citou antes</label>
+        <textarea class="fld" id="outras_detalhe" name="outras_detalhe" placeholder="Se você marcou/escreveu algo na etapa anterior que ainda não foi detalhado, explique aqui."></textarea>
+        <label class="fp-attach" for="anx_outras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>Anexar print<input id="anx_outras" class="fp-file" data-list="anxlist_outras" data-origem="Print — Outras funções" type="file" multiple accept="image/*,.pdf" style="display:none"></label>
+        <div class="fp-filelist" id="anxlist_outras"></div>
       </div>
 
       <div class="fp-err" data-err="3"></div>
@@ -198,92 +183,32 @@
     <!-- STEP 4 -->
     <section class="fp-step-panel" data-panel="4">
       <div class="fp-stepcount">Etapa 4 de 5</div>
-      <h2 class="fp-steptitle">Público e modelo comercial</h2>
-      <p class="fp-stepsub">A GoFirst é vendida para outras agências. Isso ajuda a entender como estruturar planos e white-label.</p>
+      <h2 class="fp-steptitle">Quem vai usar e como você vende</h2>
+      <p class="fp-stepsub">A GoFirst é feita para agências de marketing. Isso nos ajuda a desenhar o sistema e os planos do jeito certo.</p>
 
       <div class="q">
-        <span class="qlabel">Quem vai comprar a GoFirst?</span>
+        <span class="qlabel">Que tipo de agência vai usar a GoFirst? <span class="qhint">(pode marcar mais de um)</span></span>
         <div class="opts" data-field="publico_alvo" data-type="check">
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências de marketing generalistas</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências nichadas</b><small>ex.: imobiliário, saúde, food...</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências generalistas</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências nichadas</b><small>ex.: food, saúde, imobiliário</small></span></label>
           <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestores de tráfego autônomos</b></span></label>
         </div>
         <input class="fld" name="publico_alvo_outro" type="text" placeholder="Outro público? Escreva aqui." style="margin-top:12px">
       </div>
 
       <div class="q">
-        <span class="qlabel">Como pretende vender o sistema?</span>
-        <div class="opts" data-field="modelo_venda" data-type="radio" data-required="true" data-label="modelo de venda">
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sistema básico + módulos adicionais</b><small>plano de entrada com upsell por módulo</small></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Um plano único, completo</b></span></label>
+        <span class="qlabel">Como você vai usar a GoFirst?</span>
+        <div class="opts" data-field="modelo_uso" data-type="radio" data-required="true" data-label="modelo de uso">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Vou revender para outras agências</b><small>cada agência paga uma mensalidade pra usar</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Só uso interno na minha empresa</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Os dois</b></span></label>
           <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei, preciso de orientação</b></span></label>
         </div>
-        <input class="fld" name="modelo_venda_outro" type="text" placeholder="Outro modelo em mente? Escreva aqui." style="margin-top:12px">
       </div>
 
       <div class="q">
-        <span class="qlabel">Vai oferecer versão sob medida com a marca do cliente?</span>
-        <div class="opts" data-field="white_label" data-type="radio">
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sim, com a logo da agência do cliente</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não, só a marca GoFirst</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não decidi</b></span></label>
-        </div>
-        <input class="fld" name="white_label_outro" type="text" placeholder="Quer detalhar melhor essa opção? Escreva aqui." style="margin-top:12px">
-      </div>
-
-      <div class="q">
-        <span class="qlabel">O que a agência-cliente deve poder personalizar? <span class="qhint">(pode marcar mais de um)</span></span>
-        <div class="opts grid" data-field="branding" data-type="check">
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Logo e cores</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Domínio próprio</b><small>ex.: sistema.agencia.com.br</small></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>E-mails com a marca dela</b></span></label>
-          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Relatórios white-label</b></span></label>
-        </div>
-      </div>
-
-      <div class="q">
-        <span class="qlabel">Como a agência-cliente vai cobrar dos clientes finais dela?</span>
-        <div class="opts" data-field="rebilling" data-type="radio">
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ela revende o acesso</b><small>cobra o cliente final dentro do sistema (tipo SaaS mode)</small></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Usa só internamente</b><small>o sistema é ferramenta da agência, não revende</small></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Os dois</b></span></label>
-          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei</b></span></label>
-        </div>
-      </div>
-
-      <div class="q">
-        <label for="faixa_preco">Quanto pretende cobrar por conta/agência? <span class="qhint">(se já tiver ideia)</span></label>
-        <input class="fld" id="faixa_preco" name="faixa_preco" type="text" placeholder="Ex.: R$ 197/mês no básico, R$ 497/mês no completo">
-      </div>
-
-      <div class="q">
-        <span class="qlabel">Precificação que você imagina <span class="qhint">(preencha o que já souber)</span></span>
-        <div class="frow">
-          <div class="q" style="margin:0">
-            <label for="preco_setup">Setup / entrada</label>
-            <input class="fld" id="preco_setup" name="preco_setup" type="text" placeholder="Ex.: R$ 997 (uma vez)">
-          </div>
-          <div class="q" style="margin:0">
-            <label for="preco_basico">Plano básico (mensal)</label>
-            <input class="fld" id="preco_basico" name="preco_basico" type="text" placeholder="Ex.: R$ 197/mês">
-          </div>
-        </div>
-        <div class="frow" style="margin-top:0">
-          <div class="q" style="margin:0">
-            <label for="preco_completo">Plano completo (mensal)</label>
-            <input class="fld" id="preco_completo" name="preco_completo" type="text" placeholder="Ex.: R$ 497/mês">
-          </div>
-          <div class="q" style="margin:0">
-            <label for="preco_modulo">Módulo adicional</label>
-            <input class="fld" id="preco_modulo" name="preco_modulo" type="text" placeholder="Ex.: R$ 97/mês por módulo">
-          </div>
-        </div>
-        <div class="fhelp">Não precisa ter tudo definido — isso ajuda a montar os planos e calcular sua margem. A gente refina junto na proposta.</div>
-      </div>
-
-      <div class="q">
-        <label for="equipe_vendas">Sua agência já tem equipe para vender a GoFirst para outras agências?</label>
-        <input class="fld" id="equipe_vendas" name="equipe_vendas" type="text" placeholder="Ex.: sim, equipe de vendas dedicada / não, só a gente por enquanto">
+        <label for="preco_ideia">Se vai revender, quanto pretende cobrar por agência? <span class="qhint">(se já tiver ideia)</span></label>
+        <input class="fld" id="preco_ideia" name="preco_ideia" type="text" placeholder="Ex.: R$ 297/mês por agência. Pode deixar em branco se ainda não pensou.">
       </div>
 
       <div class="fp-err" data-err="4"></div>
@@ -312,13 +237,13 @@
       </div>
 
       <div class="q">
-        <label for="referencias">CRMs ou sistemas que você admira / usa como referência</label>
-        <textarea class="fld" id="referencias" name="referencias" placeholder="Nomes ou links de sistemas parecidos com o que você imagina para a GoFirst."></textarea>
+        <label for="referencias">Sistemas que você usa ou admira como referência</label>
+        <textarea class="fld" id="referencias" name="referencias" placeholder="Nomes ou links de CRMs/sistemas parecidos com o que você imagina para a GoFirst — inclusive o da print que você mostrou."></textarea>
       </div>
 
       <div class="q">
         <label for="materiais">Links de materiais que já tem</label>
-        <textarea class="fld" id="materiais" name="materiais" placeholder="Protótipo, logo, prints, documentos — cole tudo que ajudar."></textarea>
+        <textarea class="fld" id="materiais" name="materiais" placeholder="Protótipo, logo, prints, planilha, documentos — cole tudo que ajudar."></textarea>
       </div>
 
       <div class="q">
@@ -326,7 +251,7 @@
         <label class="fp-upload" for="anexos_input">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
           <span class="u-txt"><b>Clique para anexar</b><small>ou arraste os arquivos aqui</small></span>
-          <input id="anexos_input" type="file" multiple accept="image/*,.pdf,.zip" style="display:none">
+          <input id="anexos_input" class="fp-file" data-list="anexos_list" data-origem="Materiais gerais (fecho)" type="file" multiple accept="image/*,.pdf,.zip" style="display:none">
         </label>
         <div class="fp-filelist" id="anexos_list"></div>
       </div>

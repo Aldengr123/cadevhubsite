@@ -157,14 +157,14 @@
     zap.value = v;
   });
 
-  /* ---- anexos ---- */
-  const anexosInput = document.getElementById('anexos_input');
-  const anexosList = document.getElementById('anexos_list');
+  /* ---- anexos (múltiplos campos) ---- */
   let anexos = [];
   const MAX_MB = 8;
-  if (anexosInput){
-    anexosInput.addEventListener('change', async ()=>{
-      for (const file of anexosInput.files){
+  document.querySelectorAll('input[type=file].fp-file').forEach(input=>{
+    const listEl = document.getElementById(input.dataset.list);
+    const origem = input.dataset.origem || '';
+    input.addEventListener('change', async ()=>{
+      for (const file of input.files){
         if (file.size > MAX_MB*1024*1024){ alert(`"${file.name}" passa de ${MAX_MB}MB e não foi anexado.`); continue; }
         const base64 = await new Promise((res,rej)=>{
           const r = new FileReader();
@@ -172,17 +172,22 @@
           r.onerror = rej;
           r.readAsDataURL(file);
         });
-        anexos.push({ name: file.name, type: file.type, content: base64 });
+        anexos.push({ name: file.name, type: file.type, content: base64, origem });
       }
-      anexosInput.value = '';
-      renderAnexos();
+      input.value = '';
+      renderAnexos(listEl, origem);
     });
-  }
-  function renderAnexos(){
-    if(!anexosList) return;
-    anexosList.innerHTML = anexos.map((a,i)=>`<div class="f"><b>${a.name}</b><button type="button" data-i="${i}">✕</button></div>`).join('');
-    anexosList.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-      anexos.splice(+b.dataset.i,1); renderAnexos();
+  });
+  function renderAnexos(listEl, origem){
+    if(!listEl) return;
+    listEl.innerHTML = anexos.map((a,i)=>({a,i})).filter(o=>o.a.origem===origem)
+      .map(({a,i})=>`<div class="f"><b>${a.name}</b><button type="button" data-i="${i}">✕</button></div>`).join('');
+    listEl.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+      anexos.splice(+b.dataset.i,1);
+      document.querySelectorAll('.fp-filelist').forEach(l=>{
+        const inp=document.querySelector(`input[data-list="${l.id}"]`);
+        renderAnexos(l, inp?inp.dataset.origem||'':'');
+      });
     }));
   }
 })();
