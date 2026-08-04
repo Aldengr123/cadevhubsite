@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoFirst — Briefing do seu SaaS/CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="orcamento.css?v=2">
+<link rel="stylesheet" href="briefing.css?v=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="fp">
+  <aside class="fp-aside">
+    <a class="fp-back" href="https://cadevhub.com/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao site
+    </a>
+    <svg class="fp-logo" viewBox="0 0 67 39" fill="url(#cadGradB)" aria-hidden="true">
+      <defs><linearGradient id="cadGradB" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="60" y2="38">
+        <stop offset="0" stop-color="#A5FFA9"/><stop offset="0.55" stop-color="#41E248"/><stop offset="1" stop-color="#179E1D"/>
+      </linearGradient></defs>
+      <path d="M33.452 0C33.98.5 39.752 11.65 40.516 13.084L47.532 26.199C48.811 28.585 50.353 31.315 51.517 33.732 59.169 31.745 63.138 24.28 61.566 16.964 60.779 13.408 58.58 10.293 55.443 8.292 52.016 6.124 48.442 5.934 44.514 6.742 44.562 8.663 44.38 12.221 44.644 13.984 44.278 12.984 43.428 11.546 42.932 10.552 41.685 8.057 40.207 5.532 39.003 3.027 44.474.978 51.755.731 57.018 3.462 61.427 5.795 64.696 9.732 66.103 14.403 67.715 19.483 67.139 24.979 64.504 29.641 63.858 30.774 63.084 31.834 62.199 32.802 60.738 34.402 59.008 35.75 57.08 36.787 50.937 40.092 46.271 38.557 39.766 38.965L39.77 34.115C41.878 34.086 43.986 34.084 46.094 34.108 42.082 26.275 37.535 18.451 33.509 10.59 32.794 11.768 31.914 13.556 31.246 14.803L26.135 24.322 37.101 24.327C37.696 25.422 39.055 28.226 39.689 29.111 34.502 29.212 29.026 29.116 23.807 29.126 22.219 30.7 19.028 30.94 16.902 30.928L33.452 0Z"/>
+      <path d="M17.329 1.455C17.833 1.374 19.136 1.443 19.65 1.48 22.672 1.693 24.918 2.436 27.541 3.863 26.844 5.304 25.976 6.887 25.207 8.302 24.465 7.714 22.664 6.967 21.735 6.723 14.462 4.814 7.599 9.418 5.609 16.206 4.54 19.896 5.009 23.844 6.917 27.201 8.769 30.397 11.685 32.701 15.341 33.675 19.091 34.674 22.479 33.943 25.809 32.132 26.125 31.997 26.883 31.471 27.204 31.26L27.207 36.847C20.541 40.211 13.154 39.647 7.245 35.057 3.282 32.002.728 27.554.139 22.683-.463 17.298.878 12.187 4.407 7.938 6.969 4.834 10.55 2.672 14.556 1.81 15.372 1.638 16.48 1.543 17.329 1.455Z"/>
+    </svg>
+    <h1 class="fp-headline">Briefing do<br>seu <span style="color:var(--accent)">GoFirst</span>.</h1>
+    <div class="fp-steps">
+      <div class="fp-step active" data-step="1"><div class="n">1</div><div class="t">Você &amp; GoFirst</div></div>
+      <div class="fp-step" data-step="2"><div class="n">2</div><div class="t">Módulos da v1</div></div>
+      <div class="fp-step" data-step="3"><div class="n">3</div><div class="t">Módulo a módulo</div></div>
+      <div class="fp-step" data-step="4"><div class="n">4</div><div class="t">Público &amp; modelo</div></div>
+      <div class="fp-step" data-step="5"><div class="n">5</div><div class="t">Fechamento</div></div>
+    </div>
+  </aside>
+
+  <main class="fp-main">
+    <div class="fp-progress">
+      <span class="fill"></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="fp-step-panel show" data-panel="1">
+      <div class="fp-stepcount">Etapa 1 de 5</div>
+      <h2 class="fp-steptitle">Vamos alinhar a GoFirst</h2>
+      <p class="fp-stepsub">A GoFirst é o <b>SaaS/CRM que sua agência vai vender para outras agências de marketing</b>. Esse briefing organiza tudo que a primeira versão precisa ter — respondendo aqui, a gente já sai direto para o desenvolvimento.</p>
+
+      <div class="q">
+        <label for="nome">Seu nome</label>
+        <input class="fld" id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required>
+      </div>
+      <div class="frow">
+        <div class="q">
+          <label for="zap">WhatsApp</label>
+          <div class="phone">
+            <div class="cc"><span class="flag"></span> +55</div>
+            <input class="fld" id="zap" name="zap" type="tel" placeholder="11 96123-4567" required>
+          </div>
+        </div>
+        <div class="q">
+          <label for="email">E-mail</label>
+          <input class="fld" id="email" name="email" type="email" placeholder="voce@email.com">
+        </div>
+      </div>
+      <div class="q">
+        <label for="sistema_nome">Nome do sistema</label>
+        <input class="fld" id="sistema_nome" name="sistema_nome" type="text" placeholder="GoFirst" value="GoFirst">
+      </div>
+      <div class="q">
+        <label for="sua_agencia">Nome da sua agência</label>
+        <input class="fld" id="sua_agencia" name="sua_agencia" type="text" placeholder="Como sua agência se chama?" required>
+      </div>
+
+      <input type="text" id="hp_field" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="fp-err" data-err="1"></div>
+      <div class="fp-actions">
+        <button class="btn btn-primary btn-md" data-next="2">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="fp-step-panel" data-panel="2">
+      <div class="fp-stepcount">Etapa 2 de 5</div>
+      <h2 class="fp-steptitle">O que entra na primeira versão</h2>
+      <p class="fp-stepsub">Marque os módulos que a GoFirst <b>já precisa ter no lançamento</b>. O que ficar de fora entra depois, como módulo adicional.</p>
+
+      <div class="q">
+        <span class="qlabel">Módulos da v1 <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="modulos_v1" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>CRM comercial</b><small>funil de vendas / pipeline de clientes</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestão de tarefas</b><small>organização do time por cliente/projeto</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Geração de relatórios</b><small>tipo "reportei", envio automático pro cliente</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agendamento de posts</b><small>calendário e publicação em redes sociais</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Portal do cliente</b><small>área branded onde o cliente final acompanha resultados</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Inbox unificado</b><small>WhatsApp, Instagram e mensagens num só lugar</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Automações / fluxos</b><small>follow-up, lembretes e disparos automáticos</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agenda / agendamento de reuniões</b><small>calendário de reuniões e confirmação</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Faturamento / cobrança</b><small>planos, assinaturas e cobrança dos clientes</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>IA integrada</b><small>resumo de relatórios, respostas e qualificação de leads</small></span></label>
+        </div>
+        <input class="fld" name="modulos_v1_outro" type="text" placeholder="Outro módulo que não está na lista? Escreva aqui." style="margin-top:12px">
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Qual desses é o mais importante para vender a v1?</span>
+        <div class="opts" data-field="modulo_prioridade" data-type="radio" data-required="true" data-label="módulo prioritário">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>CRM comercial</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestão de tarefas</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Geração de relatórios</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agendamento de posts</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Portal do cliente</b></span></label>
+        </div>
+        <input class="fld" name="modulo_prioridade_outro" type="text" placeholder="Nenhum desses? Diga qual é a prioridade." style="margin-top:12px">
+      </div>
+
+      <div class="q">
+        <label for="modulos_fora">Algum módulo que ficará de fora da v1, mas você já pensa em oferecer depois?</label>
+        <input class="fld" id="modulos_fora" name="modulos_fora" type="text" placeholder="Ex.: disparo de WhatsApp, automações, gestão financeira...">
+      </div>
+
+      <div class="fp-err" data-err="2"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="1">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="3">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="fp-step-panel" data-panel="3">
+      <div class="fp-stepcount">Etapa 3 de 5</div>
+      <h2 class="fp-steptitle">Como cada módulo deve funcionar</h2>
+      <p class="fp-stepsub">Detalhe o funcionamento esperado de cada módulo marcado. Se algum não se aplica, deixe em branco.</p>
+
+      <div class="q">
+        <label for="crm_detalhe">CRM comercial — como deve ser o funil?</label>
+        <textarea class="fld" id="crm_detalhe" name="crm_detalhe" placeholder="Etapas do funil (ex.: lead, contato, proposta, fechado), campos por cliente, quem usa (vendedor, gestor)..."></textarea>
+      </div>
+      <div class="q">
+        <label for="tarefas_detalhe">Gestão de tarefas — como o time deve organizar o trabalho?</label>
+        <textarea class="fld" id="tarefas_detalhe" name="tarefas_detalhe" placeholder="Tarefas por cliente ou por projeto? Prazos, responsáveis, quadro tipo kanban?"></textarea>
+      </div>
+      <div class="q">
+        <label for="relatorio_detalhe">Relatórios — o que deve aparecer e com que frequência?</label>
+        <textarea class="fld" id="relatorio_detalhe" name="relatorio_detalhe" placeholder="Métricas (ex.: resultado de tráfego, entregas do mês), frequência (semanal/mensal), envio automático pro cliente final?"></textarea>
+      </div>
+      <div class="q">
+        <label for="posts_detalhe">Agendamento de posts — quais redes e como aprova?</label>
+        <textarea class="fld" id="posts_detalhe" name="posts_detalhe" placeholder="Instagram, TikTok, LinkedIn... Precisa de aprovação do cliente final antes de publicar?"></textarea>
+      </div>
+      <div class="q">
+        <label for="portal_detalhe">Portal do cliente — o que o cliente final deve ver?</label>
+        <textarea class="fld" id="portal_detalhe" name="portal_detalhe" placeholder="Ex.: dashboard de resultados, aprovação de posts, arquivos, status das tarefas — tudo com a marca da agência dele."></textarea>
+      </div>
+      <div class="q">
+        <label for="inbox_detalhe">Inbox unificado — quais canais entram?</label>
+        <textarea class="fld" id="inbox_detalhe" name="inbox_detalhe" placeholder="WhatsApp, Instagram Direct, Messenger, e-mail... Precisa distribuir conversas entre atendentes?"></textarea>
+      </div>
+      <div class="q">
+        <label for="automacoes_detalhe">Automações — que fluxos não podem faltar?</label>
+        <textarea class="fld" id="automacoes_detalhe" name="automacoes_detalhe" placeholder="Ex.: follow-up de lead sem resposta, lembrete de reunião, mensagem de boas-vindas, cobrança de material."></textarea>
+      </div>
+      <div class="q">
+        <label for="ia_detalhe">IA — onde ela deve ajudar?</label>
+        <textarea class="fld" id="ia_detalhe" name="ia_detalhe" placeholder="Ex.: resumir relatórios em linguagem simples, qualificar leads, sugerir legendas de post, responder dúvidas comuns."></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Integrações que o sistema precisa ter <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="integracoes" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Meta Ads</b><small>Facebook / Instagram</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Google Ads / Analytics</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>WhatsApp / API oficial</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Pagamentos</b><small>Stripe, Pix, Mercado Pago</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Google Agenda</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não sei ainda</b><small>preciso de orientação</small></span></label>
+        </div>
+        <input class="fld" name="integracoes_outro" type="text" placeholder="Outra ferramenta que precisa conectar? Escreva aqui." style="margin-top:12px">
+      </div>
+
+      <div class="fp-err" data-err="3"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="2">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="4">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="fp-step-panel" data-panel="4">
+      <div class="fp-stepcount">Etapa 4 de 5</div>
+      <h2 class="fp-steptitle">Público e modelo comercial</h2>
+      <p class="fp-stepsub">A GoFirst é vendida para outras agências. Isso ajuda a entender como estruturar planos e white-label.</p>
+
+      <div class="q">
+        <span class="qlabel">Quem vai comprar a GoFirst?</span>
+        <div class="opts" data-field="publico_alvo" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências de marketing generalistas</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Agências nichadas</b><small>ex.: imobiliário, saúde, food...</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Gestores de tráfego autônomos</b></span></label>
+        </div>
+        <input class="fld" name="publico_alvo_outro" type="text" placeholder="Outro público? Escreva aqui." style="margin-top:12px">
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Como pretende vender o sistema?</span>
+        <div class="opts" data-field="modelo_venda" data-type="radio" data-required="true" data-label="modelo de venda">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sistema básico + módulos adicionais</b><small>plano de entrada com upsell por módulo</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Um plano único, completo</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei, preciso de orientação</b></span></label>
+        </div>
+        <input class="fld" name="modelo_venda_outro" type="text" placeholder="Outro modelo em mente? Escreva aqui." style="margin-top:12px">
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Vai oferecer versão sob medida com a marca do cliente?</span>
+        <div class="opts" data-field="white_label" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sim, com a logo da agência do cliente</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Não, só a marca GoFirst</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não decidi</b></span></label>
+        </div>
+        <input class="fld" name="white_label_outro" type="text" placeholder="Quer detalhar melhor essa opção? Escreva aqui." style="margin-top:12px">
+      </div>
+
+      <div class="q">
+        <span class="qlabel">O que a agência-cliente deve poder personalizar? <span class="qhint">(pode marcar mais de um)</span></span>
+        <div class="opts grid" data-field="branding" data-type="check">
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Logo e cores</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Domínio próprio</b><small>ex.: sistema.agencia.com.br</small></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>E-mails com a marca dela</b></span></label>
+          <label class="opt"><span class="mark check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Relatórios white-label</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Como a agência-cliente vai cobrar dos clientes finais dela?</span>
+        <div class="opts" data-field="rebilling" data-type="radio">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ela revende o acesso</b><small>cobra o cliente final dentro do sistema (tipo SaaS mode)</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Usa só internamente</b><small>o sistema é ferramenta da agência, não revende</small></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Os dois</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Ainda não sei</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="faixa_preco">Quanto pretende cobrar por conta/agência? <span class="qhint">(se já tiver ideia)</span></label>
+        <input class="fld" id="faixa_preco" name="faixa_preco" type="text" placeholder="Ex.: R$ 197/mês no básico, R$ 497/mês no completo">
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Precificação que você imagina <span class="qhint">(preencha o que já souber)</span></span>
+        <div class="frow">
+          <div class="q" style="margin:0">
+            <label for="preco_setup">Setup / entrada</label>
+            <input class="fld" id="preco_setup" name="preco_setup" type="text" placeholder="Ex.: R$ 997 (uma vez)">
+          </div>
+          <div class="q" style="margin:0">
+            <label for="preco_basico">Plano básico (mensal)</label>
+            <input class="fld" id="preco_basico" name="preco_basico" type="text" placeholder="Ex.: R$ 197/mês">
+          </div>
+        </div>
+        <div class="frow" style="margin-top:0">
+          <div class="q" style="margin:0">
+            <label for="preco_completo">Plano completo (mensal)</label>
+            <input class="fld" id="preco_completo" name="preco_completo" type="text" placeholder="Ex.: R$ 497/mês">
+          </div>
+          <div class="q" style="margin:0">
+            <label for="preco_modulo">Módulo adicional</label>
+            <input class="fld" id="preco_modulo" name="preco_modulo" type="text" placeholder="Ex.: R$ 97/mês por módulo">
+          </div>
+        </div>
+        <div class="fhelp">Não precisa ter tudo definido — isso ajuda a montar os planos e calcular sua margem. A gente refina junto na proposta.</div>
+      </div>
+
+      <div class="q">
+        <label for="equipe_vendas">Sua agência já tem equipe para vender a GoFirst para outras agências?</label>
+        <input class="fld" id="equipe_vendas" name="equipe_vendas" type="text" placeholder="Ex.: sim, equipe de vendas dedicada / não, só a gente por enquanto">
+      </div>
+
+      <div class="fp-err" data-err="4"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="3">Voltar</button>
+        <button class="btn btn-primary btn-md" data-next="5">Próximo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="fp-step-panel" data-panel="5">
+      <div class="fp-stepcount">Etapa 5 de 5</div>
+      <h2 class="fp-steptitle">Quase lá!</h2>
+      <p class="fp-stepsub">Últimos detalhes para fecharmos o escopo da primeira versão.</p>
+
+      <div class="q">
+        <span class="qlabel">Prazo desejado para a v1</span>
+        <div class="opts" data-field="prazo" data-type="radio" data-required="true" data-label="prazo">
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>O quanto antes / urgente</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Próximos 30 dias</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>60 a 90 dias</b></span></label>
+          <label class="opt"><span class="mark radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span class="txt"><b>Sem pressa / planejando</b></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="referencias">CRMs ou sistemas que você admira / usa como referência</label>
+        <textarea class="fld" id="referencias" name="referencias" placeholder="Nomes ou links de sistemas parecidos com o que você imagina para a GoFirst."></textarea>
+      </div>
+
+      <div class="q">
+        <label for="materiais">Links de materiais que já tem</label>
+        <textarea class="fld" id="materiais" name="materiais" placeholder="Protótipo, logo, prints, documentos — cole tudo que ajudar."></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qlabel">Anexar mídias <span class="qhint">(opcional — imagens, PDF, protótipo)</span></span>
+        <label class="fp-upload" for="anexos_input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          <span class="u-txt"><b>Clique para anexar</b><small>ou arraste os arquivos aqui</small></span>
+          <input id="anexos_input" type="file" multiple accept="image/*,.pdf,.zip" style="display:none">
+        </label>
+        <div class="fp-filelist" id="anexos_list"></div>
+      </div>
+
+      <div class="q">
+        <label for="observacoes">Algo mais que devemos saber?</label>
+        <textarea class="fld" id="observacoes" name="observacoes" placeholder="Fique à vontade — qualquer detalhe ajuda no projeto."></textarea>
+      </div>
+
+      <div class="fp-err" data-err="5"></div>
+      <div class="fp-actions">
+        <button class="btn btn-ghost btn-md btn-back" data-prev="4">Voltar</button>
+        <button class="btn btn-primary btn-md" data-submit>Enviar briefing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="fp-modal" id="successModal">
+  <div class="card">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <h3>Briefing recebido! 🚀</h3>
+    <p>Obrigado por detalhar o projeto da GoFirst. Vamos analisar tudo e entrar em contato pelo WhatsApp para os próximos passos.</p>
+    <a class="btn btn-primary btn-md" href="https://cadevhub.com/" style="width:100%">Voltar ao site</a>
+  </div>
+</div>
+
+<script src="briefing-gofirst.js?v=1"></script>
+</body>
+</html>

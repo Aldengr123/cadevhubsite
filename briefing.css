@@ -33,6 +33,21 @@
 /* opção com ícone/emoji opcional à esquerda */
 .opt .ico{flex:none;font-size:1.3rem;line-height:1;width:26px;text-align:center}
 
+/* upload de anexos */
+.fp-upload{display:flex;align-items:center;gap:14px;padding:20px 22px;border:1.5px dashed var(--border,rgba(255,255,255,.16));
+  border-radius:12px;cursor:pointer;transition:.2s var(--ease);color:var(--text-dim)}
+.fp-upload:hover{border-color:var(--accent);background:rgba(65,226,72,.05)}
+.fp-upload svg{width:26px;height:26px;flex:none;color:var(--accent)}
+.fp-upload .u-txt{display:flex;flex-direction:column;gap:2px}
+.fp-upload .u-txt b{color:#fff;font-size:.98rem}
+.fp-upload .u-txt small{font-size:.85rem;color:var(--text-mute)}
+.fp-filelist{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.fp-filelist .f{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 14px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.9rem;color:var(--text-dim)}
+.fp-filelist .f b{color:#fff;font-weight:500}
+.fp-filelist .f button{background:none;border:none;color:var(--text-mute);cursor:pointer;font-size:1.1rem;line-height:1;padding:2px 6px}
+.fp-filelist .f button:hover{color:#fff}
+
 @media(max-width:767px){
   .fp-stepsub{font-size:4.2vw;margin-bottom:8vw}
   .fp-steptitle{font-size:7vw}
