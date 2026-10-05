@@ -45,6 +45,16 @@ A chave fica em `config-email.php`, com **três camadas** de proteção:
 
 ---
 
+## 1.1) Banco e chaves — arquivo `.env` (FORA do public_html)
+`config-db.php` lê as credenciais do banco, o `ADMIN_TOKEN` e a `OPENROUTER_API_KEY` de um arquivo `.env`.
+
+- **No servidor:** o `.env` fica em **`/home/cadevhub.com/.env`** — a pasta **acima** do `public_html`. O `config-db.php` procura lá primeiro.
+- **Nunca suba o `.env` para o `public_html`.** O CyberPanel usa OpenLiteSpeed, que do `.htaccess` só lê as regras de rewrite e **ignora** o bloqueio `<FilesMatch>`; o `.env` seria servido como texto puro.
+- **Local (desenvolvimento):** o `.env` na pasta do projeto funciona como fallback. Ele está no `.gitignore`.
+- **Conferir depois do deploy:** `curl -I https://cadevhub.com/.env` precisa responder **403 ou 404**. Se algum dia responder 200, troque todas as senhas e chaves que estavam nele.
+
+---
+
 ## 2) Subir na VPS (CyberPanel / LiteSpeed)
 1. Envie os arquivos para o **Document Root** do site (no CyberPanel: `/home/cadevhub.com/public_html/`). A página principal já é o **`index.html`**.
 3. PHP já vem habilitado (lsphp). Precisa da extensão **cURL** (padrão) ou `allow_url_fopen=on` — qualquer uma serve para o HTTPS do Resend.

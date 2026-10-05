@@ -8,6 +8,11 @@
   RewriteEngine On
   RewriteBase /
 
+  # Bloqueia docs internos e arquivos .env (regra de rewrite: o OpenLiteSpeed
+  # respeita, ao contrário do <FilesMatch> lá embaixo)
+  RewriteRule ^docs/ - [F,L]
+  RewriteRule (^|/)\.env - [F,L]
+
   # Se o arquivo/diretório NÃO existir, tenta .html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

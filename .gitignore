@@ -1,4 +1,5 @@
 config-email.php
 *.log
 uploads/
-config-db.php
+.env
+docs/cadev-sites/
